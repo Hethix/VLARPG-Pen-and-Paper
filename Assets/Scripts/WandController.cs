@@ -47,6 +47,7 @@ public class WandController : MonoBehaviour
             //Cast a ray, and use it to choose what to interact with.
             if (Physics.Raycast(transform.position, transform.forward, out hit))
             {
+                Debug.Log(hit.collider.name);
                 DrawRay();
                 if (hit.collider.CompareTag("Interactable"))
                 {
@@ -65,7 +66,7 @@ public class WandController : MonoBehaviour
             } else if(hitInteractable != null)
             {
                 hitInteractable = null;
-                //Debug.Log("Didn't hit an object");
+                Debug.Log("Didn't hit an object");
             }
 
             //Stop holding the object
@@ -156,7 +157,7 @@ public class WandController : MonoBehaviour
                 prefab = (GameObject)Instantiate(currentHitObject.worldPrefab, transform.position, Quaternion.Euler(0, 0, 0)); //Spawn it at the controllers pos and with 0 rotation (facing upwards)
                 interactingItem = prefab.GetComponent<InteractableItem>(); //Is only used for letting an object go again in this case
                 interactingItem.BeginInteraction(this);
-                Debug.Log(interactingItem);
+                //Debug.Log(interactingItem);
             }
             else if (currentHitObject.isArrow)
             {
