@@ -26,16 +26,25 @@ public class WandController : MonoBehaviour
     private GameObject hitInteractable;
     public RaycastHit hit;
 
+    public Transform cameraRig;
+
     // Use this for initialization
     void Start()
     {
         trackedObj = GetComponent<SteamVR_TrackedObject>();
         menu = GameObject.FindGameObjectWithTag("Menu");
+        cameraRig = gameObject.transform.parent;
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (controller.GetPress(padButton))
+        {
+            MoveCameraRig();
+        }
+
+
         if (controller == null)
         {
             Debug.Log("Controller not initialized");
@@ -187,8 +196,16 @@ public class WandController : MonoBehaviour
         Debug.DrawRay(transform.position, transform.forward, Color.blue);
     }
 
+    private void MoveCameraRig()
+    {
+        
+        cameraRig.transform.position += new Vector3(0.2f * Input.GetAxis("Horizontal"), 0, 0.2f * -Input.GetAxis("Vertical"));
+        
 
-    
+    }
+
+
+
     private void OnTriggerEnter(Collider collider)
     {
         InteractableItem collidedItem = collider.GetComponent<InteractableItem>();
