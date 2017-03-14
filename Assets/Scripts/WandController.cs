@@ -11,8 +11,6 @@ public class WandController : MonoBehaviour
     public SteamVR_Controller.Device controller { get { return SteamVR_Controller.Input((int)trackedObj.index); } }
     private SteamVR_TrackedObject trackedObj;
 
-    HashSet<InteractableItem> objectsHoveringOver = new HashSet<InteractableItem>();
-
     private InteractableItem closestItem;
     private InteractableItem interactingItem;
 
@@ -26,7 +24,7 @@ public class WandController : MonoBehaviour
     private GameObject hitInteractable;
     public RaycastHit hit;
 
-    public Transform cameraRig;
+    private Transform cameraRig;
 
     // Use this for initialization
     void Start()
@@ -53,14 +51,15 @@ public class WandController : MonoBehaviour
 
         else
         {
-            //Cast a ray, and use it to choose what to interact with.
+            //Cast a ray, and use it to interact with.
             if (Physics.Raycast(transform.position, transform.forward, out hit))
             {
                 Debug.Log(hit.collider.name);
-                DrawRay();
+                //Does it hit an interactable item?
                 if (hit.collider.CompareTag("Interactable"))
                 {
                     //Debug.Log("I FOUND AN OBJECT TO INTERACT WITH WOOP WOOP!  " + hit.collider.name);
+                    //If it is not the same object as last update, then change what we hit
                     if(hit.collider.gameObject != hitInteractable)
                     {
                         hitInteractable = hit.collider.gameObject;
@@ -90,7 +89,6 @@ public class WandController : MonoBehaviour
             {
                 if (controller.GetPressDown(menuButton) && !interactingItem.isMenuItem && !interactingItem.isArrow)
                 {
-                    objectsHoveringOver.Clear();
                     //closestItem = null;
                     interactingItem.EndInteraction(this, true);
                     interactingItem = null;
@@ -163,7 +161,7 @@ public class WandController : MonoBehaviour
         {
             if (currentHitObject.isMenuItem)
             {
-                prefab = (GameObject)Instantiate(currentHitObject.worldPrefab, transform.position, Quaternion.Euler(0, 0, 0)); //Spawn it at the controllers pos and with 0 rotation (facing upwards)
+                prefab = (GameObject)Instantiate(currentHitObject.worldPrefab, hit.point, Quaternion.Euler(0, 0, 0)); //Spawn it at the controllers pos and with 0 rotation (facing upwards)
                 interactingItem = prefab.GetComponent<InteractableItem>(); //Is only used for letting an object go again in this case
                 interactingItem.BeginInteraction(this);
                 //Debug.Log(interactingItem);
@@ -190,39 +188,12 @@ public class WandController : MonoBehaviour
         }
     }
 
-    //Need a better representation, which shows the correct length of ray from controller to interactable object.
-    private void DrawRay()
-    {
-        Debug.DrawRay(transform.position, transform.forward, Color.blue);
-    }
 
     private void MoveCameraRig()
     {
-        
         cameraRig.transform.position += new Vector3(0.2f * Input.GetAxis("Horizontal"), 0, 0.2f * -Input.GetAxis("Vertical"));
-        
-
     }
 
-
-
-    private void OnTriggerEnter(Collider collider)
-    {
-        InteractableItem collidedItem = collider.GetComponent<InteractableItem>();
-        if (collidedItem)
-        {
-            objectsHoveringOver.Add(collidedItem);
-        }
-    }
-
-    private void OnTriggerExit(Collider collider)
-    {
-        InteractableItem collidedItem = collider.GetComponent<InteractableItem>();
-        if (collidedItem)
-        {
-            objectsHoveringOver.Remove(collidedItem);
-        }
-    }
 
     //Method used to disable the menu object and the arrows.
     private void Menu(bool isActive)
