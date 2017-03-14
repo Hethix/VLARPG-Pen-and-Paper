@@ -56,6 +56,7 @@ GameObject:
   - component: {fileID: 4430929434009536}
   - component: {fileID: 114298557766619764}
   - component: {fileID: 114729806312697492}
+  - component: {fileID: 114629257558347298}
   m_Layer: 0
   m_Name: Controller (right)
   m_TagString: Untagged
@@ -345,6 +346,7 @@ GameObject:
   - component: {fileID: 4709239452296046}
   - component: {fileID: 114450772994957702}
   - component: {fileID: 114668206826952034}
+  - component: {fileID: 114625448815549442}
   m_Layer: 0
   m_Name: Controller (left)
   m_TagString: Untagged
@@ -2174,6 +2176,42 @@ MonoBehaviour:
   right: {fileID: 1051804558156724}
   objects: []
   assignAllBeforeIdentified: 0
+--- !u!114 &114625448815549442
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1548725199561568}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d4e8a839a7c5b7e4580c59e305fb5f01, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  active: 1
+  color: {r: 0, g: 0, b: 0, a: 0}
+  thickness: 0.002
+  holder: {fileID: 0}
+  pointer: {fileID: 0}
+  addRigidBody: 0
+  reference: {fileID: 0}
+--- !u!114 &114629257558347298
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1051804558156724}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d4e8a839a7c5b7e4580c59e305fb5f01, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  active: 1
+  color: {r: 0, g: 0, b: 0, a: 0}
+  thickness: 0.002
+  holder: {fileID: 0}
+  pointer: {fileID: 0}
+  addRigidBody: 0
+  reference: {fileID: 0}
 --- !u!114 &114668206826952034
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2186,6 +2224,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   menuItems: []
+  cameraRig: {fileID: 0}
 --- !u!114 &114729806312697492
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2200,6 +2239,7 @@ MonoBehaviour:
   menuItems:
   - {fileID: 1995183986770474}
   - {fileID: 1244976512298846}
+  cameraRig: {fileID: 0}
 --- !u!114 &114829013388296648
 MonoBehaviour:
   m_ObjectHideFlags: 1
