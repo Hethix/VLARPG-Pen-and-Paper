@@ -947,7 +947,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1953294050883864}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -9.94, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4709239452296046}
@@ -2224,7 +2224,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   menuItems: []
-  cameraRig: {fileID: 0}
+  mainCamera: {fileID: 20754738856170336}
 --- !u!114 &114729806312697492
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2239,7 +2239,7 @@ MonoBehaviour:
   menuItems:
   - {fileID: 1995183986770474}
   - {fileID: 1244976512298846}
-  cameraRig: {fileID: 0}
+  mainCamera: {fileID: 20754738856170336}
 --- !u!114 &114829013388296648
 MonoBehaviour:
   m_ObjectHideFlags: 1

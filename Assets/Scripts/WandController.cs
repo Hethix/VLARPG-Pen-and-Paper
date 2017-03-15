@@ -11,7 +11,6 @@ public class WandController : MonoBehaviour
     public SteamVR_Controller.Device controller { get { return SteamVR_Controller.Input((int)trackedObj.index); } }
     private SteamVR_TrackedObject trackedObj;
 
-    private InteractableItem closestItem;
     private InteractableItem interactingItem;
 
     private GameObject prefab;
@@ -25,18 +24,22 @@ public class WandController : MonoBehaviour
     public RaycastHit hit;
 
     private Transform cameraRig;
+    public Camera mainCamera;
 
     // Use this for initialization
     void Start()
     {
         trackedObj = GetComponent<SteamVR_TrackedObject>();
         menu = GameObject.FindGameObjectWithTag("Menu");
+
         cameraRig = gameObject.transform.parent;
     }
 
     // Update is called once per frame
     void Update()
     {
+        cameraRig.transform.localEulerAngles = new Vector3(cameraRig.transform.localEulerAngles.x, mainCamera.transform.localEulerAngles.y, cameraRig.transform.localEulerAngles.z);
+
         if (controller.GetPress(padButton))
         {
             MoveCameraRig();
@@ -54,7 +57,7 @@ public class WandController : MonoBehaviour
             //Cast a ray, and use it to interact with.
             if (Physics.Raycast(transform.position, transform.forward, out hit))
             {
-                Debug.Log(hit.collider.name);
+                //Debug.Log(hit.collider.name);
                 //Does it hit an interactable item?
                 if (hit.collider.CompareTag("Interactable"))
                 {
@@ -191,7 +194,8 @@ public class WandController : MonoBehaviour
 
     private void MoveCameraRig()
     {
-        cameraRig.transform.position += new Vector3(0.2f * Input.GetAxis("Horizontal"), 0, 0.2f * -Input.GetAxis("Vertical"));
+        //cameraRig.transform.position +=  new Vector3(0.2f * Input.GetAxis("Horizontal"), 0, 0.2f * -Input.GetAxis("Vertical"));
+        cameraRig.transform.Translate(0.2f * Input.GetAxis("Horizontal"), 0, 0.2f * -Input.GetAxis("Vertical"), Space.Self);
     }
 
 
