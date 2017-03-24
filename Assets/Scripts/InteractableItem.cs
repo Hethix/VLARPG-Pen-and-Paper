@@ -11,7 +11,7 @@ public class InteractableItem : MonoBehaviour
     private Coroutine stopRoutine;
     private Coroutine newItemRoutine;
 
-    private float velocityFactor = 400f;
+    private float velocityFactor = 2000f;
     private Vector3 posDelta;
 
     private float rotationFactor = 400f;
@@ -31,6 +31,8 @@ public class InteractableItem : MonoBehaviour
     //Bliver sat inde i MenuController
     public GameObject worldPrefab;
 
+    
+
     // Use this for initialization
     void Start()
     {
@@ -47,7 +49,7 @@ public class InteractableItem : MonoBehaviour
     {
         if (attachedWand && currentlyInteracting)
         {
-            Debug.Log("Trying to move object with hand");
+            //Debug.Log("Trying to move object with hand");
             posDelta = attachedWand.transform.position - interactionPoint.position;
             this._rigidbody.velocity = posDelta * velocityFactor * Time.fixedDeltaTime;
 
@@ -68,7 +70,7 @@ public class InteractableItem : MonoBehaviour
             if (menuPosition.activeInHierarchy) //Do so if the menu is active
             {
                 distance = Vector3.Distance(attachedWand.transform.position, menuPosition.transform.position);
-                this.transform.localScale = Vector3.Lerp(startScale, new Vector3(1, 1, 1), Mathf.Clamp((distance * 2), 0.0f, 1));
+                this.transform.localScale = Vector3.Lerp(startScale, new Vector3(0.1f, 0.1f, 0.1f), Mathf.Clamp((distance * 2), 0.0f, 1));
             }
         }
     }
@@ -82,7 +84,8 @@ public class InteractableItem : MonoBehaviour
         else
         {
             attachedWand = wand;
-            interactionPoint.position = attachedWand.transform.position;
+            interactionPoint.position = attachedWand.hit.point;
+            //interactionPoint.position = attachedWand.transform.position;
             interactionPoint.rotation = attachedWand.transform.rotation;
 
             interactionPoint.SetParent(transform, true);
@@ -90,6 +93,8 @@ public class InteractableItem : MonoBehaviour
 
             StopCoroutine(stopRoutine);
             this._rigidbody.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;
+
+            gameObject.layer = 2;
         }
         
     }
@@ -103,7 +108,8 @@ public class InteractableItem : MonoBehaviour
             stopRoutine = StartCoroutine(LockPosition(2.0f));
         }
         isNewItem = false;
-        this.transform.localScale = new Vector3(1, 1, 1);
+		this.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
+        gameObject.layer = 0;
 
         if (detectDestroy)
         {
@@ -134,6 +140,8 @@ public class InteractableItem : MonoBehaviour
         interactionPoint.SetParent(transform, true);
         currentlyInteracting = true;
         this._rigidbody.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;
+        gameObject.layer = 2;
+
     }
 
     public void Destroy()
