@@ -50,7 +50,7 @@ public class InteractableItem : MonoBehaviour
         if (attachedWand && currentlyInteracting)
         {
             //Debug.Log("Trying to move object with hand");
-            posDelta = attachedWand.transform.position - interactionPoint.position;
+            posDelta = attachedWand.hit.point - interactionPoint.position;
             this._rigidbody.velocity = posDelta * velocityFactor * Time.fixedDeltaTime;
 
             rotationDelta = attachedWand.transform.rotation * Quaternion.Inverse(interactionPoint.rotation);
@@ -134,7 +134,8 @@ public class InteractableItem : MonoBehaviour
     {
         yield return new WaitForSeconds(0.001f);
         attachedWand = wand;
-        interactionPoint.position = attachedWand.transform.position;
+        interactionPoint.position = attachedWand.hit.point;
+        //interactionPoint.position = attachedWand.transform.position;
         interactionPoint.rotation = attachedWand.transform.rotation;
 
         interactionPoint.SetParent(transform, true);
