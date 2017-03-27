@@ -520,9 +520,9 @@ PlayerSettings:
     Game_Performance: 0
     Hub: 0
     Purchasing: 0
-    UNet: 0
+    UNet: 1
     Unity_Ads: 0
-  cloudProjectId: 
-  projectName: 
-  organizationId: 
+  cloudProjectId: 7707962a-b9a9-44a9-9dbd-5f0684ccb764
+  projectName: VR pen and paper
+  organizationId: hethix
   cloudEnabled: 0
