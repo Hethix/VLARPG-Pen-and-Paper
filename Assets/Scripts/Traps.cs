@@ -10,7 +10,8 @@ public class Traps : MonoBehaviour {
     GameObject go;
     Transform playerTrans;
     float max = 10f;
-    //float distancePlayer;
+    public float distanceToPlayer;
+
 
     //Hiddeness();
     int factor = 1;
@@ -58,6 +59,11 @@ public class Traps : MonoBehaviour {
         Damage();
 
     }
+    public float GetDistanceToPlayer()
+    {
+        return distanceToPlayer; 
+    }
+
     void Damage() {
         if (Input.GetKeyDown(KeyCode.R)) {
             dmg = RollRandom(20);
@@ -66,12 +72,14 @@ public class Traps : MonoBehaviour {
         }
     }
     void Range() {
-        if ((Vector3.Distance(trapTrans.position, playerTrans.position)) < max ) {
+        distanceToPlayer = Vector3.Distance(trapTrans.position, playerTrans.position);
+        if (distanceToPlayer < max ) {
 
             //distancePlayer = Vector3.Distance(trapTrans.position, playerTrans.position);
             if(factor > 0 && factor < 2) { 
                 factor += 1;
             }
+
            // Debug.Log(distancePlayer + " " + factor);
                 
         }
