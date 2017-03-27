@@ -11,6 +11,6 @@ public class GameMaster : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        transform.position += new Vector3(0.2f * Input.GetAxis("Horizontal"),0, 0.2f * -Input.GetAxis("Vertical"));
+
 	}
 }

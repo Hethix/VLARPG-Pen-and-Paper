@@ -3,7 +3,7 @@ using System.Collections;
 
 public class Character : MonoBehaviour {
     
-    public sbyte HP; //Obvious
+    public sbyte HP; //Obvious. Note that since HP can go below 0, byte won't do. This puts a much lower cap on max health. 
     public byte attack; // attack is a modifier for the attack roll
     public byte dmg; // Modifier applied to damage rolls
     public byte weaponDmg; // This is the die size used for damage
@@ -32,8 +32,21 @@ public class Character : MonoBehaviour {
         HP = _HP;
     }
 
+    public float GetDistance(GameObject a, GameObject b)
+    {
+        return Vector3.Distance(a.transform.position, b.transform.position);
+    }
+
     //Generate a random number between 1 and max, including both.
-    byte RollRandom(byte max) 
+    public byte RollRandom()
+    {
+        byte temp = (byte)Random.Range(1, 21);  //Assumes the minimum value to be 1
+        // Debug.Log("Roll " + "d" + max + " = " + temp);                                                                   Print
+        return temp;
+    }
+
+
+    public byte RollRandom(byte max) 
     {
         byte temp = (byte)Random.Range(1, max+1);  //Assumes the minimum value to be 1
         // Debug.Log("Roll " + "d" + max + " = " + temp);                                                                   Print
@@ -41,7 +54,7 @@ public class Character : MonoBehaviour {
     }
 
     //Standard attack
-    void PerformAttack(Character defender) 
+    public void PerformAttack(Character defender) 
     {
         if (CheckCooldown() == true)
         {
@@ -66,7 +79,7 @@ public class Character : MonoBehaviour {
     }
 
     //Apply damage from standard attack
-    void DealDamage(Character defender, bool crit)
+    public void DealDamage(Character defender, bool crit)
     {
         byte tempDmg; 
         if (crit == true) {
@@ -96,12 +109,13 @@ public class Character : MonoBehaviour {
     }
 
     //Takes a float of time which is added to the general cooldown (time until net ability can be used)
-    void SetCooldown(float timeInSecs) { 
-        cooldown = Time.time + timeInSecs; 
+    public void SetCooldown(float timeInSecs) { 
+        cooldown = Time.time + timeInSecs;
+        Debug.Log("Cooldown set to .. " + timeInSecs);
     }
 
     // Returns true/false whether or not the cooldown has run out. 
-    bool CheckCooldown() {  
+    public bool CheckCooldown() {  
         if (cooldown < Time.time)
             return true;
         else
