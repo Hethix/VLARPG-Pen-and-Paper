@@ -21,6 +21,7 @@ public class InteractableItem : MonoBehaviour
 
     //Variables for lerping size of instantiated objects
     private Vector3 startScale;
+    private Vector3 endScale;
     private float distance;
     private GameObject menuPosition;
 
@@ -40,6 +41,7 @@ public class InteractableItem : MonoBehaviour
         velocityFactor /= _rigidbody.mass;
         rotationFactor /= _rigidbody.mass;
         startScale = transform.localScale;
+        endScale = new Vector3(1.0f, 1.0f, 1.0f);
         menuPosition = GameObject.FindGameObjectWithTag("Menu");
         interactionPoint = new GameObject().transform;
     }
@@ -70,7 +72,7 @@ public class InteractableItem : MonoBehaviour
             if (menuPosition.activeInHierarchy) //Do so if the menu is active
             {
                 distance = Vector3.Distance(attachedWand.transform.position, menuPosition.transform.position);
-                this.transform.localScale = Vector3.Lerp(startScale, new Vector3(0.1f, 0.1f, 0.1f), Mathf.Clamp((distance * 2), 0.0f, 1));
+                this.transform.localScale = Vector3.Lerp(startScale, endScale, Mathf.Clamp((distance * 2), 0.0f, 1));
             }
         }
     }
@@ -108,7 +110,7 @@ public class InteractableItem : MonoBehaviour
             stopRoutine = StartCoroutine(LockPosition(2.0f));
         }
         isNewItem = false;
-		this.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
+		this.transform.localScale = endScale;
         gameObject.layer = 0;
 
         if (detectDestroy)

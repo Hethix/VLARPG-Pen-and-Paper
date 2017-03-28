@@ -7,8 +7,10 @@ public class WandController : MonoBehaviour
     private Valve.VR.EVRButtonId menuButton = Valve.VR.EVRButtonId.k_EButton_ApplicationMenu;
     private Valve.VR.EVRButtonId triggerButton = Valve.VR.EVRButtonId.k_EButton_SteamVR_Trigger;
     private Valve.VR.EVRButtonId padButton = Valve.VR.EVRButtonId.k_EButton_SteamVR_Touchpad;
+    private Valve.VR.EVRButtonId gripButton = Valve.VR.EVRButtonId.k_EButton_Grip;
 
     public SteamVR_Controller.Device controller { get { return SteamVR_Controller.Input((int)trackedObj.index); } }
+
     private SteamVR_TrackedObject trackedObj;
 
     private InteractableItem interactingItem;
@@ -25,6 +27,8 @@ public class WandController : MonoBehaviour
 
     private Transform cameraRig;
     public Camera mainCamera;
+    private float moveSpeed;
+
 
     // Use this for initialization
     void Start()
@@ -42,7 +46,10 @@ public class WandController : MonoBehaviour
 
         if (controller.GetPress(padButton))
         {
-            MoveCameraRig();
+            MoveCameraRig(false);
+        } else if (controller.GetPress(gripButton))
+        {
+            MoveCameraRig(true);
         }
 
 
@@ -77,7 +84,7 @@ public class WandController : MonoBehaviour
             } else if(hitInteractable != null)
             {
                 hitInteractable = null;
-                Debug.Log("Didn't hit an object");
+                //Debug.Log("Didn't hit an object");
             }
 
             //Stop holding the object
@@ -192,10 +199,25 @@ public class WandController : MonoBehaviour
     }
 
 
-    private void MoveCameraRig()
+    private void MoveCameraRig(bool moveVertical)
     {
-        //cameraRig.transform.position +=  new Vector3(0.2f * Input.GetAxis("Horizontal"), 0, 0.2f * -Input.GetAxis("Vertical"));
-        cameraRig.transform.Translate(0.2f * Input.GetAxis("Horizontal"), 0, 0.2f * -Input.GetAxis("Vertical"), Space.Self);
+        moveSpeed = Time.deltaTime * 2.0f;
+        if (!moveVertical)
+        {
+            cameraRig.transform.Translate(moveSpeed * Input.GetAxis("Horizontal") * 5.0f, 0, moveSpeed * -Input.GetAxis("Vertical") * 5.0f, Space.Self);
+        } else if (moveVertical)
+        {
+            if(mainCamera.transform.rotation.x > 0)
+            {
+                cameraRig.transform.Translate(0, moveSpeed, 0);
+
+            } else if (mainCamera.transform.rotation.x < 0)
+            {
+                cameraRig.transform.Translate(0, -moveSpeed, 0);
+
+            }
+
+        }
     }
 
 
