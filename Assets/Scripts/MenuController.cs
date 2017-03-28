@@ -6,11 +6,11 @@ public class MenuController : MonoBehaviour {
     public GameObject[] prefabArr;
     public short pageNumber = 0;
     private short currentNum = 0;
-    private short maxPageNum = 7;
+    private short maxPageNum = 0;
     private Texture[] pageTexture;
     public MeshRenderer[] pageDisplay;
 
-    public GameObject[] displayArr; //Måske implementer sådan at den selv finder de her i Hierarchy. Det her er de små modeller på menuen
+    public Transform[] displayArr; //Måske implementer sådan at den selv finder de her i Hierarchy. Det her er de små modeller på menuen
     public Transform[] displayPos; //This is the 6 box colliders on the menu
     private Transform rotate;
 
@@ -21,12 +21,18 @@ public class MenuController : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-        if(prefabArr.Length == 0)
+        Debug.Log(dumpster.transform.childCount);
+
+        if (prefabArr.Length == 0)
         {
             prefabArr = Resources.LoadAll<GameObject>("Prefabs");
             pageTexture = Resources.LoadAll<Texture>("Texture");
+            displayArr = new Transform[dumpster.transform.childCount];
+            for (int i = 0; i < dumpster.transform.childCount; i++)
+            {
+                displayArr[i] = dumpster.GetChild(i);
+            }
         }
-
         SetMenu(prefabArr, currentNum);
 
     }
@@ -50,7 +56,7 @@ public class MenuController : MonoBehaviour {
             SetMenu(prefabArr, currentNum);
         }
 
-        //Move the objects on the menu onto the menu and keep em there. (Could be done with making them parent for effiency or not??)
+        //Move the objects on the menu onto the menu and keep em there.
         for (int i = 0; i < transform.childCount; i++)
         {
             displayArr[i + (6 * currentNum)].transform.SetParent(displayPos[i]);
@@ -69,7 +75,7 @@ public class MenuController : MonoBehaviour {
         for(int i = 0; i < displayArr.Length; i++)
         {
             displayArr[i].transform.position = dumpster.position;
-            displayArr[i].transform.SetParent(null);
+            displayArr[i].transform.SetParent(dumpster.transform);
         }
 
         //Choose which objects are corrently on the menu, and place them correctly on the menu
