@@ -82,7 +82,12 @@ public class MenuController : MonoBehaviour {
 
         switch(num)
         {
-            case 0:
+            default:
+                pageDisplay[0].material.mainTexture = pageTexture[0];
+                pageDisplay[1].material.mainTexture = pageTexture[1];
+                pageDisplay[2].material.mainTexture = pageTexture[2];
+                break;
+            /*case 0:
                 pageDisplay[0].material.mainTexture = pageTexture[7];
                 pageDisplay[1].material.mainTexture = pageTexture[0];
                 pageDisplay[2].material.mainTexture = pageTexture[1];
@@ -121,7 +126,7 @@ public class MenuController : MonoBehaviour {
                 pageDisplay[0].material.mainTexture = pageTexture[6];
                 pageDisplay[1].material.mainTexture = pageTexture[7];
                 pageDisplay[2].material.mainTexture = pageTexture[0];
-                break;
+                break; */
         }
     }
 
