@@ -92,7 +92,7 @@ GameObject:
   - component: {fileID: 114037679030503190}
   - component: {fileID: 114672136680173096}
   m_Layer: 0
-  m_Name: '[CameraRig]'
+  m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

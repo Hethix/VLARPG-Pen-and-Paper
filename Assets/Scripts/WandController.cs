@@ -2,7 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 
-public class WandController : MonoBehaviour
+public class WandController : Photon.MonoBehaviour
 {
     private Valve.VR.EVRButtonId menuButton = Valve.VR.EVRButtonId.k_EButton_ApplicationMenu;
     private Valve.VR.EVRButtonId triggerButton = Valve.VR.EVRButtonId.k_EButton_SteamVR_Trigger;
@@ -16,6 +16,7 @@ public class WandController : MonoBehaviour
     private InteractableItem interactingItem;
 
     private GameObject prefab;
+    private GameObject playerSeenInteractable;
 
     private GameObject menu;
     public GameObject[] menuItems;
@@ -172,6 +173,9 @@ public class WandController : MonoBehaviour
             if (currentHitObject.isMenuItem)
             {
                 prefab = (GameObject)Instantiate(currentHitObject.worldPrefab, hit.point, Quaternion.Euler(0, 0, 0)); //Spawn it at the controllers pos and with 0 rotation (facing upwards)
+                /* playerSeenInteractable = PhotonNetwork.Instantiate("NetworkedInteractable", hit.point, Quaternion.identity, 0);
+                playerSeenInteractable.GetComponent<NetworkedInteractable>().areGameMaster = true;
+                playerSeenInteractable.GetComponent<NetworkedInteractable>().followingObject = interactingItem.gameObject; */
                 interactingItem = prefab.GetComponent<InteractableItem>(); //Is only used for letting an object go again in this case
                 interactingItem.BeginInteraction(this);
                 //Debug.Log(interactingItem);
@@ -248,5 +252,12 @@ public class WandController : MonoBehaviour
             changeMenu = false;
 
         }
+    }
+
+
+    [PunRPC]
+    public void SpawnNetworkedObject()
+    {
+
     }
 }
