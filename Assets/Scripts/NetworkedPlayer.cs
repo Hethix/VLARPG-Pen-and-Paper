@@ -20,15 +20,24 @@ public class NetworkedPlayer : Photon.MonoBehaviour
             Debug.Log("player is mine");
             if (isGameMaster) //If the player is GameMaster, then spawn him with that prefab
             {
-                spawnedCameraRig = Instantiate(Resources.Load("GameMaster", typeof(GameObject))) as GameObject;
+                spawnedCameraRig = (GameObject)Instantiate(Resources.Load("GameMaster"), new Vector3(102.0f, 16.0f, 60.0f), Quaternion.identity);
+                //spawnedCameraRig = Instantiate(Resources.Load("GameMaster", typeof(GameObject))) as GameObject;
                 playerGlobal = GameObject.Find("GameMaster(Clone)").transform;
                 playerLocal = playerGlobal.Find("[CameraRig]/Camera (head)/Camera (eye)");
+                if(playerLocal == null)
+                {
+                    playerLocal = playerGlobal.Find("[CameraRig]/Camera (eye)");
+                }
             }
             else //Spawn a player with the designated prefab
             {
                 spawnedCameraRig = Instantiate(Resources.Load("Player", typeof(GameObject))) as GameObject;
                 playerGlobal = GameObject.Find("Player(Clone)").transform;
                 playerLocal = playerGlobal.Find("Camera (head)/Camera (eye)");
+                if (playerLocal == null)
+                {
+                    playerLocal = playerGlobal.Find("[CameraRig]/Camera (eye)");
+                }
             }
 
             //parent camera to this

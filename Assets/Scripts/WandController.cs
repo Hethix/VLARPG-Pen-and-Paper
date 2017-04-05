@@ -206,12 +206,12 @@ public class WandController : Photon.MonoBehaviour
     private void MoveCameraRig(bool moveVertical)
     {
 
-        Debug.Log(mainCamera.transform.forward);
+        //Debug.Log(mainCamera.transform.forward);
         moveSpeed = Time.deltaTime * 2.0f;
         if (!moveVertical)
         {
             //cameraRig.transform.Translate(moveSpeed * Input.GetAxis("Horizontal") * 5.0f, 0, moveSpeed * -Input.GetAxis("Vertical") * 5.0f, Space.Self);
-            cameraRig.transform.Translate(mainCamera.transform.forward.x, 0, mainCamera.transform.forward.z);
+            cameraRig.transform.Translate(mainCamera.transform.forward.x * Input.GetAxis("Horizontal"), 0, mainCamera.transform.forward.z * Input.GetAxis("Vertical"));
         } else if (moveVertical)
         {
             if(mainCamera.transform.rotation.x > 0)
