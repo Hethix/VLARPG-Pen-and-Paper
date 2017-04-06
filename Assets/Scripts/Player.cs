@@ -5,13 +5,8 @@ using UnityEngine;
 public class Player : Character
 {
     public float thrust; // Use this to find a fitting speed. 
-    public GameObject head;
-    private SteamVR_TrackedObject trackedObject; 
-    private SteamVR_Controller.Device device;
     public bool inStealth;
 
-    public float dragSpeed = 2;
-    private Vector3 dragOrigin;
 
     //Attributes
     byte trapFinding;
@@ -43,42 +38,15 @@ public class Player : Character
 
     void Start()
     {
-        //trackedObject = GetComponentInChildren<SteamVR_TrackedObject>();
 
     }
 
     void Update()
     {
-        //device = SteamVR_Controller.Input((int)trackedObject.index);
-        // Heal
-        if (Input.GetKey(KeyCode.W))
-            gameObject.transform.position += Vector3.forward * 10 * Time.deltaTime;
-        if (Input.GetKey(KeyCode.A))
-            gameObject.transform.position += Vector3.left * 10 * Time.deltaTime;
-        if (Input.GetKey(KeyCode.S))
-            gameObject.transform.position += Vector3.back * 10 * Time.deltaTime;
-        if (Input.GetKey(KeyCode.D))
-            gameObject.transform.position += Vector3.right * 10 * Time.deltaTime;
-        if (Input.GetKeyDown(KeyCode.H))
-            Search();
 
 
-        if (Input.GetMouseButtonDown(0))
-        {
-            dragOrigin = Input.mousePosition;
-            return;
-        }
-
-        if (!Input.GetMouseButton(0))
-            return;
 
         Stealth();
-
-        Vector3 pos = Camera.current.ScreenToViewportPoint(Input.mousePosition - dragOrigin);
-        Vector3 move = new Vector3(pos.x * dragSpeed, 0, pos.y * dragSpeed);
-
-        transform.Translate(move, Space.World);
-
     }
 
 
@@ -91,12 +59,12 @@ public class Player : Character
         }
     }
 
-    void Climb()
+    public void Climb()
     {
         // Not written. Consider VRTK
     }
 
-    void Stealth()
+    public void Stealth()
     {
         if (gameObject.transform.position.y > 2) // Using placeholder value
             inStealth = true;
@@ -104,18 +72,12 @@ public class Player : Character
             inStealth = false; 
     }
 
-    void Search()
+    public void Search()
     {
         if (CheckCooldown() == true)
         {
             StartCoroutine(IESearch(1)); // 1 is the time used for duration of the particle "effect"
         }
-    }
-
-    // Moving the player by use of a button. Gaze/orientation directed. 
-    void Move()
-    {
-        head.GetComponent<Rigidbody>().AddForce(transform.forward * thrust);
     }
 
     private IEnumerator IESearch(float time)
