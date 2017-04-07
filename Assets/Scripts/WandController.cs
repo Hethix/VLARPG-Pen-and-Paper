@@ -173,11 +173,9 @@ public class WandController : Photon.MonoBehaviour
             if (currentHitObject.isMenuItem)
             {
                 prefab = (GameObject)Instantiate(currentHitObject.worldPrefab, hit.point, Quaternion.Euler(0, 0, 0)); //Spawn it at the controllers pos and with 0 rotation (facing upwards)
-                playerSeenInteractable = PhotonNetwork.Instantiate("NetworkedInteractable", hit.point, Quaternion.identity, 0);
-                playerSeenInteractable.GetComponent<NetworkedInteractable>().areGameMaster = true;
-                playerSeenInteractable.GetComponent<NetworkedInteractable>().followingObject = interactingItem.gameObject;
                 interactingItem = prefab.GetComponent<InteractableItem>(); //Is only used for letting an object go again in this case
                 interactingItem.BeginInteraction(this);
+                SpawnNetworkedObject();
                 //Debug.Log(interactingItem);
             }
             else if (currentHitObject.isArrow)
@@ -258,6 +256,14 @@ public class WandController : Photon.MonoBehaviour
     [PunRPC]
     public void SpawnNetworkedObject()
     {
+        if (PhotonNetwork.isMasterClient)
+        {
+            playerSeenInteractable = PhotonNetwork.Instantiate("NetworkedInteractable", hit.point, Quaternion.identity, 0);
+            NetworkedInteractable tempRef = playerSeenInteractable.GetComponent<NetworkedInteractable>();
+            tempRef.areGameMaster = true;
+            tempRef.followingObject = interactingItem.gameObject;
+            tempRef.avatarObject = hit.collider.GetComponent<InteractableItem>().worldPrefab;
+        }
 
     }
 }

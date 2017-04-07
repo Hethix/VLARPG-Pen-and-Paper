@@ -80,6 +80,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   avatarObject: {fileID: 0}
   followingObject: {fileID: 0}
-  areGameMaster: 1
+  areGameMaster: 0
   objectGlobal: {fileID: 0}
   objectLocal: {fileID: 0}

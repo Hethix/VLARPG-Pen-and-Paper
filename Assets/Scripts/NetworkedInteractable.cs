@@ -14,16 +14,21 @@ public class NetworkedInteractable : Photon.MonoBehaviour {
 
     // Use this for initialization
     void Start () {
+        if (photonView.isMine)
+        {
+            ///Don't know whose this is if it is spawned by a RPC
+        }
+        avatar = Instantiate(avatarObject, Vector3.zero, Quaternion.identity); //Temporary test position
+
         if (areGameMaster)
         {
-            //Disable render and collider
+
         } else if (!areGameMaster)
         {
             //spawn the correct avatar here
-            avatar = Instantiate(avatarObject, Vector3.zero, Quaternion.identity); //Temporary test position
         }
 
-        this.transform.SetParent(followingObject.transform);
+        this.transform.SetParent(avatar.transform);
         this.transform.localPosition = Vector3.zero;
     }
 	
@@ -36,15 +41,15 @@ public class NetworkedInteractable : Photon.MonoBehaviour {
     {
         if (stream.isWriting)
         {
-            stream.SendNext(objectGlobal.position);
-            stream.SendNext(objectGlobal.rotation);
+            //stream.SendNext(objectGlobal.position);
+            //stream.SendNext(objectGlobal.rotation);
             stream.SendNext(followingObject.transform.localPosition); //Need to test if the spawned object is childed to the controller, if it is,
             stream.SendNext(followingObject.transform.localRotation); //then i need to take into account child positions. Otherwise a double stream is fine
         }
         else
         {
-            this.transform.position = (Vector3)stream.ReceiveNext();
-            this.transform.rotation = (Quaternion)stream.ReceiveNext();
+            //this.transform.position = (Vector3)stream.ReceiveNext();
+            //this.transform.rotation = (Quaternion)stream.ReceiveNext();
             avatar.transform.localPosition = (Vector3)stream.ReceiveNext();
             avatar.transform.localRotation = (Quaternion)stream.ReceiveNext();
         }
