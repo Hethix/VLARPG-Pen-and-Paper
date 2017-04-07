@@ -173,9 +173,9 @@ public class WandController : Photon.MonoBehaviour
             if (currentHitObject.isMenuItem)
             {
                 prefab = (GameObject)Instantiate(currentHitObject.worldPrefab, hit.point, Quaternion.Euler(0, 0, 0)); //Spawn it at the controllers pos and with 0 rotation (facing upwards)
-                /* playerSeenInteractable = PhotonNetwork.Instantiate("NetworkedInteractable", hit.point, Quaternion.identity, 0);
+                playerSeenInteractable = PhotonNetwork.Instantiate("NetworkedInteractable", hit.point, Quaternion.identity, 0);
                 playerSeenInteractable.GetComponent<NetworkedInteractable>().areGameMaster = true;
-                playerSeenInteractable.GetComponent<NetworkedInteractable>().followingObject = interactingItem.gameObject; */
+                playerSeenInteractable.GetComponent<NetworkedInteractable>().followingObject = interactingItem.gameObject;
                 interactingItem = prefab.GetComponent<InteractableItem>(); //Is only used for letting an object go again in this case
                 interactingItem.BeginInteraction(this);
                 //Debug.Log(interactingItem);

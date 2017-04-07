@@ -31,12 +31,13 @@ public class NetworkedPlayer : Photon.MonoBehaviour
             }
             else //Spawn a player with the designated prefab
             {
-                spawnedCameraRig = Instantiate(Resources.Load("Player", typeof(GameObject))) as GameObject;
+                spawnedCameraRig = (GameObject)Instantiate(Resources.Load("Player"), new Vector3(102.0f, 16.0f, 60.0f), Quaternion.identity);
+                //spawnedCameraRig = Instantiate(Resources.Load("Player", typeof(GameObject))) as GameObject;
                 playerGlobal = GameObject.Find("Player(Clone)").transform;
                 playerLocal = playerGlobal.Find("Camera (head)/Camera (eye)");
                 if (playerLocal == null)
                 {
-                    playerLocal = playerGlobal.Find("[CameraRig]/Camera (eye)");
+                    playerLocal = playerGlobal.Find("Camera (eye)");
                 }
             }
 
