@@ -31,13 +31,6 @@ public class NetworkedInteractable : Photon.MonoBehaviour {
         {
             Debug.Log("Trying to give players the avatar");
             photonView.RPC("GiveAvatar", PhotonTargets.AllBufferedViaServer, avatarObject.name);
-
-            //Destroying stuff so the GM isn't bothered with it. They have their own version
-            Destroy(avatar.GetComponent<MeshRenderer>()); //Need to test this
-            Destroy(avatar.GetComponent<Collider>());
-            Destroy(avatar.GetComponent<InteractableItem>());
-            Destroy(avatar.GetComponent<Rigidbody>());
-            Destroy(avatar.GetComponent<MeshFilter>());
         } else if (!areGameMaster)
         {
            //Currently not doing anything here
@@ -60,8 +53,8 @@ public class NetworkedInteractable : Photon.MonoBehaviour {
         }
         else
         {
-            if(avatar != null)
-            {
+            if(avatar != null) //Fix for trying to move an object that might not yet be spawned by the clients, before receiving data.
+            { //Smothing of item movement
                 avatar.transform.position = Vector3.Lerp(avatar.transform.position, receivedAvatarPos, Time.deltaTime * 10);
                 avatar.transform.rotation = Quaternion.Lerp(avatar.transform.rotation, receivedAvatarRota, Time.deltaTime * 10);
                 avatar.transform.localScale = Vector3.Lerp(avatar.transform.localScale, receivedAvatarScale, Time.deltaTime * 10);
@@ -75,8 +68,8 @@ public class NetworkedInteractable : Photon.MonoBehaviour {
         {
             //stream.SendNext(objectGlobal.position);
             //stream.SendNext(objectGlobal.rotation);
-            stream.SendNext(followingObject.transform.localPosition); //Need to test if the spawned object is childed to the controller, if it is,
-            stream.SendNext(followingObject.transform.localRotation); //then i need to take into account child positions. Otherwise a double stream is fine
+            stream.SendNext(followingObject.transform.localPosition); 
+            stream.SendNext(followingObject.transform.localRotation);
             stream.SendNext(followingObject.transform.localScale);
         }
         else
