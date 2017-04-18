@@ -28,7 +28,7 @@ public class NetworkedInteractable : Photon.MonoBehaviour {
         if (areGameMaster)
         {
             Debug.Log("Trying to give players the avatar");
-            photonView.RPC("giveAvatar", PhotonTargets.AllBufferedViaServer, avatarObject);
+            photonView.RPC("GiveAvatar", PhotonTargets.AllBufferedViaServer, avatarObject);
         } else if (!areGameMaster)
         {
             //spawn the correct avatar here
@@ -67,8 +67,9 @@ public class NetworkedInteractable : Photon.MonoBehaviour {
     }
 
     [PunRPC]
-    void giveAvatar(GameObject avatarPrefab)
+    void GiveAvatar(GameObject avatarPrefab)
     {
+        Debug.Log("Trying to set new avatar");
         if(avatarObject == null)
         {
             avatarObject = avatarPrefab;
