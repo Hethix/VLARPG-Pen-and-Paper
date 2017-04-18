@@ -258,7 +258,7 @@ public class WandController : Photon.MonoBehaviour
     {
         if (PhotonNetwork.isMasterClient)
         {
-            playerSeenInteractable = PhotonNetwork.Instantiate("NetworkedInteractable", hit.point, Quaternion.identity, 0);
+            playerSeenInteractable = PhotonNetwork.InstantiateSceneObject("NetworkedInteractable", hit.point, Quaternion.identity, 0, null);
             NetworkedInteractable tempRef = playerSeenInteractable.GetComponent<NetworkedInteractable>();
             tempRef.areGameMaster = true;
             tempRef.followingObject = interactingItem.gameObject;

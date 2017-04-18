@@ -16,7 +16,8 @@ public class NetworkedInteractable : Photon.MonoBehaviour {
     void Start () {
         if (photonView.isMine)
         {
-            ///Don't know whose this is if it is spawned by a RPC
+            ///Don't know whose this is if it is spawned by a RPC. if the GM owns it. then the parent thing should be in here
+            ///People say it is owned by the scene, and therefore i should properly use the areGameMaster.
         }
         avatar = Instantiate(avatarObject, Vector3.zero, Quaternion.identity); //Temporary test position
 
