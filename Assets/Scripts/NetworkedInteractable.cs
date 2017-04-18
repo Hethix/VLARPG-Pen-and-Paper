@@ -27,13 +27,16 @@ public class NetworkedInteractable : Photon.MonoBehaviour {
 
         if (areGameMaster)
         {
+            Debug.Log("Trying to give players the avatar");
             photonView.RPC("giveAvatar", PhotonTargets.AllBufferedViaServer, avatarObject);
         } else if (!areGameMaster)
         {
             //spawn the correct avatar here
         }
-
-        avatar = Instantiate(avatarObject, Vector3.zero, Quaternion.identity); //Temporary test position
+        if(avatarObject != null)
+        {
+            avatar = Instantiate(avatarObject, Vector3.zero, Quaternion.identity); //Temporary test position
+        }
 
 
         this.transform.SetParent(avatar.transform);
@@ -69,6 +72,7 @@ public class NetworkedInteractable : Photon.MonoBehaviour {
         if(avatarObject == null)
         {
             avatarObject = avatarPrefab;
+            Debug.Log("Received new avatar");
         }
     }
 }
