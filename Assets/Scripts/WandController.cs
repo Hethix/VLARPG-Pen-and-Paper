@@ -30,7 +30,6 @@ public class WandController : Photon.MonoBehaviour
     public Camera mainCamera;
     private float moveSpeed;
 
-
     // Use this for initialization
     void Start()
     {
