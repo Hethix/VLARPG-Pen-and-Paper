@@ -24,12 +24,11 @@ public class NetworkedInteractable : Photon.MonoBehaviour {
 
         if (photonView.isMine)
         {
-            
+            //The owner is the GM(also known as master client in terms of Photon
         }
 
         if (areGameMaster)
         {
-            Debug.Log("Trying to give players the avatar");
             photonView.RPC("GiveAvatar", PhotonTargets.AllBufferedViaServer, avatarObject.name);
         } else if (!areGameMaster)
         {
@@ -66,33 +65,24 @@ public class NetworkedInteractable : Photon.MonoBehaviour {
     {
         if (stream.isWriting)
         {
-            //stream.SendNext(objectGlobal.position);
-            //stream.SendNext(objectGlobal.rotation);
             stream.SendNext(followingObject.transform.localPosition); 
             stream.SendNext(followingObject.transform.localRotation);
             stream.SendNext(followingObject.transform.localScale);
         }
         else
         {
-            if(avatar != null)//Possible to solution that it tries to 
-            {
-                //this.transform.position = (Vector3)stream.ReceiveNext();
-                //this.transform.rotation = (Quaternion)stream.ReceiveNext();
-                receivedAvatarPos = (Vector3)stream.ReceiveNext();
-                receivedAvatarRota = (Quaternion)stream.ReceiveNext();
-                receivedAvatarScale = (Vector3)stream.ReceiveNext();
-            }
+            receivedAvatarPos = (Vector3)stream.ReceiveNext();
+            receivedAvatarRota = (Quaternion)stream.ReceiveNext();
+            receivedAvatarScale = (Vector3)stream.ReceiveNext();
         }
     }
 
     [PunRPC]
     void GiveAvatar(string avatarName)
     {
-        Debug.Log("Trying to set new avatar");
         if(avatarObject == null)
         {
             avatarObject = Resources.Load<GameObject>("Prefabs/" + avatarName); //This works LOL
-            Debug.Log("Received new avatar");
         }
     }
 }

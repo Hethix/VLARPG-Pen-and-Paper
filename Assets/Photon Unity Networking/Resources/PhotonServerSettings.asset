@@ -39,4 +39,5 @@ MonoBehaviour:
   - RequestForPickupTimes
   - SpawnNetworkedObject
   - giveAvatar
+  - GiveAvatar
   DisableAutoOpenWizard: 1

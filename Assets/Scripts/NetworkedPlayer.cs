@@ -15,6 +15,7 @@ public class NetworkedPlayer : Photon.MonoBehaviour
     private Quaternion receivedBodyRota;
     private Vector3 receivedHeadPos;
     private Quaternion receivedHeadRota;
+    private Quaternion rotationQuaternion;
 
     void Start()
     {
@@ -66,7 +67,8 @@ public class NetworkedPlayer : Photon.MonoBehaviour
             this.transform.position = Vector3.Lerp(this.transform.position, receivedBodyPos, Time.deltaTime * 10);
             this.transform.rotation = Quaternion.Lerp(this.transform.rotation, receivedBodyRota, Time.deltaTime * 10);
             avatar.transform.position = Vector3.Lerp(avatar.transform.position, receivedHeadPos, Time.deltaTime * 10);
-            avatar.transform.rotation = Quaternion.Lerp(avatar.transform.rotation, receivedHeadRota, Time.deltaTime * 10);
+            rotationQuaternion = Quaternion.Lerp(avatar.transform.rotation, receivedHeadRota, Time.deltaTime * 10);
+            avatar.transform.rotation = Quaternion.Euler(new Vector3(0f, rotationQuaternion.y, 0f)); //needs testing.
         }
     }
 
