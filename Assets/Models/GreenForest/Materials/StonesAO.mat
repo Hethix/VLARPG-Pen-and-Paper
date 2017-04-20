@@ -24,17 +24,17 @@ Material:
     - first:
         name: _MainTex
       second:
-        m_Texture: {fileID: 2800000, guid: 7d081d6753fa6a341b50e5d6a8807302, type: 3}
+        m_Texture: {fileID: 2800000, guid: 91065b5d1942827429f70ee8a6ccedcd, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
     - first:
         name: _Shininess
-      second: 0.09999576
+      second: 0.03
     m_Colors:
     - first:
         name: _Color
-      second: {r: 1, g: 1, b: 1, a: 1}
+      second: {r: 0.42647058, g: 0.38581315, b: 0.27908736, a: 1}
     - first:
         name: _SpecColor
-      second: {r: 1, g: 1, b: 1, a: 1}
+      second: {r: 0.2784314, g: 0.23137257, b: 0.16078432, a: 1}
