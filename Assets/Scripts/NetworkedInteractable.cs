@@ -13,6 +13,9 @@ public class NetworkedInteractable : Photon.MonoBehaviour {
     private Quaternion receivedAvatarRota;
     private Vector3 receivedAvatarScale;
 
+    private IEnumerator coroutine;
+    public bool startNewRoutine;
+
 
     //public Transform objectGlobal;
     //public Transform objectLocal;
@@ -20,7 +23,8 @@ public class NetworkedInteractable : Photon.MonoBehaviour {
     // Use this for initialization
     void Start () {
         PhotonView photonView = PhotonView.Get(this);
-
+        coroutine = DetectDestroy(10.0f);
+        startNewRoutine = true;
 
         if (photonView.isMine)
         {
@@ -43,12 +47,21 @@ public class NetworkedInteractable : Photon.MonoBehaviour {
         this.transform.SetParent(avatar.transform);
         this.transform.localPosition = Vector3.zero;
     }
-	
+
 	// Update is called once per frame
 	void Update () {
+        if (areGameMaster)
+        {
+            if (startNewRoutine)
+            {
+                StopCoroutine("DetectDestroy");
+                StartCoroutine("DetectDestroy", 4.0f); //Runs the destroy detection every 4 seconds. Faster would properly impact performance
+                startNewRoutine = false;
+            }
+        }
         if (photonView.isMine)
         {
-
+            //There is a chance that isMine isn't allways the GM. and therefore I am not certain to use it.
         }
         else
         {
@@ -61,6 +74,19 @@ public class NetworkedInteractable : Photon.MonoBehaviour {
         }
     }
 
+
+    private IEnumerator DetectDestroy(float waitTime)
+    {
+        yield return new WaitForSeconds(waitTime);
+        if(followingObject == null)
+        {
+            photonView.RPC("DestroyAvatar", PhotonTargets.AllBufferedViaServer); //Calls the method for all clients to destroy the avatar since the GM destroyed it
+        }
+        startNewRoutine = true;
+    }
+
+
+    //Sending and receiving data
     void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
     {
         if (stream.isWriting)
@@ -85,4 +111,12 @@ public class NetworkedInteractable : Photon.MonoBehaviour {
             avatarObject = Resources.Load<GameObject>("Prefabs/" + avatarName); //This works LOL
         }
     }
+
+    [PunRPC]
+    void DestroyAvatar()
+    {
+        Destroy(avatar);
+        Destroy(gameObject);
+    }
+
 }

@@ -675,7 +675,7 @@ Transform:
   m_LocalScale: {x: 0.05, y: 0.05, z: 0.05}
   m_Children: []
   m_Father: {fileID: 4610985554757616}
-  m_RootOrder: 0
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4259990535184978
 Transform:
@@ -688,7 +688,7 @@ Transform:
   m_LocalScale: {x: 0.05, y: 0.05, z: 0.05}
   m_Children: []
   m_Father: {fileID: 4610985554757616}
-  m_RootOrder: 5
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4263289985378424
 Transform:
@@ -740,7 +740,7 @@ Transform:
   m_LocalScale: {x: 0.05, y: 0.05, z: 0.05}
   m_Children: []
   m_Father: {fileID: 4610985554757616}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4430929434009536
 Transform:
@@ -768,12 +768,12 @@ Transform:
   m_LocalPosition: {x: 0, y: -1000, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 4207818568728650}
-  - {fileID: 4714112104791826}
   - {fileID: 4938152964931612}
   - {fileID: 4614521270784406}
-  - {fileID: 4369530937346174}
+  - {fileID: 4207818568728650}
   - {fileID: 4259990535184978}
+  - {fileID: 4714112104791826}
+  - {fileID: 4369530937346174}
   m_Father: {fileID: 4189120314818732}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -788,7 +788,7 @@ Transform:
   m_LocalScale: {x: 0.05, y: 0.05, z: 0.05}
   m_Children: []
   m_Father: {fileID: 4610985554757616}
-  m_RootOrder: 3
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4626404499683620
 Transform:
@@ -870,7 +870,7 @@ Transform:
   m_LocalScale: {x: 0.05, y: 0.05, z: 0.05}
   m_Children: []
   m_Father: {fileID: 4610985554757616}
-  m_RootOrder: 1
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4716500381979508
 Transform:
@@ -970,7 +970,7 @@ Transform:
   m_LocalScale: {x: 0.05, y: 0.05, z: 0.05}
   m_Children: []
   m_Father: {fileID: 4610985554757616}
-  m_RootOrder: 2
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4951468998390092
 Transform:
@@ -2194,6 +2194,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9ced68c0b828594a9271bcfa9b8cfab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerSeenInteractable: {fileID: 0}
   menuItems: []
   mainCamera: {fileID: 20754738856170336}
 --- !u!114 &114729806312697492
@@ -2207,6 +2208,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9ced68c0b828594a9271bcfa9b8cfab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerSeenInteractable: {fileID: 0}
   menuItems:
   - {fileID: 1995183986770474}
   - {fileID: 1244976512298846}

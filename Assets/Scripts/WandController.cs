@@ -16,7 +16,8 @@ public class WandController : Photon.MonoBehaviour
     private InteractableItem interactingItem;
 
     private GameObject prefab;
-    private GameObject playerSeenInteractable;
+    public GameObject playerSeenInteractable;
+    private NetworkedInteractable networkedInteractableScriptRef;
 
     private GameObject menu;
     public GameObject[] menuItems;
@@ -205,10 +206,10 @@ public class WandController : Photon.MonoBehaviour
         if (PhotonNetwork.isMasterClient)
         {
             playerSeenInteractable = PhotonNetwork.InstantiateSceneObject("NetworkedInteractable", hit.point, Quaternion.identity, 0, null);
-            NetworkedInteractable tempRef = playerSeenInteractable.GetComponent<NetworkedInteractable>();
-            tempRef.areGameMaster = true;
-            tempRef.followingObject = interactingItem.gameObject;
-            tempRef.avatarObject = hit.collider.GetComponent<InteractableItem>().worldPrefab;
+            networkedInteractableScriptRef = playerSeenInteractable.GetComponent<NetworkedInteractable>();
+            networkedInteractableScriptRef.areGameMaster = true;
+            networkedInteractableScriptRef.followingObject = interactingItem.gameObject;
+            networkedInteractableScriptRef.avatarObject = hit.collider.GetComponent<InteractableItem>().worldPrefab;
         }
     }
 }
