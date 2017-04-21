@@ -76,16 +76,6 @@ public class PlayerInteraction : MonoBehaviour {
 
         switch (target.gameObject.tag.ToString())
         {
-            case "Enemy":
-                chara = target.gameObject.GetComponent<Character>();
-                if (target.gameObject.tag.Equals("Enemy") == true)
-                    if (selfPlayer.CheckCooldown() == true)
-                    {
-                        selfPlayer.PerformAttack(chara);
-                        Debug.Log("Damage was applied ...");                                                        // Print
-                    }
-                break;
-
             case "Ally":
                 chara = target.gameObject.GetComponent<Character>();
                 allied = true; 
