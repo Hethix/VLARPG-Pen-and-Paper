@@ -2,7 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 
-public class WandController : MonoBehaviour
+public class WandController : Photon.MonoBehaviour
 {
     private Valve.VR.EVRButtonId menuButton = Valve.VR.EVRButtonId.k_EButton_ApplicationMenu;
     private Valve.VR.EVRButtonId triggerButton = Valve.VR.EVRButtonId.k_EButton_SteamVR_Trigger;
@@ -16,6 +16,8 @@ public class WandController : MonoBehaviour
     private InteractableItem interactingItem;
 
     private GameObject prefab;
+    public GameObject playerSeenInteractable;
+    private NetworkedInteractable networkedInteractableScriptRef;
 
     private GameObject menu;
     public GameObject[] menuItems;
@@ -29,7 +31,6 @@ public class WandController : MonoBehaviour
     public Camera mainCamera;
     private float moveSpeed;
 
-
     // Use this for initialization
     void Start()
     {
@@ -42,7 +43,6 @@ public class WandController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //cameraRig.transform.localEulerAngles = new Vector3(cameraRig.transform.localEulerAngles.x, mainCamera.transform.localEulerAngles.y, cameraRig.transform.localEulerAngles.z);
 
         if (controller.GetPress(padButton))
         {
@@ -52,13 +52,11 @@ public class WandController : MonoBehaviour
             MoveCameraRig(true);
         }
 
-
         if (controller == null)
         {
             Debug.Log("Controller not initialized");
             return;
         }
-
         else
         {
             //Cast a ray, and use it to interact with.
@@ -112,53 +110,6 @@ public class WandController : MonoBehaviour
                 changeMenu = true;
                 Menu(isMenuActive);
             }
-
-
-            /*
-            if (controller.GetPressDown(triggerButton))
-            {
-                float minDistance = float.MaxValue;
-                float distance;
-                foreach (InteractableItem item in objectsHoveringOver) //Goes through all the objects and detects which is closest to the controller
-                {
-                    distance = (item.transform.position - transform.position).sqrMagnitude;
-
-                    if (distance < minDistance)
-                    {
-                        minDistance = distance;
-                        closestItem = item;
-                    }
-                }
-
-                if (closestItem != null && closestItem.isMenuItem) //If the item pressed is something on the menu, then instantiate an object corresponding to the one on the menu
-                {
-                    prefab = (GameObject)Instantiate(closestItem.worldPrefab, transform.position, Quaternion.Euler(0,0,0)); //Spawn it at the controllers pos and with 0 rotation (facing upwards)
-                    interactingItem = prefab.GetComponent<InteractableItem>(); //Is only used for letting an object go again in this case
-                    closestItem = null;
-                    interactingItem.BeginInteraction(this);
-                }
-                else if (closestItem != null && closestItem.isArrow) //If an arrow is pressed. simply tell the arrow and make it change menu page
-                {
-                    closestItem.GetComponent<Arrows>().pressed = true;
-                    interactingItem = null;
-                    closestItem = null;
-                }
-                else
-                {
-                    interactingItem = closestItem;
-                    closestItem = null;
-                }
-
-                if (interactingItem) //Starts interacting with the chosen item
-                {
-                    if (interactingItem.IsInteracting()) //this statement is used in order to grap an item in the other hand
-                    {
-                        interactingItem.EndInteraction(this, false);
-                    }
-
-                    interactingItem.BeginInteraction(this);
-                }
-            } */
         }
     }
 
@@ -174,7 +125,7 @@ public class WandController : MonoBehaviour
                 prefab = (GameObject)Instantiate(currentHitObject.worldPrefab, hit.point, Quaternion.Euler(0, 0, 0)); //Spawn it at the controllers pos and with 0 rotation (facing upwards)
                 interactingItem = prefab.GetComponent<InteractableItem>(); //Is only used for letting an object go again in this case
                 interactingItem.BeginInteraction(this);
-                //Debug.Log(interactingItem);
+                SpawnNetworkedObject();
             }
             else if (currentHitObject.isArrow)
             {
@@ -202,12 +153,12 @@ public class WandController : MonoBehaviour
     private void MoveCameraRig(bool moveVertical)
     {
 
-        Debug.Log(mainCamera.transform.forward);
+        //Debug.Log(mainCamera.transform.forward);
         moveSpeed = Time.deltaTime * 2.0f;
         if (!moveVertical)
         {
             //cameraRig.transform.Translate(moveSpeed * Input.GetAxis("Horizontal") * 5.0f, 0, moveSpeed * -Input.GetAxis("Vertical") * 5.0f, Space.Self);
-            cameraRig.transform.Translate(mainCamera.transform.forward.x, 0, mainCamera.transform.forward.z);
+            cameraRig.transform.Translate(mainCamera.transform.forward.x * Input.GetAxis("Horizontal"), 0, mainCamera.transform.forward.z * Input.GetAxis("Vertical"));
         } else if (moveVertical)
         {
             if(mainCamera.transform.rotation.x > 0)
@@ -217,7 +168,6 @@ public class WandController : MonoBehaviour
             } else if (mainCamera.transform.rotation.x < 0)
             {
                 cameraRig.transform.Translate(0, -moveSpeed, 0);
-
             }
 
         }
@@ -246,7 +196,20 @@ public class WandController : MonoBehaviour
 
             menu.SetActive(false);
             changeMenu = false;
+        }
+    }
 
+
+    [PunRPC]
+    public void SpawnNetworkedObject()
+    {
+        if (PhotonNetwork.isMasterClient)
+        {
+            playerSeenInteractable = PhotonNetwork.InstantiateSceneObject("NetworkedInteractable", hit.point, Quaternion.identity, 0, null);
+            networkedInteractableScriptRef = playerSeenInteractable.GetComponent<NetworkedInteractable>();
+            networkedInteractableScriptRef.areGameMaster = true;
+            networkedInteractableScriptRef.followingObject = interactingItem.gameObject;
+            networkedInteractableScriptRef.avatarObject = hit.collider.GetComponent<InteractableItem>().worldPrefab;
         }
     }
 }
