@@ -9,6 +9,7 @@ public class PlayerInteraction : MonoBehaviour {
     private SteamVR_TrackedObject trackedObject;
     private SteamVR_Controller.Device device;
     private Transform cameraRig;
+    Rigidbody rb; 
 
     bool allied = false; // Used to delay the heal action. 
  
@@ -18,7 +19,7 @@ public class PlayerInteraction : MonoBehaviour {
         trackedObject = GetComponentInChildren<SteamVR_TrackedObject>();
         selfPlayer = gameObject.GetComponentInParent<Player>();
         cameraRig = gameObject.GetComponentInParent<Transform>();
-
+        rb = GetComponentInParent<Rigidbody>();
 
     }
 
@@ -38,9 +39,8 @@ public class PlayerInteraction : MonoBehaviour {
         
 
         // Should move the player depending on direction of gaze. Consider making it 
-        if (device.GetPressDown(SteamVR_Controller.ButtonMask.Touchpad) && (device.GetAxis().x != 0 || device.GetAxis().y != 0)) {
-            Debug.Log("Casual racism. X: " + device.GetAxis().x + " Y: " + device.GetAxis().y);
-            // Doesn't currently do anything. 
+        if (device.GetPress(SteamVR_Controller.ButtonMask.Touchpad) && (device.GetAxis().x != 0 || device.GetAxis().y != 0)) {
+            Move(device.GetAxis().x, device.GetAxis().y);
         }
 
 
@@ -63,11 +63,10 @@ public class PlayerInteraction : MonoBehaviour {
     }
 
     // Moving the player by use of a button. Gaze/orientation directed. 
-    void Move()
+    void Move(float x, float z)
     {
-        // I need to find out how to apply movement to the player in a way that makes sense. 
-        //cameraRig.transform.Translate(0.2f * Input.GetAxis("Horizontal"), 0, 0.2f * -Input.GetAxis("Vertical"), Space.Self);
-        //device.GetComponent<Rigidbody>().AddForce(transform.forward * thrust);
+        rb.AddRelativeForce(gameObject.transform.TransformDirection(Vector3.forward)*z * 50);
+        rb.AddRelativeForce(gameObject.transform.TransformDirection(Vector3.right) * x * 50);
     }
 
     // Detects collision, and performs attack/heal depending on friend or enemy
