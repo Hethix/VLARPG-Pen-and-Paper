@@ -19,6 +19,8 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4757843222252674}
+  - component: {fileID: 54738564517125112}
+  - component: {fileID: 114938303943105486}
   m_Layer: 0
   m_Name: GY_Stone 1
   m_TagString: Untagged
@@ -37,8 +39,6 @@ GameObject:
   - component: {fileID: 33763750422586092}
   - component: {fileID: 23142878415286030}
   - component: {fileID: 65185459360613372}
-  - component: {fileID: 54839554380451452}
-  - component: {fileID: 114493647329594658}
   m_Layer: 0
   m_Name: GY_Stone 1
   m_TagString: Untagged
@@ -111,12 +111,12 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1529443083007452}
   m_Mesh: {fileID: 4300000, guid: 63316d617b31d2144b7f1963e58c42fd, type: 3}
---- !u!54 &54839554380451452
+--- !u!54 &54738564517125112
 Rigidbody:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1529443083007452}
+  m_GameObject: {fileID: 1085946082463420}
   serializedVersion: 2
   m_Mass: 1
   m_Drag: 0
@@ -138,12 +138,12 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.011474263, y: 0.1212472, z: 0.12434408}
   m_Center: {x: 0.00000047683716, y: -0.00000017881393, z: -0.0000019073486}
---- !u!114 &114493647329594658
+--- !u!114 &114938303943105486
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1529443083007452}
+  m_GameObject: {fileID: 1085946082463420}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d5cb040de8219cf45ba6fcf756f768cf, type: 3}
