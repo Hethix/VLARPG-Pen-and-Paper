@@ -120,7 +120,7 @@ public class WandController : Photon.MonoBehaviour
         //Detect what is hit with the ray, Can be a menu, arrows or an item.
         if(currentHitObject != null)
         {
-            if (currentHitObject.isMenuItem)
+            if (currentHitObject.isMenuItem && currentHitObject.worldPrefab != null)
             {
                 prefab = (GameObject)Instantiate(currentHitObject.worldPrefab, hit.point, Quaternion.Euler(0, 0, 0)); //Spawn it at the controllers pos and with 0 rotation (facing upwards)
                 interactingItem = prefab.GetComponent<InteractableItem>(); //Is only used for letting an object go again in this case
