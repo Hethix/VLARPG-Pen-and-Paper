@@ -11,11 +11,12 @@ public class Enemy_Behaviour : MonoBehaviour {
     private Vector3 rnd_dir;
 
     //Påvirker radius hvor den kan roame selve den større cirkel
-    private float roamRadius = 100;
+    private float roamRadius = 10;
    NavMeshAgent agent;
    private Vector3 finalPosition;
     private float timer;
     private float wanderTimer = 5.0f;
+    private int playerAmount;
 
 
     // Use this for initialization
@@ -29,7 +30,7 @@ public class Enemy_Behaviour : MonoBehaviour {
 	void Update () {
 
        
-
+       // for(int i = 0, i < )
         Debug.Log(start_pos);
 
         timer += Time.deltaTime;
