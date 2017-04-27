@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 54680959066484844}
   - component: {fileID: 114182987209510170}
   - component: {fileID: 114555828150476948}
+  - component: {fileID: 195974518063603804}
   m_Layer: 0
   m_Name: DogQueen_Enemy
   m_TagString: Enemy
@@ -38,7 +39,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4364237806435980}
   - component: {fileID: 33437331855078182}
-  - component: {fileID: 64334866491974190}
   - component: {fileID: 23345325825053902}
   m_Layer: 0
   m_Name: Back_plane
@@ -56,7 +56,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4960829908197834}
   - component: {fileID: 33945959165485996}
-  - component: {fileID: 64650412796383440}
   - component: {fileID: 23308639212895150}
   - component: {fileID: 65270765410193012}
   m_Layer: 0
@@ -73,7 +72,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1163353842358120}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 98.57029, y: 11.18, z: 49.09}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4960829908197834}
@@ -88,8 +87,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1561398418818006}
   m_LocalRotation: {x: -0, y: 0.7071068, z: -0.70710677, w: 0}
-  m_LocalPosition: {x: -0.033, y: -0.519, z: -0.001}
-  m_LocalScale: {x: 0.05, y: 1, z: 0.09}
+  m_LocalPosition: {x: -0.033, y: 1.691, z: -0.001}
+  m_LocalScale: {x: 0.2, y: 4, z: 0.36}
   m_Children: []
   m_Father: {fileID: 4241736079762744}
   m_RootOrder: 1
@@ -101,8 +100,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1822470019593472}
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -0.035, y: -0.508, z: 0}
-  m_LocalScale: {x: 0.05, y: 1, z: 0.09000003}
+  m_LocalPosition: {x: -0.035, y: 1.691, z: 0}
+  m_LocalScale: {x: 0.2, y: 4, z: 0.36}
   m_Children: []
   m_Father: {fileID: 4241736079762744}
   m_RootOrder: 0
@@ -198,34 +197,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!64 &64334866491974190
-MeshCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1561398418818006}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Convex: 0
-  m_InflateMesh: 0
-  m_SkinWidth: 0.01
-  m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
---- !u!64 &64650412796383440
-MeshCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1822470019593472}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Convex: 0
-  m_InflateMesh: 0
-  m_SkinWidth: 0.01
-  m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!65 &65270765410193012
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -236,8 +207,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 10.000001, y: 0.4, z: 10.000001}
-  m_Center: {x: -0.0000019073486, y: 0, z: -0.00000023841858}
+  m_Size: {x: 10, y: 0.3, z: 10.000001}
+  m_Center: {x: 0, y: 0, z: 0.0000038146973}
 --- !u!114 &114182987209510170
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -272,3 +243,24 @@ MonoBehaviour:
   AC: 0
   cooldown: 0
   DistToPlayer: 0
+  player: {fileID: 0}
+--- !u!195 &195974518063603804
+NavMeshAgent:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1163353842358120}
+  m_Enabled: 1
+  m_Radius: 1
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 3.4
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4

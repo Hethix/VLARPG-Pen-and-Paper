@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 54112146609282964}
   - component: {fileID: 114500364213536846}
   - component: {fileID: 114459902402647434}
+  - component: {fileID: 195101233022037016}
   m_Layer: 0
   m_Name: OrcKnight_Enemy
   m_TagString: Enemy
@@ -38,7 +39,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4378738097901226}
   - component: {fileID: 33580713877953190}
-  - component: {fileID: 64687149351241932}
   - component: {fileID: 23202987599515196}
   - component: {fileID: 65911908833981140}
   m_Layer: 0
@@ -57,7 +57,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4247262568689912}
   - component: {fileID: 33155142246490854}
-  - component: {fileID: 64839989686637680}
   - component: {fileID: 23088061669278114}
   m_Layer: 0
   m_Name: Back_plane
@@ -73,8 +72,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1842912426391578}
   m_LocalRotation: {x: -0, y: 0.7071068, z: -0.70710677, w: 0}
-  m_LocalPosition: {x: 0.008, y: -0.519, z: -0.001}
-  m_LocalScale: {x: 0.05, y: 1, z: 0.09}
+  m_LocalPosition: {x: 0.008, y: 1.691, z: -0.001}
+  m_LocalScale: {x: 0.2, y: 4, z: 0.36}
   m_Children: []
   m_Father: {fileID: 4690971055607040}
   m_RootOrder: 1
@@ -86,8 +85,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1762119715814118}
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: -0.519, z: 0}
-  m_LocalScale: {x: 0.05, y: 1, z: 0.09000003}
+  m_LocalPosition: {x: 0, y: 1.691, z: 0}
+  m_LocalScale: {x: 0.2, y: 4, z: 0.36}
   m_Children: []
   m_Father: {fileID: 4690971055607040}
   m_RootOrder: 0
@@ -99,7 +98,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1198220854289202}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 93.843, y: 10.79, z: 56.352642}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4378738097901226}
@@ -198,34 +197,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!64 &64687149351241932
-MeshCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1762119715814118}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Convex: 0
-  m_InflateMesh: 0
-  m_SkinWidth: 0.01
-  m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
---- !u!64 &64839989686637680
-MeshCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1842912426391578}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Convex: 0
-  m_InflateMesh: 0
-  m_SkinWidth: 0.01
-  m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!65 &65911908833981140
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -236,8 +207,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 10.000001, y: 0.4, z: 10.000001}
-  m_Center: {x: -0.0000019073486, y: 0, z: -0.00000023841858}
+  m_Size: {x: 10, y: 0.3, z: 10.000001}
+  m_Center: {x: 0, y: 0, z: 0.0000038146973}
 --- !u!114 &114459902402647434
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -257,6 +228,7 @@ MonoBehaviour:
   AC: 0
   cooldown: 0
   DistToPlayer: 0
+  player: {fileID: 0}
 --- !u!114 &114500364213536846
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -272,3 +244,23 @@ MonoBehaviour:
   isArrow: 0
   isNewItem: 1
   worldPrefab: {fileID: 0}
+--- !u!195 &195101233022037016
+NavMeshAgent:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1198220854289202}
+  m_Enabled: 1
+  m_Radius: 1
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 3.4
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4

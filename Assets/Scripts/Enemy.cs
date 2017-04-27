@@ -18,6 +18,8 @@ public class Enemy : Character {
     private float timer;
     private float wanderTimer = 5.0f;
     private GameObject[] players;
+    private NavMeshHit hit;
+    public Player player;
 
     void Start() {
         combatReady = false;
@@ -28,12 +30,9 @@ public class Enemy : Character {
     }
 
 	void Update () {
-        NavMeshHit hit;
-        NavMesh.SamplePosition(rnd_dir, out hit, roamRadius, 1);
-        finalPosition = hit.position;
         if(finalPosition != agent.destination)
         {
-            agent.destination = finalPosition;
+            agent.SetDestination(finalPosition);
         }
         Timer();
     }
@@ -54,15 +53,17 @@ public class Enemy : Character {
         RandomizeArray(players); // Because of the randomization, the enemies should choose a random target from those nearby. 
         foreach (var obj in players)
         {
-            Player player = obj.GetComponent<Player>();
+            player = obj.GetComponent<Player>();
             if (GetDistance(gameObject, obj) < 25 && player.inStealth==false)
             {
-                combatReady = true; 
+                combatReady = true;
+                timer = 3.5f; 
                 break;  
                 
             } else if (GetDistance(gameObject, obj) < 25-player.sneakSkill && player.inStealth == true)
             {
-                combatReady = true; 
+                combatReady = true;
+                timer = 3.5f;
                 break;  
             }
         }
@@ -85,7 +86,15 @@ public class Enemy : Character {
 
         if (timer >= wanderTimer)
         {
-            agent.SetDestination(finalPosition);
+            if (combatReady)
+            {
+                NavMesh.SamplePosition(player.transform.position, out hit, 50, 1); //GO FUCK UP PLAYER IF HE IS COMBATREADY KILL KILL FAGGOTS
+            }
+            else
+            {
+                NavMesh.SamplePosition(rnd_dir, out hit, roamRadius, 1); //roam in nearby start area.
+            }
+            finalPosition = hit.position;
             timer = 0;
             newDestination();
         }
