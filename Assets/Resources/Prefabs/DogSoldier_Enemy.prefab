@@ -85,7 +85,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1092976461222682}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 103.369484, y: 11.217, z: 48.72}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4887854849595978}
@@ -235,12 +235,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb5a6334a87dea34aa80865e864b5716, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 0
+  maxHP: 10
   HP: 0
-  attack: 0
-  dmg: 0
-  weaponDmg: 0
-  AC: 0
+  attack: 1
+  dmg: 1
+  weaponDmg: 6
+  AC: 11
   cooldown: 0
   DistToPlayer: 0
   player: {fileID: 0}
