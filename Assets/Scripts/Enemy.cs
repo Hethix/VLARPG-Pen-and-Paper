@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class Enemy : Character {
 
@@ -8,14 +9,33 @@ public class Enemy : Character {
     bool AI = false; // Use this to deactivate all behaviour scripts
     bool combatReady; // Use this to activate combat mechanics. 
 
-    void Start() {
-        combatReady = false; 
+    private Vector3 start_pos;
+    private Vector3 rnd_dir;
 
+    private float roamRadius = 10;
+    NavMeshAgent agent;
+    private Vector3 finalPosition;
+    private float timer;
+    private float wanderTimer = 5.0f;
+    private GameObject[] players;
+
+    void Start() {
+        combatReady = false;
+        agent = GetComponent<NavMeshAgent>();
+        start_pos = transform.position;
+        timer = 4.5f; //made so it starts wandering soon after being created
 
     }
 
 	void Update () {
-
+        NavMeshHit hit;
+        NavMesh.SamplePosition(rnd_dir, out hit, roamRadius, 1);
+        finalPosition = hit.position;
+        if(finalPosition != agent.destination)
+        {
+            agent.destination = finalPosition;
+        }
+        Timer();
     }
 
     void GoTo()
@@ -28,9 +48,9 @@ public class Enemy : Character {
 
     }
 
-    void Perception()
+    void DetectPlayers()
     {
-        var players = GameObject.FindGameObjectsWithTag("Player");
+        players = GameObject.FindGameObjectsWithTag("Player"); //possible that this is VERY inefficient
         RandomizeArray(players); // Because of the randomization, the enemies should choose a random target from those nearby. 
         foreach (var obj in players)
         {
@@ -59,6 +79,23 @@ public class Enemy : Character {
         }
     }
 
+    void Timer()
+    {
+        timer += Time.deltaTime;
+
+        if (timer >= wanderTimer)
+        {
+            agent.SetDestination(finalPosition);
+            timer = 0;
+            newDestination();
+        }
+    }
+
+    void newDestination()
+    {
+        rnd_dir = Random.insideUnitSphere * roamRadius;
+        rnd_dir += start_pos;
+    }
     //void Roam() //Use the GoTo() Method to move to a random nearby location. 
     //{
 
