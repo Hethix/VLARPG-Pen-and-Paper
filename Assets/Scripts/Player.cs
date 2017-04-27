@@ -4,29 +4,14 @@ using UnityEngine;
 
 public class Player : Character
 {
-    public float thrust; // Use this to find a fitting speed. 
     public bool inStealth;
 
 
     //Attributes
-    byte trapFinding;
-    byte trailFollowing;
-    byte healingSkill;
+    protected byte trapFinding;
+    protected byte trailFollowing;
+    protected byte healingSkill;
     public byte sneakSkill; // amount of units the enemies can see you in sneak. They can see 25 normally. Suggest 20 for warriors/mages, 10-15 for rogues.   
-
-    //Sluk / tænd ild
-    //Klatre
-    //Find traps / investigate / Search
-    //Åbne døre(Pick lock / brute force)
-    //Følge et spor(maybe...)
-    //Snige sig / liste
-    //Heal
-    //Remove trap
-    //Sleight of hand
-
-    // Attributes: 
-    // Actions
-
 
     //System - small black button that brings up Big Picture overlay
     //ApplicationMenu - red button
@@ -44,29 +29,27 @@ public class Player : Character
     void Update()
     {
 
-
-
         Stealth();
     }
+
+
 
 
     public void Heal(Character defender)
     {
         if (CheckCooldown() == true)
         {
-            defender.SetHP((sbyte)(GetHP() + healingSkill)); 
+            if (defender.GetHP() + healingSkill > defender.maxHP)
+                defender.SetHP(defender.maxHP);
+            else
+                defender.SetHP((sbyte)(defender.GetHP() + healingSkill)); 
             SetCooldown(10);
         }
     }
 
-    public void Climb()
-    {
-        // Not written. Consider VRTK
-    }
-
     public void Stealth()
     {
-        if (gameObject.transform.position.y > 2) // Using placeholder value
+        if (gameObject.transform.position.y < 2) // Using placeholder value
             inStealth = true;
         else
             inStealth = false; 
