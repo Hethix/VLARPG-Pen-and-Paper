@@ -40,7 +40,7 @@ public class Enemy : Character {
                 combatReady = true; 
                 break;  
                 
-            } else if (GetDistance(gameObject, obj) < player.sneakSkill && player.inStealth == true)
+            } else if (GetDistance(gameObject, obj) < 25-player.sneakSkill && player.inStealth == true)
             {
                 combatReady = true; 
                 break;  
