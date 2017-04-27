@@ -2,7 +2,8 @@
 using System.Collections;
 
 public class Character : MonoBehaviour {
-    
+
+    public sbyte maxHP; // Used to cap healing
     public sbyte HP; //Obvious. Note that since HP can go below 0, byte won't do. This puts a much lower cap on max health. 
     public byte attack; // attack is a modifier for the attack roll
     public byte dmg; // Modifier applied to damage rolls
@@ -108,7 +109,7 @@ public class Character : MonoBehaviour {
         Destroy(gameObject);
     }
 
-    //Takes a float of time which is added to the general cooldown (time until net ability can be used)
+    //Takes a float of time which is added to the general cooldown (time until next ability can be used)
     public void SetCooldown(float timeInSecs) { 
         cooldown = Time.time + timeInSecs;
         Debug.Log("Cooldown set to .. " + timeInSecs);

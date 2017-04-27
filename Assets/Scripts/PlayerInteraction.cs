@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class PlayerInteraction : MonoBehaviour {
 
-    Player selfPlayer;
-    Character chara;
-    private SteamVR_TrackedObject trackedObject;
-    private SteamVR_Controller.Device device;
-    private Transform cameraRig;
-    Rigidbody rb; 
+    protected Player selfPlayer;
+    protected Character chara;
+    protected SteamVR_TrackedObject trackedObject;
+    protected SteamVR_Controller.Device device;
+    protected Transform cameraRig;
+    protected Rigidbody rb; 
 
     bool allied = false; // Used to delay the heal action. 
  
