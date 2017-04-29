@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Character : MonoBehaviour {
+public class Character : Photon.MonoBehaviour {
 
     public sbyte maxHP; // Used to cap healing
     public sbyte HP; //Obvious. Note that since HP can go below 0, byte won't do. This puts a much lower cap on max health. 
