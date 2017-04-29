@@ -7,26 +7,30 @@ public class Enemy : Character {
 
     public float DistToPlayer; //Distance to nearest player
     bool AI = false; // Use this to deactivate all behaviour scripts
-    bool combatReady; // Use this to activate combat mechanics. 
+    public bool combatReady; // Use this to activate combat mechanics. 
 
     private Vector3 start_pos;
     private Vector3 rnd_dir;
 
     private float roamRadius = 10;
     NavMeshAgent agent;
-    private Vector3 finalPosition;
-    private float timer;
+    public Vector3 finalPosition;
+    public float timer;
     private float wanderTimer = 5.0f;
     private GameObject[] players;
     private NavMeshHit hit;
     public Player player;
+    private InteractableItem item;
+    public Vector3 agentDestination;
+    private bool beingMoved;
 
     void Start() {
         combatReady = false;
         agent = GetComponent<NavMeshAgent>();
         start_pos = transform.position;
         timer = 4.5f; //made so it starts wandering soon after being created
-
+        item = GetComponent<InteractableItem>();
+        agentDestination = agent.destination;
     }
 
 	void Update () {
@@ -34,7 +38,21 @@ public class Enemy : Character {
         {
             agent.SetDestination(finalPosition);
         }
-        Timer();
+        if (item.currentlyInteracting)
+        {
+            beingMoved = true;
+            agent.Stop();
+        } else if (!item.currentlyInteracting)
+        {
+            if (beingMoved)
+            {
+                start_pos = transform.position;
+                beingMoved = false;
+                agent.Resume();
+            }
+            Timer();
+            
+        }
     }
 
     void GoTo()
@@ -92,11 +110,11 @@ public class Enemy : Character {
             }
             else
             {
+                newDestination();
                 NavMesh.SamplePosition(rnd_dir, out hit, roamRadius, 1); //roam in nearby start area.
             }
             finalPosition = hit.position;
             timer = 0;
-            newDestination();
         }
     }
 
