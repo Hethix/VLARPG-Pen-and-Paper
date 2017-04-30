@@ -23,7 +23,6 @@ GameObject:
   - component: {fileID: 114117504691830920}
   - component: {fileID: 114835883914621046}
   - component: {fileID: 195925002307030024}
-  - component: {fileID: 114505016828206448}
   m_Layer: 0
   m_Name: DogSoldier_Enemy
   m_TagString: Enemy
@@ -226,32 +225,6 @@ MonoBehaviour:
   isArrow: 0
   isNewItem: 1
   worldPrefab: {fileID: 0}
---- !u!114 &114505016828206448
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1092976461222682}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ownerId: 0
-  group: 0
-  OwnerShipWasTransfered: 0
-  prefixBackup: -1
-  synchronization: 1
-  onSerializeTransformOption: 3
-  onSerializeRigidBodyOption: 2
-  ownershipTransfer: 0
-  ObservedComponents:
-  - {fileID: 114835883914621046}
-  ObservedComponentsFoldoutOpen: 1
-  viewIdField: 0
-  instantiationId: -1
-  currentMasterID: -1
-  isRuntimeInstantiated: 0
 --- !u!114 &114835883914621046
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -272,10 +245,15 @@ MonoBehaviour:
   cooldown: 0
   DistToPlayer: 0
   combatReady: 0
+  start_pos: {x: 0, y: 0, z: 0}
+  agent: {fileID: 0}
   finalPosition: {x: 0, y: 0, z: 0}
   timer: 0
   player: {fileID: 0}
   agentDestination: {x: 0, y: 0, z: 0}
+  giveNewDestination: 0
+  giveNewStartPosition: 0
+  ownedByGM: 0
 --- !u!195 &195925002307030024
 NavMeshAgent:
   m_ObjectHideFlags: 1

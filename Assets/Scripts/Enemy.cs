@@ -6,14 +6,13 @@ using UnityEngine.AI;
 public class Enemy : Character {
 
     public float DistToPlayer; //Distance to nearest player
-    bool AI = false; // Use this to deactivate all behaviour scripts
     public bool combatReady; // Use this to activate combat mechanics. 
 
-    private Vector3 start_pos;
+    public Vector3 start_pos;
     private Vector3 rnd_dir;
 
     private float roamRadius = 10;
-    NavMeshAgent agent;
+    public NavMeshAgent agent;
     public Vector3 finalPosition;
     public float timer;
     private float wanderTimer = 5.0f;
@@ -23,23 +22,28 @@ public class Enemy : Character {
     private InteractableItem item;
     public Vector3 agentDestination;
     private bool beingMoved;
+    public bool giveNewDestination;
+    public bool giveNewStartPosition;
+
+    public bool ownedByGM = false;
 
     void Start() {
-        //PhotonView photonView = PhotonView.Get(this);
         combatReady = false;
         agent = GetComponent<NavMeshAgent>();
         start_pos = transform.position;
         timer = 4.5f; //made so it starts wandering soon after being created
         item = GetComponent<InteractableItem>();
         agentDestination = agent.destination;
+        giveNewDestination = false;
     }
 
 	void Update () {
-        if (photonView.isMine)
+        if (ownedByGM)
         {
             if (finalPosition != agent.destination)
             {
-                this.photonView.RPC("Goto", PhotonTargets.AllBufferedViaServer, finalPosition);
+                agent.SetDestination(finalPosition);
+                giveNewDestination = true;
             }
             if (item.currentlyInteracting)
             {
@@ -50,27 +54,14 @@ public class Enemy : Character {
             {
                 if (beingMoved)
                 {
-                    this.photonView.RPC("NewStartPosition", PhotonTargets.AllBufferedViaServer, transform.position); //Give all a new start pos
                     start_pos = transform.position;
                     beingMoved = false;
                     agent.Resume();
+                    giveNewStartPosition = true;
                 }
                 Timer();
             }
         }
-    }
-
-    [PunRPC]
-    void GoTo(Vector3 destination)
-    {
-        agent.SetDestination(destination);
-    }
-
-    [PunRPC]
-    void NewStartPosition(Vector3 newStartPos)
-    {
-        agent.Warp(newStartPos); //Should give the GM's enemy position
-        start_pos = transform.position;
     }
 
     void DetectPlayers()
