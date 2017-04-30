@@ -25,6 +25,7 @@ public class Enemy : Character {
     private bool beingMoved;
 
     void Start() {
+        //PhotonView photonView = PhotonView.Get(this);
         combatReady = false;
         agent = GetComponent<NavMeshAgent>();
         start_pos = transform.position;
@@ -34,35 +35,41 @@ public class Enemy : Character {
     }
 
 	void Update () {
-        if(finalPosition != agent.destination)
+        if (photonView.isMine)
         {
-            agent.SetDestination(finalPosition);
-        }
-        if (item.currentlyInteracting)
-        {
-            beingMoved = true;
-            agent.Stop();
-        } else if (!item.currentlyInteracting)
-        {
-            if (beingMoved)
+            if (finalPosition != agent.destination)
             {
-                start_pos = transform.position;
-                beingMoved = false;
-                agent.Resume();
+                this.photonView.RPC("Goto", PhotonTargets.AllBufferedViaServer, finalPosition);
             }
-            Timer();
-            
+            if (item.currentlyInteracting)
+            {
+                beingMoved = true;
+                agent.Stop();
+            }
+            else if (!item.currentlyInteracting)
+            {
+                if (beingMoved)
+                {
+                    this.photonView.RPC("NewStartPosition", PhotonTargets.AllBufferedViaServer); //Give all a new start pos
+                    start_pos = transform.position;
+                    beingMoved = false;
+                    agent.Resume();
+                }
+                Timer();
+            }
         }
     }
 
-    void GoTo()
+    [PunRPC]
+    void GoTo(Vector3 destination)
     {
-
+        agent.SetDestination(destination);
     }
 
-    void GoTo(GameObject player) //Overload of the GoTo() method, meant for going to a location near a player. 
+    [PunRPC]
+    void NewStartPosition()
     {
-
+        start_pos = transform.position;
     }
 
     void DetectPlayers()
@@ -83,6 +90,9 @@ public class Enemy : Character {
                 combatReady = true;
                 timer = 3.5f;
                 break;  
+            } else
+            {
+                combatReady = false;
             }
         }
     }
@@ -104,6 +114,7 @@ public class Enemy : Character {
 
         if (timer >= wanderTimer)
         {
+            DetectPlayers();
             if (combatReady)
             {
                 NavMesh.SamplePosition(player.transform.position, out hit, 50, 1); //GO FUCK UP PLAYER IF HE IS COMBATREADY KILL KILL FAGGOTS
@@ -123,8 +134,4 @@ public class Enemy : Character {
         rnd_dir = Random.insideUnitSphere * roamRadius;
         rnd_dir += start_pos;
     }
-    //void Roam() //Use the GoTo() Method to move to a random nearby location. 
-    //{
-
-    //}
 }
