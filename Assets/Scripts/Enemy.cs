@@ -50,7 +50,7 @@ public class Enemy : Character {
             {
                 if (beingMoved)
                 {
-                    this.photonView.RPC("NewStartPosition", PhotonTargets.AllBufferedViaServer); //Give all a new start pos
+                    this.photonView.RPC("NewStartPosition", PhotonTargets.AllBufferedViaServer, transform.position); //Give all a new start pos
                     start_pos = transform.position;
                     beingMoved = false;
                     agent.Resume();
@@ -67,8 +67,9 @@ public class Enemy : Character {
     }
 
     [PunRPC]
-    void NewStartPosition()
+    void NewStartPosition(Vector3 newStartPos)
     {
+        agent.Warp(newStartPos); //Should give the GM's enemy position
         start_pos = transform.position;
     }
 
@@ -85,12 +86,14 @@ public class Enemy : Character {
                 timer = 3.5f; 
                 break;  
                 
-            } else if (GetDistance(gameObject, obj) < 25-player.sneakSkill && player.inStealth == true)
+            }
+            else if (GetDistance(gameObject, obj) < 25-player.sneakSkill && player.inStealth == true)
             {
                 combatReady = true;
                 timer = 3.5f;
                 break;  
-            } else
+            }
+            else
             {
                 combatReady = false;
             }

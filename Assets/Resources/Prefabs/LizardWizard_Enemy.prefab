@@ -58,6 +58,7 @@ GameObject:
   - component: {fileID: 114859375622733902}
   - component: {fileID: 114076040807755412}
   - component: {fileID: 195915055165764388}
+  - component: {fileID: 114765319718241974}
   m_Layer: 0
   m_Name: LizardWizard_Enemy
   m_TagString: Enemy
@@ -228,7 +229,37 @@ MonoBehaviour:
   AC: 11
   cooldown: 0
   DistToPlayer: 0
+  combatReady: 0
+  finalPosition: {x: 0, y: 0, z: 0}
+  timer: 0
   player: {fileID: 0}
+  agentDestination: {x: 0, y: 0, z: 0}
+--- !u!114 &114765319718241974
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1920587728012186}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ownerId: 0
+  group: 0
+  OwnerShipWasTransfered: 0
+  prefixBackup: -1
+  synchronization: 1
+  onSerializeTransformOption: 3
+  onSerializeRigidBodyOption: 2
+  ownershipTransfer: 0
+  ObservedComponents:
+  - {fileID: 114076040807755412}
+  ObservedComponentsFoldoutOpen: 1
+  viewIdField: 0
+  instantiationId: -1
+  currentMasterID: -1
+  isRuntimeInstantiated: 0
 --- !u!114 &114859375622733902
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -240,6 +271,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5cb040de8219cf45ba6fcf756f768cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentlyInteracting: 0
   isMenuItem: 0
   isArrow: 0
   isNewItem: 1

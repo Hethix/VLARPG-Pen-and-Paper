@@ -41,4 +41,6 @@ MonoBehaviour:
   - giveAvatar
   - GiveAvatar
   - DestroyAvatar
+  - GoTo
+  - NewStartPosition
   DisableAutoOpenWizard: 1
