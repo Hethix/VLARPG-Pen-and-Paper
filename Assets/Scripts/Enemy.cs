@@ -27,6 +27,14 @@ public class Enemy : Character {
 
     public bool ownedByGM = false;
 
+
+
+    /*Things to do:
+    - Make enemies able to attack players by bumping into them
+    - Fix GM picking up enemies - For some reason they are below the ground???
+    - Syncronizing health and damage dealt?
+    */
+
     void Start() {
         combatReady = false;
         agent = GetComponent<NavMeshAgent>();
@@ -42,13 +50,20 @@ public class Enemy : Character {
         {
             if (finalPosition != agent.destination)
             {
-                agent.SetDestination(finalPosition);
-                giveNewDestination = true;
+                if (agent.enabled)
+                {
+                    agent.SetDestination(finalPosition);
+                    giveNewDestination = true;
+                }
             }
             if (item.currentlyInteracting)
             {
-                beingMoved = true;
-                agent.Stop();
+                if (agent.enabled)
+                {
+                    beingMoved = true;
+                    agent.Stop();
+                    agent.enabled = false;
+                }
             }
             else if (!item.currentlyInteracting)
             {
@@ -56,10 +71,14 @@ public class Enemy : Character {
                 {
                     start_pos = transform.position;
                     beingMoved = false;
+                    agent.enabled = true;
                     agent.Resume();
                     giveNewStartPosition = true;
                 }
-                Timer();
+                if (agent.enabled)
+                {
+                    Timer();
+                }
             }
         }
     }
