@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 114938303943105486}
   m_Layer: 0
   m_Name: GY_Stone 1
-  m_TagString: Untagged
+  m_TagString: Interactable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -149,6 +149,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5cb040de8219cf45ba6fcf756f768cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentlyInteracting: 0
   isMenuItem: 0
   isArrow: 0
   isNewItem: 1

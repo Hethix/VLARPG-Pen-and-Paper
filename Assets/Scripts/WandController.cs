@@ -64,7 +64,7 @@ public class WandController : Photon.MonoBehaviour
             {
                 //Debug.Log(hit.collider.name);
                 //Does it hit an interactable item?
-                if (hit.collider.CompareTag("Interactable"))
+                if (hit.collider.CompareTag("Interactable") || hit.collider.CompareTag("Enemy"))
                 {
                     //Debug.Log("I FOUND AN OBJECT TO INTERACT WITH WOOP WOOP!  " + hit.collider.name);
                     //If it is not the same object as last update, then change what we hit
