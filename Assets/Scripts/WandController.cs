@@ -13,7 +13,7 @@ public class WandController : Photon.MonoBehaviour
 
     private SteamVR_TrackedObject trackedObj;
 
-    private InteractableItem interactingItem;
+    public InteractableItem interactingItem;
 
     private GameObject prefab;
     public GameObject playerSeenInteractable;
@@ -24,7 +24,7 @@ public class WandController : Photon.MonoBehaviour
     private bool isMenuActive = false;
     private bool changeMenu = false;
 
-    private GameObject hitInteractable;
+    public GameObject hitInteractable;
     public RaycastHit hit;
 
     private Transform cameraRig;

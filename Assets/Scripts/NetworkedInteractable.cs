@@ -38,27 +38,37 @@ public class NetworkedInteractable : Photon.MonoBehaviour {
         if (areGameMaster)
         {
             photonView.RPC("GiveAvatar", PhotonTargets.AllBufferedViaServer, avatarObject.name);
-            enemyGM = followingObject.GetComponent<Enemy>();
-            enemyGM.ownedByGM = true;
+            if(followingObject.tag == "Enemy")
+            {
+                enemyGM = followingObject.GetComponent<Enemy>();
+                enemyGM.ownedByGM = true;
+                enemy = followingObject.GetComponent<Enemy>();
+            }
         } else if (!areGameMaster)
         {
-           //Currently not doing anything here
-        }
-        if(avatarObject != null)
-        {
-            avatar = Instantiate(avatarObject, Vector3.zero, Quaternion.identity); //Temporary test position. Might be able to move this up in the statement above
-        }
-        if(avatar.tag == "Enemy")
-        {
-            enemy = avatar.GetComponent<Enemy>();
-        }
-        else
-        {
-            enemy = null;
+            if (avatarObject != null)
+            {
+                avatar = Instantiate(avatarObject, Vector3.zero, Quaternion.identity); //Temporary test position. Might be able to move this up in the statement above
+            }
+            if (avatar.tag == "Enemy")
+            {
+                enemy = avatar.GetComponent<Enemy>();
+            }
+            else
+            {
+                enemy = null;
+            }
         }
         
+        if(avatar != null)
+        {
+            this.transform.SetParent(avatar.transform);
 
-        this.transform.SetParent(avatar.transform);
+        } else
+        {
+            this.transform.SetParent(followingObject.transform);
+
+        }
         this.transform.localPosition = Vector3.zero;
     }
 
@@ -72,6 +82,8 @@ public class NetworkedInteractable : Photon.MonoBehaviour {
                 StartCoroutine("DetectDestroy", 4.0f); //Runs the destroy detection every 4 seconds. Faster would properly impact performance
                 startNewRoutine = false;
             }
+
+            //If statement used to give other clients enemies a destination and start pos
             if(enemyGM != null)
             {
                 if (enemyGM.giveNewDestination)
@@ -81,7 +93,7 @@ public class NetworkedInteractable : Photon.MonoBehaviour {
                 }
                 if (enemyGM.giveNewStartPosition)
                 {
-                    photonView.RPC("NewStartPosition", PhotonTargets.AllBufferedViaServer, enemyGM.start_pos); //Give all a new start pos
+                    photonView.RPC("NewStartPosition", PhotonTargets.OthersBuffered, enemyGM.start_pos); //Give others a new start pos
                     enemyGM.giveNewStartPosition = false;
                 }
             }
@@ -117,7 +129,7 @@ public class NetworkedInteractable : Photon.MonoBehaviour {
     //Sending and receiving data
     void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
     {
-        if(enemy == null)
+        if (enemy == null)
         {
             if (stream.isWriting)
             {
@@ -139,6 +151,7 @@ public class NetworkedInteractable : Photon.MonoBehaviour {
     {
         if(avatarObject == null)
         {
+            Debug.Log("Trying to give avatar with name: " + avatarName);
             avatarObject = Resources.Load<GameObject>("Prefabs/" + avatarName); //This works LOL
         }
     }
