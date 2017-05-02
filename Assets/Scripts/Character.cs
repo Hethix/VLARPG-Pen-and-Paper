@@ -22,12 +22,14 @@ public class Character : Photon.MonoBehaviour {
 	}
 
     // HP getter
+    [PunRPC]
     public sbyte GetHP() 
     {
         return HP;
     }
 
     // HP setter
+    [PunRPC]
     public void SetHP(sbyte _HP) 
     {
         HP = _HP;
@@ -124,12 +126,24 @@ public class Character : Photon.MonoBehaviour {
     }
 
     // Detects collision, and performs attack if other object is labelled Enemy
+    /* Will properly move this into "Enemy" and "Player"
     void OnCollisionEnter(Collision target)
     {
         Character chara = target.gameObject.GetComponent<Character>();
-        if (target.gameObject.tag.Equals("Enemy") == true) 
+        if (target.gameObject.tag == "Enemy" && this.tag != "Enemy") //If a player hits an enemy
+        {
             if (CheckCooldown() == true)
+            {
                 PerformAttack(chara);
-    }
+
+            }
+        } else if(target.gameObject.tag == "Player" && this.tag != "Player") //If an enemy hits a player
+        {
+            if (CheckCooldown() == true)
+            {
+                PerformAttack(chara);
+            }
+        }
+    } */
 
 }

@@ -96,6 +96,11 @@ public class NetworkedInteractable : Photon.MonoBehaviour {
                     photonView.RPC("NewStartPosition", PhotonTargets.OthersBuffered, enemyGM.start_pos); //Give others a new start pos
                     enemyGM.giveNewStartPosition = false;
                 }
+                if (enemyGM.setPlayerHP)
+                {
+                    photonView.RPC("SetPlayerHP", PhotonTargets.OthersBuffered, enemyGM.lastHitPlayer, enemyGM.setPlayerHpAmount, enemyGM.performBumpAttack);
+                    enemyGM.setPlayerHP = false;
+                }
             }
         }
 
@@ -162,7 +167,6 @@ public class NetworkedInteractable : Photon.MonoBehaviour {
         Destroy(avatar);
         Destroy(gameObject);
     }
-
     
     [PunRPC]
     void GoTo(Vector3 destination)
@@ -175,5 +179,11 @@ public class NetworkedInteractable : Photon.MonoBehaviour {
     {
         enemy.agent.Warp(newStartPos); //Should give the GM's enemy position
         enemy.start_pos = transform.position;
-    } 
+    }
+
+    [PunRPC]
+    void SetPlayerHP(Player player, sbyte currentHP, bool performBump)
+    {
+        player.SetHP(currentHP);
+    }
 }

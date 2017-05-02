@@ -24,6 +24,10 @@ public class Enemy : Character {
     private bool beingMoved;
     public bool giveNewDestination;
     public bool giveNewStartPosition;
+    public bool setPlayerHP;
+    public sbyte setPlayerHpAmount;
+    public Player lastHitPlayer;
+    public bool performBumpAttack;
 
     public bool ownedByGM = false;
 
@@ -43,6 +47,8 @@ public class Enemy : Character {
         item = GetComponent<InteractableItem>();
         agentDestination = agent.destination;
         giveNewDestination = false;
+        setPlayerHP = false;
+        performBumpAttack = false;
     }
 
 	void Update () {
@@ -80,6 +86,30 @@ public class Enemy : Character {
                     Timer();
                 }
             }
+        }
+        if (performBumpAttack)
+        {
+            bool changeBumpDirection = false;
+            for(int i = 0; i < gameObject.transform.childCount; i++)
+            {
+                Transform child = gameObject.transform.GetChild(i);
+                if (child.rotation.x > 99)
+                {
+                    changeBumpDirection = true;
+                }
+                if (!changeBumpDirection)
+                {
+                    child.localRotation = Quaternion.Euler(Mathf.Lerp(child.localRotation.x, 100, Time.fixedDeltaTime), child.rotation.y, child.rotation.z);
+                } else
+                {
+                    child.localRotation = Quaternion.Euler(Mathf.Lerp(child.localRotation.x, 90, Time.fixedDeltaTime), child.rotation.y, child.rotation.z);
+                    if(child.rotation.x < 91)
+                    {
+                        performBumpAttack = false;
+                    }
+                }
+            }
+
         }
     }
 
@@ -134,7 +164,7 @@ public class Enemy : Character {
             }
             else
             {
-                newDestination();
+                NewDestination();
                 NavMesh.SamplePosition(rnd_dir, out hit, roamRadius, 1); //roam in nearby start area.
             }
             finalPosition = hit.position;
@@ -142,9 +172,33 @@ public class Enemy : Character {
         }
     }
 
-    void newDestination()
+    void NewDestination()
     {
         rnd_dir = Random.insideUnitSphere * roamRadius;
         rnd_dir += start_pos;
     }
+
+
+
+
+    void OnCollisionEnter(Collision target)
+    {
+        if (ownedByGM)
+        {
+            if (target.gameObject.tag == "Player") //If a player hits an enemy
+            {
+                Player player = target.gameObject.GetComponent<Player>();
+                if (CheckCooldown() == true)
+                {
+                    PerformAttack(player);
+                    setPlayerHpAmount = player.GetHP();
+                    lastHitPlayer = player;
+                    setPlayerHP = true;
+                    performBumpAttack = true;
+                }
+            }
+        }
+    }
+
+    
 }
