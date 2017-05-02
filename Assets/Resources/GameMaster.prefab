@@ -1593,6 +1593,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4189120314818732}
+  - component: {fileID: 54147934299023168}
   m_Layer: 0
   m_Name: GameMaster
   m_TagString: Untagged
@@ -5741,6 +5742,21 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1651956026391250}
   m_Mesh: {fileID: 4300120, guid: dd480d4c5e941744ba23591f1fe65f45, type: 3}
+--- !u!54 &54147934299023168
+Rigidbody:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1865849525855466}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!54 &54229886273525788
 Rigidbody:
   m_ObjectHideFlags: 1
@@ -6342,8 +6358,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9ced68c0b828594a9271bcfa9b8cfab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  interactingItem: {fileID: 0}
   playerSeenInteractable: {fileID: 0}
   menuItems: []
+  hitInteractable: {fileID: 0}
   mainCamera: {fileID: 20754738856170336}
 --- !u!114 &114729806312697492
 MonoBehaviour:
@@ -6356,10 +6374,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9ced68c0b828594a9271bcfa9b8cfab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  interactingItem: {fileID: 0}
   playerSeenInteractable: {fileID: 0}
   menuItems:
   - {fileID: 1995183986770474}
   - {fileID: 1244976512298846}
+  hitInteractable: {fileID: 0}
   mainCamera: {fileID: 20754738856170336}
 --- !u!114 &114829013388296648
 MonoBehaviour:
