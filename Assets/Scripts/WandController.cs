@@ -30,12 +30,15 @@ public class WandController : Photon.MonoBehaviour
     private Transform cameraRig;
     public Camera mainCamera;
     private float moveSpeed;
+    private Rigidbody rb;
+
 
     // Use this for initialization
     void Start()
     {
         trackedObj = GetComponent<SteamVR_TrackedObject>();
         menu = GameObject.FindGameObjectWithTag("Menu");
+        rb = GetComponentInParent<Rigidbody>();
 
         cameraRig = gameObject.transform.parent;
     }
@@ -43,15 +46,6 @@ public class WandController : Photon.MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-        if (controller.GetPress(padButton))
-        {
-            MoveCameraRig(false);
-        } else if (controller.GetPress(gripButton))
-        {
-            MoveCameraRig(true);
-        }
-
         if (controller == null)
         {
             Debug.Log("Controller not initialized");
@@ -59,6 +53,16 @@ public class WandController : Photon.MonoBehaviour
         }
         else
         {
+            //Movement detection
+            if (controller.GetPress(padButton))
+            {
+                MoveCameraRig(false, controller.GetAxis().x, controller.GetAxis().y);
+            }
+            else if (controller.GetPress(gripButton))
+            {
+                MoveCameraRig(true, controller.GetAxis().x, controller.GetAxis().y);
+            }
+
             //Cast a ray, and use it to interact with.
             if (Physics.Raycast(transform.position, transform.forward, out hit))
             {
@@ -150,26 +154,18 @@ public class WandController : Photon.MonoBehaviour
     }
 
 
-    private void MoveCameraRig(bool moveVertical)
+    private void MoveCameraRig(bool moveVertical, float x, float z)
     {
 
         //Debug.Log(mainCamera.transform.forward);
         moveSpeed = Time.deltaTime * 2.0f;
         if (!moveVertical)
         {
-            //cameraRig.transform.Translate(moveSpeed * Input.GetAxis("Horizontal") * 5.0f, 0, moveSpeed * -Input.GetAxis("Vertical") * 5.0f, Space.Self);
             cameraRig.transform.Translate(mainCamera.transform.forward.x * Input.GetAxis("Horizontal"), 0, mainCamera.transform.forward.z * Input.GetAxis("Vertical"));
         } else if (moveVertical)
         {
-            if(mainCamera.transform.rotation.x > 0)
-            {
-                cameraRig.transform.Translate(0, moveSpeed, 0);
-
-            } else if (mainCamera.transform.rotation.x < 0)
-            {
-                cameraRig.transform.Translate(0, -moveSpeed, 0);
-            }
-
+            rb.AddRelativeForce(gameObject.transform.TransformDirection(Vector3.forward) * z * 50);
+            rb.AddRelativeForce(gameObject.transform.TransformDirection(Vector3.right) * x * 50);
         }
     }
 
