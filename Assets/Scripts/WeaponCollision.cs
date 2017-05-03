@@ -9,7 +9,7 @@ public class WeaponCollision : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-        selfPlayer = gameObject.GetComponentInParent<Player>();
+        selfPlayer = gameObject.GetComponent<Player>();
 	}
 	
 	// Update is called once per frame
