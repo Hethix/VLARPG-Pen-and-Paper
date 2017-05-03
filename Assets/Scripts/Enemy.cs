@@ -65,9 +65,9 @@ public class Enemy : Character {
                 if (beingMoved)
                 {
                     start_pos = transform.position;
-                    beingMoved = false;
                     agent.Resume();
                     giveNewStartPosition = true;
+                    beingMoved = false;
                 }
                 if (agent.enabled)
                 {

@@ -86,15 +86,15 @@ public class NetworkedInteractable : Photon.MonoBehaviour {
             //If statement used to give other clients enemies a destination and start pos
             if(enemyGM != null)
             {
-                if (enemyGM.giveNewDestination)
-                {
-                    photonView.RPC("GoTo", PhotonTargets.OthersBuffered, enemyGM.finalPosition);
-                    enemyGM.giveNewDestination = false;
-                }
                 if (enemyGM.giveNewStartPosition)
                 {
                     photonView.RPC("NewStartPosition", PhotonTargets.OthersBuffered, enemyGM.start_pos); //Give others a new start pos
                     enemyGM.giveNewStartPosition = false;
+                }
+                if (enemyGM.giveNewDestination)
+                {
+                    photonView.RPC("GoTo", PhotonTargets.OthersBuffered, enemyGM.finalPosition);
+                    enemyGM.giveNewDestination = false;
                 }
                 if (enemyGM.setPlayerHP)
                 {
@@ -171,7 +171,10 @@ public class NetworkedInteractable : Photon.MonoBehaviour {
     [PunRPC]
     void GoTo(Vector3 destination)
     {
-        enemy.agent.SetDestination(destination);
+        if(enemy != null)
+        {
+            enemy.agent.SetDestination(destination);
+        }
     }
 
     [PunRPC]
