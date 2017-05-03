@@ -20,8 +20,7 @@ public class Enemy : Character {
     private NavMeshHit hit;
     public Player player;
     private InteractableItem item;
-    public Vector3 agentDestination;
-    private bool beingMoved;
+    public bool beingMoved; //Change to private when done
     public bool giveNewDestination;
     public bool giveNewStartPosition;
     public bool setPlayerHP;
@@ -45,7 +44,6 @@ public class Enemy : Character {
         start_pos = transform.position;
         timer = 4.5f; //made so it starts wandering soon after being created
         item = GetComponent<InteractableItem>();
-        agentDestination = agent.destination;
         giveNewDestination = false;
         setPlayerHP = false;
         performBumpAttack = false;
@@ -56,7 +54,7 @@ public class Enemy : Character {
         {
             if (finalPosition != agent.destination)
             {
-                if (agent.enabled)
+                if (!item.currentlyInteracting && !beingMoved)
                 {
                     agent.SetDestination(finalPosition);
                     giveNewDestination = true;
@@ -67,7 +65,7 @@ public class Enemy : Character {
                 if (agent.enabled)
                 {
                     beingMoved = true;
-                    agent.Stop(true);
+                    agent.Stop(true); //Fuck visual studio and their recommendations!
                 }
             }
             else if (!item.currentlyInteracting)
@@ -123,7 +121,6 @@ public class Enemy : Character {
                 combatReady = true;
                 timer = 3.5f; 
                 break;  
-                
             }
             else if (GetDistance(gameObject, obj) < 25-player.sneakSkill && player.inStealth == true)
             {
@@ -175,9 +172,6 @@ public class Enemy : Character {
         rnd_dir = Random.insideUnitSphere * roamRadius;
         rnd_dir += start_pos;
     }
-
-
-
 
     void OnCollisionEnter(Collision target)
     {

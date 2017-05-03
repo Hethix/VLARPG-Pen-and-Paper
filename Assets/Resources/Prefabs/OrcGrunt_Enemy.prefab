@@ -99,7 +99,7 @@ Transform:
   m_GameObject: {fileID: 1890535370017502}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.03, y: 0.03, z: 0.03}
   m_Children:
   - {fileID: 4675188054729882}
   - {fileID: 4825448613230690}
@@ -195,7 +195,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 126
   m_CollisionDetection: 0
 --- !u!65 &65826163760983082
 BoxCollider:
@@ -250,9 +250,13 @@ MonoBehaviour:
   finalPosition: {x: 0, y: 0, z: 0}
   timer: 0
   player: {fileID: 0}
-  agentDestination: {x: 0, y: 0, z: 0}
+  beingMoved: 0
   giveNewDestination: 0
   giveNewStartPosition: 0
+  setPlayerHP: 0
+  setPlayerHpAmount: 0
+  lastHitPlayer: {fileID: 0}
+  performBumpAttack: 0
   ownedByGM: 0
 --- !u!195 &195098488353758082
 NavMeshAgent:
@@ -270,7 +274,7 @@ NavMeshAgent:
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1
-  m_Height: 3.4
+  m_Height: 3.5
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
