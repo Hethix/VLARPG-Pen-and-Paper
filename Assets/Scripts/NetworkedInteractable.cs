@@ -6,8 +6,10 @@ public class NetworkedInteractable : Photon.MonoBehaviour {
 
     public GameObject avatarObject;
     public GameObject avatar;
+    private bool enemySizeFix = true;
     public GameObject followingObject;
     public bool areGameMaster;
+    
 
     private Vector3 receivedAvatarPos;
     private Quaternion receivedAvatarRota;
@@ -63,6 +65,7 @@ public class NetworkedInteractable : Photon.MonoBehaviour {
         if(avatar != null)
         {
             this.transform.SetParent(avatar.transform);
+            avatar.transform.localScale = new Vector3(1, 1, 1);
 
         } else
         {
