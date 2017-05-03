@@ -23,6 +23,7 @@ GameObject:
   - component: {fileID: 114182987209510170}
   - component: {fileID: 114555828150476948}
   - component: {fileID: 195974518063603804}
+  - component: {fileID: 65291989157579362}
   m_Layer: 0
   m_Name: DogQueen_Enemy
   m_TagString: Enemy
@@ -57,7 +58,6 @@ GameObject:
   - component: {fileID: 4960829908197834}
   - component: {fileID: 33945959165485996}
   - component: {fileID: 23308639212895150}
-  - component: {fileID: 65270765410193012}
   m_Layer: 0
   m_Name: Front_plane
   m_TagString: Untagged
@@ -73,7 +73,7 @@ Transform:
   m_GameObject: {fileID: 1163353842358120}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.03, y: 0.03, z: 0.03}
   m_Children:
   - {fileID: 4960829908197834}
   - {fileID: 4364237806435980}
@@ -197,18 +197,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!65 &65270765410193012
+--- !u!65 &65291989157579362
 BoxCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1822470019593472}
+  m_GameObject: {fileID: 1163353842358120}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 10, y: 0.3, z: 10.000001}
-  m_Center: {x: 0, y: 0, z: 0.0000038146973}
+  m_Size: {x: 1.8480241, y: 3.527066, z: 1.2}
+  m_Center: {x: -0.12800378, y: 1.74143, z: 0}
 --- !u!114 &114182987209510170
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -253,6 +253,10 @@ MonoBehaviour:
   agentDestination: {x: 0, y: 0, z: 0}
   giveNewDestination: 0
   giveNewStartPosition: 0
+  setPlayerHP: 0
+  setPlayerHpAmount: 0
+  lastHitPlayer: {fileID: 0}
+  performBumpAttack: 0
   ownedByGM: 0
 --- !u!195 &195974518063603804
 NavMeshAgent:
@@ -270,7 +274,7 @@ NavMeshAgent:
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1
-  m_Height: 3.4
+  m_Height: 3.5
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4

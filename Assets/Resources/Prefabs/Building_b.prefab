@@ -21,6 +21,8 @@ GameObject:
   - component: {fileID: 4756531294474428}
   - component: {fileID: 54465293048441344}
   - component: {fileID: 114600006941230076}
+  - component: {fileID: 65409583981350418}
+  - component: {fileID: 65678980852500834}
   m_Layer: 0
   m_Name: Building_b
   m_TagString: Interactable
@@ -38,8 +40,6 @@ GameObject:
   - component: {fileID: 4285923367715768}
   - component: {fileID: 33919602803169920}
   - component: {fileID: 23124283169229594}
-  - component: {fileID: 65786095146998028}
-  - component: {fileID: 65247231844421916}
   m_Layer: 0
   m_Name: Building_b
   m_TagString: Untagged
@@ -127,30 +127,30 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!65 &65247231844421916
+--- !u!65 &65409583981350418
 BoxCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1987978500946286}
+  m_GameObject: {fileID: 1550079644583876}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 12.598295, y: 6.9902167, z: 6.980394}
-  m_Center: {x: 0.091611326, y: 6.471907, z: 3.0800886}
---- !u!65 &65786095146998028
+  m_Size: {x: 12.529145, y: 6.988363, z: 7.0072064}
+  m_Center: {x: -0.5737282, y: 7.7867823, z: 0.33084935}
+--- !u!65 &65678980852500834
 BoxCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1987978500946286}
+  m_GameObject: {fileID: 1550079644583876}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 3.9752083, y: 10.3670435, z: 6.980394}
-  m_Center: {x: 0.029607236, y: 4.7835217, z: 3.079371}
+  m_Size: {x: 3.965269, y: 6.505701, z: 7.650766}
+  m_Center: {x: -0.6503873, y: 7.4918194, z: 3.4145565}
 --- !u!114 &114600006941230076
 MonoBehaviour:
   m_ObjectHideFlags: 1

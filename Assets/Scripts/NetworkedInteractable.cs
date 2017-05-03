@@ -88,7 +88,7 @@ public class NetworkedInteractable : Photon.MonoBehaviour {
             {
                 if (enemyGM.giveNewDestination)
                 {
-                    photonView.RPC("GoTo", PhotonTargets.OthersBuffered);
+                    photonView.RPC("GoTo", PhotonTargets.OthersBuffered, enemyGM.finalPosition);
                     enemyGM.giveNewDestination = false;
                 }
                 if (enemyGM.giveNewStartPosition)

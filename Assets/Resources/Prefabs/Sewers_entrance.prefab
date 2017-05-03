@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4978089209672826}
   - component: {fileID: 54022390271347120}
   - component: {fileID: 114697687804586158}
+  - component: {fileID: 65707155090338552}
   m_Layer: 0
   m_Name: Sewers_entrance
   m_TagString: Interactable
@@ -38,7 +39,6 @@ GameObject:
   - component: {fileID: 4998452739441166}
   - component: {fileID: 33041744330321062}
   - component: {fileID: 23851440233987848}
-  - component: {fileID: 65022867376466804}
   m_Layer: 0
   m_Name: Sewers_entrance
   m_TagString: Untagged
@@ -126,18 +126,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!65 &65022867376466804
+--- !u!65 &65707155090338552
 BoxCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1807174921330334}
+  m_GameObject: {fileID: 1443594842329042}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 3.308084, y: 2.912, z: 0.40867636}
-  m_Center: {x: 0, y: 0.0000001788139, z: 0.15344054}
+  m_Size: {x: 3.3031044, y: 0.414742, z: 2.9237702}
+  m_Center: {x: 0.0027083484, y: 0.15715334, z: 0.002708783}
 --- !u!114 &114697687804586158
 MonoBehaviour:
   m_ObjectHideFlags: 1

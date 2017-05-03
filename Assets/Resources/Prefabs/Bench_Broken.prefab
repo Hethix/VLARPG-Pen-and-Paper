@@ -21,7 +21,6 @@ GameObject:
   - component: {fileID: 4408355863936888}
   - component: {fileID: 33852014265143242}
   - component: {fileID: 23490175744846074}
-  - component: {fileID: 65325912083611294}
   m_Layer: 0
   m_Name: polySurface9
   m_TagString: Untagged
@@ -39,7 +38,6 @@ GameObject:
   - component: {fileID: 4127880359964834}
   - component: {fileID: 33159470000300656}
   - component: {fileID: 23397607184621270}
-  - component: {fileID: 65744277016942954}
   m_Layer: 0
   m_Name: polySurface10
   m_TagString: Untagged
@@ -57,6 +55,7 @@ GameObject:
   - component: {fileID: 4668880325053702}
   - component: {fileID: 54465215037741270}
   - component: {fileID: 114275189709111722}
+  - component: {fileID: 65485814661844290}
   m_Layer: 0
   m_Name: Bench_Broken
   m_TagString: Interactable
@@ -197,30 +196,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!65 &65325912083611294
+--- !u!65 &65485814661844290
 BoxCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1251816788056660}
+  m_GameObject: {fileID: 1718144077544836}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 4.3783507, y: 1.3134252, z: 1.47721}
-  m_Center: {x: -1.9208262, y: 0.000015287413, z: 0.000015201543}
---- !u!65 &65744277016942954
-BoxCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1662817645562054}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 4.2956233, y: 1.3134252, z: 1.47721}
-  m_Center: {x: 1.9250739, y: -0.0000036999531, z: 0}
+  m_Size: {x: 8.696227, y: 1.4977419, z: 1.5260569}
+  m_Center: {x: 0.025550276, y: -0.012982683, z: -0.00525224}
 --- !u!114 &114275189709111722
 MonoBehaviour:
   m_ObjectHideFlags: 1
