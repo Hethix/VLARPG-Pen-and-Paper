@@ -52,14 +52,6 @@ public class Enemy : Character {
 	void Update () {
         if (ownedByGM)
         {
-            if (finalPosition != agent.destination)
-            {
-                if (!item.currentlyInteracting && !beingMoved)
-                {
-                    agent.SetDestination(finalPosition);
-                    giveNewDestination = true;
-                }
-            }
             if (item.currentlyInteracting)
             {
                 if (agent.enabled)
@@ -80,6 +72,14 @@ public class Enemy : Character {
                 if (agent.enabled)
                 {
                     Timer();
+                }
+            }
+            if (finalPosition != agent.destination)
+            {
+                if (!item.currentlyInteracting && !beingMoved)
+                {
+                    agent.SetDestination(finalPosition);
+                    giveNewDestination = true;
                 }
             }
         }
