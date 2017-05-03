@@ -33,7 +33,7 @@ public class Enemy : Character {
 
 
 
-    /*Things to do:
+    /*Things to do/test:
     - Make enemies able to attack players by bumping into them
     - Fix GM picking up enemies - For some reason they are below the ground???
     - Syncronizing health and damage dealt?
@@ -67,8 +67,7 @@ public class Enemy : Character {
                 if (agent.enabled)
                 {
                     beingMoved = true;
-                    agent.Stop();
-                    agent.enabled = false;
+                    agent.Stop(true);
                 }
             }
             else if (!item.currentlyInteracting)
@@ -77,7 +76,6 @@ public class Enemy : Character {
                 {
                     start_pos = transform.position;
                     beingMoved = false;
-                    agent.enabled = true;
                     agent.Resume();
                     giveNewStartPosition = true;
                 }
@@ -199,6 +197,4 @@ public class Enemy : Character {
             }
         }
     }
-
-    
 }
