@@ -21,7 +21,6 @@ GameObject:
   - component: {fileID: 4827001838537244}
   - component: {fileID: 33832393665220312}
   - component: {fileID: 23938655865859004}
-  - component: {fileID: 65965152661334972}
   m_Layer: 0
   m_Name: Well
   m_TagString: Untagged
@@ -39,9 +38,10 @@ GameObject:
   - component: {fileID: 4556541185275132}
   - component: {fileID: 54584094174207832}
   - component: {fileID: 114654307072857164}
+  - component: {fileID: 65928906006081756}
   m_Layer: 0
   m_Name: Well
-  m_TagString: Untagged
+  m_TagString: Interactable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -124,20 +124,20 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 126
   m_CollisionDetection: 0
---- !u!65 &65965152661334972
+--- !u!65 &65928906006081756
 BoxCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1445409926617024}
+  m_GameObject: {fileID: 1545755072742278}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 2.9119997, y: 3.5176303, z: 4.3373938}
-  m_Center: {x: -0.000000059604645, y: -0.0028055904, z: 1.853799}
+  m_Size: {x: 2.934603, y: 4.056348, z: 3.5361183}
+  m_Center: {x: -0.008128956, y: 2.0158901, z: -0.00000018626451}
 --- !u!114 &114654307072857164
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -149,6 +149,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5cb040de8219cf45ba6fcf756f768cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentlyInteracting: 0
   isMenuItem: 0
   isArrow: 0
   isNewItem: 1

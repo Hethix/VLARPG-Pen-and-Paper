@@ -21,7 +21,6 @@ GameObject:
   - component: {fileID: 4057059976329064}
   - component: {fileID: 33021211029596910}
   - component: {fileID: 23733493688338838}
-  - component: {fileID: 65800484131147012}
   m_Layer: 0
   m_Name: Logs
   m_TagString: Untagged
@@ -39,9 +38,10 @@ GameObject:
   - component: {fileID: 4264789618961314}
   - component: {fileID: 54870756067549970}
   - component: {fileID: 114373040271418782}
+  - component: {fileID: 65341116270029726}
   m_Layer: 0
   m_Name: Logs
-  m_TagString: Untagged
+  m_TagString: Interactable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -124,20 +124,20 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 126
   m_CollisionDetection: 0
---- !u!65 &65800484131147012
+--- !u!65 &65341116270029726
 BoxCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1098167204921024}
+  m_GameObject: {fileID: 1232884449095600}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.2, y: 1.1999998, z: 0.69291013}
-  m_Center: {x: 0.000000029802322, y: 0, z: 0.34645}
+  m_Size: {x: 1.2304116, y: 0.7075837, z: 1.226924}
+  m_Center: {x: 0.006523393, y: 0.32908946, z: -0.009417795}
 --- !u!114 &114373040271418782
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -149,6 +149,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5cb040de8219cf45ba6fcf756f768cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentlyInteracting: 0
   isMenuItem: 0
   isArrow: 0
   isNewItem: 1

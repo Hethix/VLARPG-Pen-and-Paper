@@ -6,8 +6,10 @@ public class NetworkedInteractable : Photon.MonoBehaviour {
 
     public GameObject avatarObject;
     public GameObject avatar;
+    private bool enemySizeFix = true;
     public GameObject followingObject;
     public bool areGameMaster;
+    
 
     private Vector3 receivedAvatarPos;
     private Quaternion receivedAvatarRota;
@@ -15,6 +17,10 @@ public class NetworkedInteractable : Photon.MonoBehaviour {
 
     private IEnumerator coroutine;
     public bool startNewRoutine;
+
+    public Enemy enemy;
+    public Enemy enemyGM;
+
 
 
     //public Transform objectGlobal;
@@ -34,17 +40,38 @@ public class NetworkedInteractable : Photon.MonoBehaviour {
         if (areGameMaster)
         {
             photonView.RPC("GiveAvatar", PhotonTargets.AllBufferedViaServer, avatarObject.name);
+            if(followingObject.tag == "Enemy")
+            {
+                enemyGM = followingObject.GetComponent<Enemy>();
+                enemyGM.ownedByGM = true;
+                enemy = followingObject.GetComponent<Enemy>();
+            }
         } else if (!areGameMaster)
         {
-           //Currently not doing anything here
+            if (avatarObject != null)
+            {
+                avatar = Instantiate(avatarObject, Vector3.zero, Quaternion.identity); //Temporary test position. Might be able to move this up in the statement above
+            }
+            if (avatar.tag == "Enemy")
+            {
+                enemy = avatar.GetComponent<Enemy>();
+            }
+            else
+            {
+                enemy = null;
+            }
         }
-        if(avatarObject != null)
+        
+        if(avatar != null)
         {
-            avatar = Instantiate(avatarObject, Vector3.zero, Quaternion.identity); //Temporary test position. Might be able to move this up in the statement above
+            this.transform.SetParent(avatar.transform);
+            avatar.transform.localScale = new Vector3(1, 1, 1);
+
+        } else
+        {
+            this.transform.SetParent(followingObject.transform);
+
         }
-
-
-        this.transform.SetParent(avatar.transform);
         this.transform.localPosition = Vector3.zero;
     }
 
@@ -58,14 +85,35 @@ public class NetworkedInteractable : Photon.MonoBehaviour {
                 StartCoroutine("DetectDestroy", 4.0f); //Runs the destroy detection every 4 seconds. Faster would properly impact performance
                 startNewRoutine = false;
             }
+
+            //If statement used to give other clients enemies a destination and start pos
+            if(enemyGM != null)
+            {
+                if (enemyGM.giveNewStartPosition)
+                {
+                    photonView.RPC("NewStartPosition", PhotonTargets.OthersBuffered, enemyGM.start_pos); //Give others a new start pos
+                    enemyGM.giveNewStartPosition = false;
+                }
+                if (enemyGM.giveNewDestination)
+                {
+                    photonView.RPC("GoTo", PhotonTargets.OthersBuffered, enemyGM.finalPosition);
+                    enemyGM.giveNewDestination = false;
+                }
+                if (enemyGM.setPlayerHP)
+                {
+                    photonView.RPC("SetPlayerHP", PhotonTargets.OthersBuffered, enemyGM.lastHitPlayer, enemyGM.setPlayerHpAmount, enemyGM.performBumpAttack);
+                    enemyGM.setPlayerHP = false;
+                }
+            }
         }
+
         if (photonView.isMine)
         {
             //There is a chance that isMine isn't allways the GM. and therefore I am not certain to use it.
         }
         else
         {
-            if(avatar != null) //Fix for trying to move an object that might not yet be spawned by the clients, before receiving data.
+            if(avatar != null && enemy == null) //Fix for trying to move an object that might not yet be spawned by the clients, before receiving data.
             { //Smothing of item movement
                 avatar.transform.position = Vector3.Lerp(avatar.transform.position, receivedAvatarPos, Time.deltaTime * 10);
                 avatar.transform.rotation = Quaternion.Lerp(avatar.transform.rotation, receivedAvatarRota, Time.deltaTime * 10);
@@ -89,17 +137,20 @@ public class NetworkedInteractable : Photon.MonoBehaviour {
     //Sending and receiving data
     void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
     {
-        if (stream.isWriting)
+        if (enemy == null)
         {
-            stream.SendNext(followingObject.transform.localPosition); 
-            stream.SendNext(followingObject.transform.localRotation);
-            stream.SendNext(followingObject.transform.localScale);
-        }
-        else
-        {
-            receivedAvatarPos = (Vector3)stream.ReceiveNext();
-            receivedAvatarRota = (Quaternion)stream.ReceiveNext();
-            receivedAvatarScale = (Vector3)stream.ReceiveNext();
+            if (stream.isWriting)
+            {
+                stream.SendNext(followingObject.transform.localPosition);
+                stream.SendNext(followingObject.transform.localRotation);
+                stream.SendNext(followingObject.transform.localScale);
+            }
+            else
+            {
+                receivedAvatarPos = (Vector3)stream.ReceiveNext();
+                receivedAvatarRota = (Quaternion)stream.ReceiveNext();
+                receivedAvatarScale = (Vector3)stream.ReceiveNext();
+            }
         }
     }
 
@@ -108,6 +159,7 @@ public class NetworkedInteractable : Photon.MonoBehaviour {
     {
         if(avatarObject == null)
         {
+            Debug.Log("Trying to give avatar with name: " + avatarName);
             avatarObject = Resources.Load<GameObject>("Prefabs/" + avatarName); //This works LOL
         }
     }
@@ -118,5 +170,26 @@ public class NetworkedInteractable : Photon.MonoBehaviour {
         Destroy(avatar);
         Destroy(gameObject);
     }
+    
+    [PunRPC]
+    void GoTo(Vector3 destination)
+    {
+        if(enemy != null)
+        {
+            enemy.agent.SetDestination(destination);
+        }
+    }
 
+    [PunRPC]
+    void NewStartPosition(Vector3 newStartPos)
+    {
+        enemy.agent.Warp(newStartPos); //Should give the GM's enemy position
+        enemy.start_pos = transform.position;
+    }
+
+    [PunRPC]
+    void SetPlayerHP(Player player, sbyte currentHP, bool performBump)
+    {
+        player.SetHP(currentHP);
+    }
 }

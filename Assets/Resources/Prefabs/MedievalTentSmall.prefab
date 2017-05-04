@@ -21,7 +21,6 @@ GameObject:
   - component: {fileID: 4298625317890858}
   - component: {fileID: 33980032571508486}
   - component: {fileID: 23408022712612190}
-  - component: {fileID: 64109066734485996}
   m_Layer: 0
   m_Name: MedievalTentSmall
   m_TagString: Untagged
@@ -39,9 +38,10 @@ GameObject:
   - component: {fileID: 4443729025747440}
   - component: {fileID: 54223866148926534}
   - component: {fileID: 114144125344752090}
+  - component: {fileID: 65696309212298366}
   m_Layer: 0
   m_Name: MedievalTentSmall
-  m_TagString: Untagged
+  m_TagString: Interactable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -124,22 +124,20 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 126
   m_CollisionDetection: 0
---- !u!64 &64109066734485996
-MeshCollider:
+--- !u!65 &65696309212298366
+BoxCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1482298887810620}
+  m_GameObject: {fileID: 1971866969940262}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Convex: 1
-  m_InflateMesh: 1
-  m_SkinWidth: 0.01
-  m_Mesh: {fileID: 4300000, guid: 0ab466c619430a84182c2a188ccd2d5b, type: 3}
+  m_Size: {x: 2.774547, y: 1.4512737, z: 4.1589932}
+  m_Center: {x: 1.046275, y: 0.639325, z: -1.981971}
 --- !u!114 &114144125344752090
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -151,6 +149,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5cb040de8219cf45ba6fcf756f768cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentlyInteracting: 0
   isMenuItem: 0
   isArrow: 0
   isNewItem: 1
