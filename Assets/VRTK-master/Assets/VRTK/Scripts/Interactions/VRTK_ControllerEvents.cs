@@ -1748,6 +1748,10 @@ namespace VRTK
             return angle;
         }
 
+#pragma warning disable 0618
+        /// <obsolete>
+        /// This is an obsolete method that will be removed in a future version
+        /// </obsolete>
         protected virtual void EmitAlias(ButtonAlias type, bool touchDown, float buttonPressure, ref bool buttonBool)
         {
             if (pointerToggleButton == type)
@@ -1828,6 +1832,7 @@ namespace VRTK
                 }
             }
         }
+#pragma warning restore 0618
 
         protected virtual bool Vector2ShallowEquals(Vector2 vectorA, Vector2 vectorB)
         {

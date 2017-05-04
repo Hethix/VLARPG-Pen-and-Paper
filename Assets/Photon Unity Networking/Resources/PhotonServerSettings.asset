@@ -46,4 +46,5 @@ MonoBehaviour:
   - GetHP
   - SetHP
   - SetPlayerHP
+  - Heal
   DisableAutoOpenWizard: 1

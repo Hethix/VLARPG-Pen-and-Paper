@@ -10,7 +10,7 @@ public class PlayerHUD : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-        self = gameObject.GetComponentInParent<Player>();
+        self = gameObject.GetComponent<Player>();
         Text.text = ("HP: [" + self.GetHP() + "]");
 
     }
