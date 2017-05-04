@@ -66,7 +66,7 @@ public class NetworkedPlayer : Photon.MonoBehaviour
             //Making smooth movement here
             this.transform.localPosition = Vector3.Lerp(this.transform.position, receivedBodyPos, Time.deltaTime * 10);
             this.transform.rotation = Quaternion.Lerp(this.transform.rotation, receivedBodyRota, Time.deltaTime * 10);
-            avatar.transform.localPosition = Vector3.Lerp(avatar.transform.position, receivedHeadPos, Time.deltaTime * 10);
+            avatar.transform.localPosition = Vector3.Lerp(avatar.transform.localPosition, receivedHeadPos, Time.deltaTime * 10);
             rotationQuaternion = Quaternion.Lerp(avatar.transform.rotation, receivedHeadRota, Time.deltaTime * 10);
             avatar.transform.rotation = Quaternion.Euler(new Vector3(90f, rotationQuaternion.y, 0f)); //needs testing.
         }
@@ -76,7 +76,7 @@ public class NetworkedPlayer : Photon.MonoBehaviour
     {
         if (stream.isWriting)
         {
-            stream.SendNext(playerGlobal.position);
+            stream.SendNext(playerGlobal.localPosition);
             stream.SendNext(playerGlobal.rotation);
             stream.SendNext(playerLocal.localPosition);
             stream.SendNext(playerLocal.localRotation); //properly need to change it so it only affects the y-axis
