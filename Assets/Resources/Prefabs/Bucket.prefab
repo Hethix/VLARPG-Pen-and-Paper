@@ -21,7 +21,6 @@ GameObject:
   - component: {fileID: 4772014370168776}
   - component: {fileID: 33934505831558674}
   - component: {fileID: 23006362001604478}
-  - component: {fileID: 65137210400172590}
   m_Layer: 0
   m_Name: Bucket
   m_TagString: Untagged
@@ -39,9 +38,10 @@ GameObject:
   - component: {fileID: 4255001290024046}
   - component: {fileID: 54936781090464306}
   - component: {fileID: 114823699799230994}
+  - component: {fileID: 65483058888830326}
   m_Layer: 0
   m_Name: Bucket
-  m_TagString: Untagged
+  m_TagString: Interactable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -124,20 +124,20 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 126
   m_CollisionDetection: 0
---- !u!65 &65137210400172590
+--- !u!65 &65483058888830326
 BoxCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1644704789118828}
+  m_GameObject: {fileID: 1954925140999346}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.6336, y: 0.62640095, z: 0.69304794}
-  m_Center: {x: -0.000000029802322, y: 0.00011378525, z: 0.34652397}
+  m_Size: {x: 0.6428541, y: 0.6948027, z: 0.63636076}
+  m_Center: {x: 0.0032467395, y: 0.34740582, z: 0.003246963}
 --- !u!114 &114823699799230994
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -149,6 +149,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5cb040de8219cf45ba6fcf756f768cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentlyInteracting: 0
   isMenuItem: 0
   isArrow: 0
   isNewItem: 1

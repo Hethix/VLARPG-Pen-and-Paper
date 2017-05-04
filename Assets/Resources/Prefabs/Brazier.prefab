@@ -21,9 +21,10 @@ GameObject:
   - component: {fileID: 4177282431294030}
   - component: {fileID: 114224527799249046}
   - component: {fileID: 54243078297315398}
+  - component: {fileID: 65758943617708704}
   m_Layer: 0
   m_Name: Brazier
-  m_TagString: Untagged
+  m_TagString: Interactable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -71,7 +72,6 @@ GameObject:
   - component: {fileID: 4263826463423162}
   - component: {fileID: 33978639907502564}
   - component: {fileID: 23277862533904986}
-  - component: {fileID: 65718969511587548}
   m_Layer: 0
   m_Name: modelTorch
   m_TagString: Untagged
@@ -185,20 +185,20 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 126
   m_CollisionDetection: 0
---- !u!65 &65718969511587548
+--- !u!65 &65758943617708704
 BoxCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1807805290065206}
+  m_GameObject: {fileID: 1618398859961290}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.4985781, y: 1.5140783, z: 1.4520978}
-  m_Center: {x: 0.00000011920932, y: 0.74934345, z: 0.000000059604666}
+  m_Size: {x: 1.5086641, y: 1.5249015, z: 1.454822}
+  m_Center: {x: 0.3192674, y: -0.8360478, z: -0.13000475}
 --- !u!108 &108600616177069900
 Light:
   m_ObjectHideFlags: 1
@@ -244,6 +244,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5cb040de8219cf45ba6fcf756f768cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentlyInteracting: 0
   isMenuItem: 0
   isArrow: 0
   isNewItem: 1
@@ -303,7 +304,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 2
-  randomSeed: 307444082
+  randomSeed: 1204466605
   InitialModule:
     serializedVersion: 3
     enabled: 1

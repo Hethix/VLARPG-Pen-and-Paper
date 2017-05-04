@@ -41,4 +41,9 @@ MonoBehaviour:
   - giveAvatar
   - GiveAvatar
   - DestroyAvatar
+  - GoTo
+  - NewStartPosition
+  - GetHP
+  - SetHP
+  - SetPlayerHP
   DisableAutoOpenWizard: 1

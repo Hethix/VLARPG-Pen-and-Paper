@@ -9,6 +9,10 @@ public class NetworkManager : MonoBehaviour {
     void Start()
     {
         PhotonNetwork.ConnectUsingSettings("0.1");
+        if (PhotonNetwork.connected)
+        {
+            Debug.Log("Connected");
+        }
     }
 
     void OnJoinedLobby()
