@@ -54,13 +54,10 @@ public class WandController : Photon.MonoBehaviour
         else
         {
             //Movement detection
-            if (controller.GetPress(padButton))
+            if (controller.GetPress(SteamVR_Controller.ButtonMask.Touchpad) && (controller.GetAxis().x != 0 || controller.GetAxis().y != 0))
             {
-                MoveCameraRig(false, controller.GetAxis().x, controller.GetAxis().y);
-            }
-            else if (controller.GetPress(gripButton))
-            {
-                MoveCameraRig(true, controller.GetAxis().x, controller.GetAxis().y);
+                Debug.Log("I see dead people" + controller.GetAxis().x + "   " + controller.GetAxis().y);
+                MoveCameraRig(controller.GetAxis().x, controller.GetAxis().y);
             }
 
             //Cast a ray, and use it to interact with.
@@ -154,19 +151,18 @@ public class WandController : Photon.MonoBehaviour
     }
 
 
-    private void MoveCameraRig(bool moveVertical, float x, float z)
+    private void MoveCameraRig(float x, float z)
     {
 
         //Debug.Log(mainCamera.transform.forward);
         moveSpeed = Time.deltaTime * 2.0f;
-        if (!moveVertical)
-        {
-            cameraRig.transform.Translate(mainCamera.transform.forward.x * Input.GetAxis("Horizontal"), 0, mainCamera.transform.forward.z * Input.GetAxis("Vertical"));
-        } else if (moveVertical)
-        {
+        //if (!moveVertical)
+        //{
+        //    cameraRig.transform.Translate(mainCamera.transform.forward.x * Input.GetAxis("Horizontal"), 0, mainCamera.transform.forward.z * Input.GetAxis("Vertical"));
+        //} else 
             rb.AddRelativeForce(gameObject.transform.TransformDirection(Vector3.forward) * z * 50);
             rb.AddRelativeForce(gameObject.transform.TransformDirection(Vector3.right) * x * 50);
-        }
+
     }
 
 

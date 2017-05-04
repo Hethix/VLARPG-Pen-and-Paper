@@ -17,7 +17,7 @@ public class PlayerInteraction : MonoBehaviour {
     // Use this for initialization
     public void Start () {
         trackedObject = GetComponentInChildren<SteamVR_TrackedObject>();
-        selfPlayer = gameObject.GetComponentInParent<Player>();
+        selfPlayer = gameObject.GetComponent<Player>();
         cameraRig = gameObject.GetComponentInParent<Transform>();
         rb = GetComponentInParent<Rigidbody>();
 
