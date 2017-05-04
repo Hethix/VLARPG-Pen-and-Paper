@@ -64,11 +64,11 @@ public class NetworkedPlayer : Photon.MonoBehaviour
         }else
         {
             //Making smooth movement here
-            /*this.transform.position = Vector3.Lerp(this.transform.position, receivedBodyPos, Time.deltaTime * 10);
+            this.transform.localPosition = Vector3.Lerp(this.transform.position, receivedBodyPos, Time.deltaTime * 10);
             this.transform.rotation = Quaternion.Lerp(this.transform.rotation, receivedBodyRota, Time.deltaTime * 10);
-            avatar.transform.position = Vector3.Lerp(avatar.transform.position, receivedHeadPos, Time.deltaTime * 10);
+            avatar.transform.localPosition = Vector3.Lerp(avatar.transform.position, receivedHeadPos, Time.deltaTime * 10);
             rotationQuaternion = Quaternion.Lerp(avatar.transform.rotation, receivedHeadRota, Time.deltaTime * 10);
-            avatar.transform.rotation = Quaternion.Euler(new Vector3(0f, rotationQuaternion.y, 0f)); //needs testing. */
+            avatar.transform.rotation = Quaternion.Euler(new Vector3(90f, rotationQuaternion.y, 0f)); //needs testing.
         }
     }
 
@@ -83,16 +83,10 @@ public class NetworkedPlayer : Photon.MonoBehaviour
         }
         else
         {
-            this.transform.position = (Vector3)stream.ReceiveNext();
-            this.transform.rotation = (Quaternion)stream.ReceiveNext();
-            avatar.transform.position = (Vector3)stream.ReceiveNext();
-            avatar.transform.rotation = (Quaternion)stream.ReceiveNext();
-
-            /*
             receivedBodyPos = (Vector3)stream.ReceiveNext();
             receivedBodyRota = (Quaternion)stream.ReceiveNext();
             receivedHeadPos = (Vector3)stream.ReceiveNext();
-            receivedHeadRota = (Quaternion)stream.ReceiveNext(); */
+            receivedHeadRota = (Quaternion)stream.ReceiveNext();
         }
     }
 }
