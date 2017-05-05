@@ -54,8 +54,16 @@ public class PlayerInteraction : MonoBehaviour {
     // Moving the player by use of a button. Gaze/orientation directed. 
     protected void Move(float x, float z)
     {
-        rb.AddRelativeForce(gameObject.transform.TransformDirection(Vector3.forward)*z * 50);
-        rb.AddRelativeForce(gameObject.transform.TransformDirection(Vector3.right) * x * 50);
+
+        Debug.Log(gameObject.transform.TransformDirection(Vector3.forward));
+
+        Vector3 forward = new Vector3(gameObject.transform.TransformDirection(Vector3.forward).x, 0, gameObject.transform.TransformDirection(Vector3.forward).z);
+        Vector3 right = new Vector3(gameObject.transform.TransformDirection(Vector3.right).x, 0, gameObject.transform.TransformDirection(Vector3.right).z);
+    
+        
+        rb.AddRelativeForce(forward * z * 50);
+        rb.AddRelativeForce(right * x * 50);
+        
     }
 
     // Detects collision, and performs heal if friend
