@@ -12,6 +12,7 @@ public class Player : Character
     protected byte trailFollowing;
     protected byte healingSkill;
     public byte sneakSkill; // amount of units the enemies can see you in sneak. They can see 25 normally. Suggest 20 for warriors/mages, 10-15 for rogues.   
+ 
 
     //System - small black button that brings up Big Picture overlay
     //ApplicationMenu - red button

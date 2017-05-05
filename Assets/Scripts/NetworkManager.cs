@@ -30,7 +30,7 @@ public class NetworkManager : MonoBehaviour {
         if (PhotonNetwork.playerList.Length < 2)
         {
             PhotonNetwork.Instantiate("NetworkedGameMaster", Vector3.zero, Quaternion.identity, 0);
-        } else if (PhotonNetwork.playerList.Length < 3)
+        } else if (PhotonNetwork.playerList.Length < 5)
         {
             PhotonNetwork.Instantiate("NetworkedPlayer", Vector3.zero, Quaternion.identity, 0);
         }

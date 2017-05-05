@@ -10,16 +10,6 @@ public class MagusInteraction : PlayerInteraction
     public override void Update()
     {
         device = SteamVR_Controller.Input((int)trackedObject.index);
-        // Heal
-        if (Input.GetKey(KeyCode.W))
-            gameObject.transform.position += Vector3.forward * 10 * Time.deltaTime;
-        if (Input.GetKey(KeyCode.A))
-            gameObject.transform.position += Vector3.left * 10 * Time.deltaTime;
-        if (Input.GetKey(KeyCode.S))
-            gameObject.transform.position += Vector3.back * 10 * Time.deltaTime;
-        if (Input.GetKey(KeyCode.D))
-            gameObject.transform.position += Vector3.right * 10 * Time.deltaTime;
-
 
         // Should move the player depending on direction of controller + touchpad direction 
         if (device.GetPress(SteamVR_Controller.ButtonMask.Touchpad) && (device.GetAxis().x != 0 || device.GetAxis().y != 0))
