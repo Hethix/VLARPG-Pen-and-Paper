@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Ranger : Player {
+public class Rogue : Player {
 
-	// Use this for initialization
-	void Start () {
+    void Start()
+    {
         //Attributes
         trapFinding = 5;
         trailFollowing = 5;
@@ -18,9 +18,9 @@ public class Ranger : Player {
         weaponDmg = 8; // This is the die size used for damage
         AC = 11; //Armour Class
     }
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+
+    void Update()
+    {
+
+    }
 }
