@@ -116,7 +116,7 @@ public class Enemy : Character {
         foreach (var obj in players)
         {
             player = obj.GetComponent<Player>();
-            if (GetDistance(gameObject, obj) < 0.1f && player.inStealth==false)
+            if (GetDistance(gameObject, obj) < 25 && player.inStealth==false)
             {
                 combatReady = true;
                 timer = 3.5f; 
