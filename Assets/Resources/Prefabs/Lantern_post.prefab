@@ -21,9 +21,11 @@ GameObject:
   - component: {fileID: 4753752076583176}
   - component: {fileID: 54016151102047700}
   - component: {fileID: 114653184394867404}
+  - component: {fileID: 65581077933163098}
+  - component: {fileID: 65942524642204910}
   m_Layer: 0
   m_Name: Lantern_post
-  m_TagString: Untagged
+  m_TagString: Interactable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -54,7 +56,6 @@ GameObject:
   - component: {fileID: 4208065648706052}
   - component: {fileID: 33891555994634814}
   - component: {fileID: 23231213501399290}
-  - component: {fileID: 64145620684649970}
   m_Layer: 0
   m_Name: Lantern_post
   m_TagString: Untagged
@@ -154,22 +155,32 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 126
   m_CollisionDetection: 0
---- !u!64 &64145620684649970
-MeshCollider:
+--- !u!65 &65581077933163098
+BoxCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1696163355225468}
+  m_GameObject: {fileID: 1202833988989758}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Convex: 1
-  m_InflateMesh: 0
-  m_SkinWidth: 0.01
-  m_Mesh: {fileID: 4300000, guid: ae637e66a5853a34fb6f9cec3982b747, type: 3}
+  m_Size: {x: 0.32193974, y: 3.8736913, z: 0.28965145}
+  m_Center: {x: -0.0000002483527, y: 1.9050306, z: 0}
+--- !u!65 &65942524642204910
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1202833988989758}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.51567143, y: 0.85473114, z: 1.7587854}
+  m_Center: {x: -0.016144494, y: 3.3015265, z: 0.589268}
 --- !u!108 &108999816690560924
 Light:
   m_ObjectHideFlags: 1
@@ -215,6 +226,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5cb040de8219cf45ba6fcf756f768cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentlyInteracting: 0
   isMenuItem: 0
   isArrow: 0
   isNewItem: 1

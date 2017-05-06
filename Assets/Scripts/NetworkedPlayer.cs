@@ -37,9 +37,9 @@ public class NetworkedPlayer : Photon.MonoBehaviour
             }
             else //Spawn a player with the designated prefab
             {
-                spawnedCameraRig = (GameObject)Instantiate(Resources.Load("Player"), new Vector3(102.0f, 16.0f, 60.0f), Quaternion.identity);
+                spawnedCameraRig = (GameObject)Instantiate(Resources.Load("Player" + "_" + avatar.name), new Vector3(102.0f, 16.0f, 60.0f), Quaternion.identity);
                 //spawnedCameraRig = Instantiate(Resources.Load("Player", typeof(GameObject))) as GameObject;
-                playerGlobal = GameObject.Find("Player(Clone)").transform;
+                playerGlobal = GameObject.Find("Player_" + avatar.name + "(Clone)").transform;
                 playerLocal = playerGlobal.Find("Camera (head)/Camera (eye)");
                 if (playerLocal == null)
                 {
@@ -64,11 +64,11 @@ public class NetworkedPlayer : Photon.MonoBehaviour
         }else
         {
             //Making smooth movement here
-            this.transform.position = Vector3.Lerp(this.transform.position, receivedBodyPos, Time.deltaTime * 10);
+            this.transform.localPosition = Vector3.Lerp(this.transform.position, receivedBodyPos, Time.deltaTime * 10);
             this.transform.rotation = Quaternion.Lerp(this.transform.rotation, receivedBodyRota, Time.deltaTime * 10);
-            avatar.transform.position = Vector3.Lerp(avatar.transform.position, receivedHeadPos, Time.deltaTime * 10);
+            avatar.transform.localPosition = Vector3.Lerp(avatar.transform.localPosition, receivedHeadPos, Time.deltaTime * 10);
             rotationQuaternion = Quaternion.Lerp(avatar.transform.rotation, receivedHeadRota, Time.deltaTime * 10);
-            avatar.transform.rotation = Quaternion.Euler(new Vector3(0f, rotationQuaternion.y, 0f)); //needs testing.
+            avatar.transform.rotation = Quaternion.Euler(new Vector3(90f, rotationQuaternion.y, 0f)); //needs testing.
         }
     }
 
@@ -76,7 +76,7 @@ public class NetworkedPlayer : Photon.MonoBehaviour
     {
         if (stream.isWriting)
         {
-            stream.SendNext(playerGlobal.position);
+            stream.SendNext(playerGlobal.localPosition);
             stream.SendNext(playerGlobal.rotation);
             stream.SendNext(playerLocal.localPosition);
             stream.SendNext(playerLocal.localRotation); //properly need to change it so it only affects the y-axis

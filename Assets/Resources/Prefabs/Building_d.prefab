@@ -21,9 +21,10 @@ GameObject:
   - component: {fileID: 4821220755497472}
   - component: {fileID: 54434865629517022}
   - component: {fileID: 114030460265341588}
+  - component: {fileID: 65979793119720960}
   m_Layer: 0
   m_Name: Building_d
-  m_TagString: Untagged
+  m_TagString: Interactable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -38,7 +39,6 @@ GameObject:
   - component: {fileID: 4622499889333600}
   - component: {fileID: 33702601291995584}
   - component: {fileID: 23516668996731406}
-  - component: {fileID: 65565500395529570}
   m_Layer: 0
   m_Name: Building_d
   m_TagString: Untagged
@@ -124,20 +124,20 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 126
   m_CollisionDetection: 0
---- !u!65 &65565500395529570
+--- !u!65 &65979793119720960
 BoxCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1936024835026924}
+  m_GameObject: {fileID: 1832042771434030}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 3.9999993, y: 3.8400004, z: 6.409972}
-  m_Center: {x: 0, y: 1.6000001, z: 2.795014}
+  m_Size: {x: 4.003887, y: 6.4268494, z: 3.8675957}
+  m_Center: {x: -0.00000018626451, y: 2.8059282, z: -1.587971}
 --- !u!114 &114030460265341588
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -149,6 +149,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5cb040de8219cf45ba6fcf756f768cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentlyInteracting: 0
   isMenuItem: 0
   isArrow: 0
   isNewItem: 1

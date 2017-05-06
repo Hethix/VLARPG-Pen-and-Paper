@@ -7,7 +7,7 @@ public class InteractableItem : MonoBehaviour
 
     private WandController attachedWand;
     private Transform interactionPoint;
-    private bool currentlyInteracting;
+    public bool currentlyInteracting;
     private Coroutine stopRoutine;
     private Coroutine newItemRoutine;
 

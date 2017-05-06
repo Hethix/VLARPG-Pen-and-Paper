@@ -11,33 +11,22 @@ public class PlayerInteraction : MonoBehaviour {
     protected Transform cameraRig;
     protected Rigidbody rb; 
 
-    bool allied = false; // Used to delay the heal action. 
+    protected bool allied = false; // Used to delay the heal action. 
  
 
     // Use this for initialization
-    void Start () {
+    public void Start () {
         trackedObject = GetComponentInChildren<SteamVR_TrackedObject>();
-        selfPlayer = gameObject.GetComponentInParent<Player>();
+        selfPlayer = gameObject.GetComponent<Player>();
         cameraRig = gameObject.GetComponentInParent<Transform>();
         rb = GetComponentInParent<Rigidbody>();
 
     }
 
     // Update is called once per frame
-    void Update() {
+    public virtual void Update() {
 
         device = SteamVR_Controller.Input((int)trackedObject.index);
-        // Heal
-        if (Input.GetKey(KeyCode.W))
-            gameObject.transform.position += Vector3.forward * 10 * Time.deltaTime;
-        if (Input.GetKey(KeyCode.A))
-            gameObject.transform.position += Vector3.left * 10 * Time.deltaTime;
-        if (Input.GetKey(KeyCode.S))
-            gameObject.transform.position += Vector3.back * 10 * Time.deltaTime;
-        if (Input.GetKey(KeyCode.D))
-            gameObject.transform.position += Vector3.right * 10 * Time.deltaTime;
-        
-
         // Should move the player depending on direction of gaze. Consider making it 
         if (device.GetPress(SteamVR_Controller.ButtonMask.Touchpad) && (device.GetAxis().x != 0 || device.GetAxis().y != 0)) {
             Move(device.GetAxis().x, device.GetAxis().y);
@@ -48,7 +37,7 @@ public class PlayerInteraction : MonoBehaviour {
         // Note: Hasn't been tested yet. 
         if (allied == true) 
         {
-            if (device.GetPressDown(SteamVR_Controller.ButtonMask.Trigger)) //The player has to press before collision. 
+            if (device.GetPressDown(SteamVR_Controller.ButtonMask.Grip)) //The player has to press before collision. 
                 if (selfPlayer.CheckCooldown() == true)
                 {
                     selfPlayer.Heal(chara);
@@ -63,13 +52,21 @@ public class PlayerInteraction : MonoBehaviour {
     }
 
     // Moving the player by use of a button. Gaze/orientation directed. 
-    void Move(float x, float z)
+    protected void Move(float x, float z)
     {
-        rb.AddRelativeForce(gameObject.transform.TransformDirection(Vector3.forward)*z * 50);
-        rb.AddRelativeForce(gameObject.transform.TransformDirection(Vector3.right) * x * 50);
+
+        Debug.Log(gameObject.transform.TransformDirection(Vector3.forward));
+
+        Vector3 forward = new Vector3(gameObject.transform.TransformDirection(Vector3.forward).x, 0, gameObject.transform.TransformDirection(Vector3.forward).z);
+        Vector3 right = new Vector3(gameObject.transform.TransformDirection(Vector3.right).x, 0, gameObject.transform.TransformDirection(Vector3.right).z);
+    
+        
+        rb.AddRelativeForce(forward * z * 50);
+        rb.AddRelativeForce(right * x * 50);
+        
     }
 
-    // Detects collision, and performs attack/heal depending on friend or enemy
+    // Detects collision, and performs heal if friend
     void OnCollisionEnter(Collision target)
     {
 

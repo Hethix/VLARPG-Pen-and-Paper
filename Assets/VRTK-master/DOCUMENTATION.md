@@ -4887,6 +4887,17 @@ The GetAngularVelocity method returns the angular velocity of the body physics r
 
 The ResetVelocities method sets the rigidbody velocity and angular velocity to zero to stop the Play Area rigidbody from continuing to move if it has a velocity already.
 
+#### ResetFalling/0
+
+  > `public virtual void ResetFalling()`
+
+  * Parameters
+   * _none_
+  * Returns
+   * _none_
+
+The ResetFalling method force stops any falling states and conditions that might be set on this object.
+
 ### Example
 
 `VRTK/Examples/017_CameraRig_TouchpadWalking` has a collection of walls and slopes that can be traversed by the user with the touchpad but the user cannot pass through the objects as they are collidable and the rigidbody physics won't allow the intersection to occur.
@@ -6128,6 +6139,17 @@ The TriggerHapticPulse/1 method calls a single haptic pulse call on the controll
    * _none_
 
 The TriggerHapticPulse/3 method calls a haptic pulse for a specified amount of time rather than just a single tick. Each pulse can be separated by providing a `pulseInterval` to pause between each haptic pulse.
+
+#### CancelHapticPulse/1
+
+  > `public static void CancelHapticPulse(uint controllerIndex)`
+
+  * Parameters
+   * `uint controllerIndex` - The controller index to activate the haptic feedback on.
+  * Returns
+   * _none_
+
+The CancelHapticPulse method cancels the existing running haptic pulse on the given controller index.
 
 #### SetOpacity/3
 
