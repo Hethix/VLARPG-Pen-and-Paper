@@ -9,7 +9,7 @@ public class WeaponCollision : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-        selfPlayer = gameObject.GetComponent<Player>();
+        selfPlayer = transform.root.GetComponentInChildren<Player>();
 	}
 	
 	// Update is called once per frame
@@ -17,12 +17,13 @@ public class WeaponCollision : MonoBehaviour {
 		
 	}
 
-    void OnCollisionEnter(Collision target)
+    void OnTriggerEnter(Collider target)
     {
-
+        Debug.Log("Touched!");
         switch (target.gameObject.tag.ToString())
         {
             case "Enemy":
+                Debug.Log("Hit!");
                 chara = target.gameObject.GetComponent<Character>();
                 if (target.gameObject.tag.Equals("Enemy") == true)
                     if (selfPlayer.CheckCooldown() == true)

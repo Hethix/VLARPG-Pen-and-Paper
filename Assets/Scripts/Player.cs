@@ -29,14 +29,14 @@ public class Player : Character
 
     void Update()
     {
-        if (photonView.isMine)
-        {
-            Stealth();
-        }
-        else
-        {
-            // Currently not in use. Stealth is resolved in Enemy ??
-        }
+        //if (photonView.isMine)
+        //{
+        //    Stealth();
+        //}
+        //else
+        //{
+        //    // Currently not in use. Stealth is resolved in Enemy ??
+        //}
     }
 
     public void Stealth()
