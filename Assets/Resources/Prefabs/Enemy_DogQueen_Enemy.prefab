@@ -204,7 +204,7 @@ BoxCollider:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1163353842358120}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1.8480241, y: 3.527066, z: 1.2}
@@ -258,6 +258,7 @@ MonoBehaviour:
   lastHitPlayer: {fileID: 0}
   performBumpAttack: 0
   ownedByGM: 0
+  playermotherfucker: {fileID: 0}
 --- !u!195 &195974518063603804
 NavMeshAgent:
   m_ObjectHideFlags: 1

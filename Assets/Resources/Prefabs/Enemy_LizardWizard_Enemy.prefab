@@ -58,6 +58,7 @@ GameObject:
   - component: {fileID: 114859375622733902}
   - component: {fileID: 114076040807755412}
   - component: {fileID: 195915055165764388}
+  - component: {fileID: 65803123296301800}
   m_Layer: 0
   m_Name: Enemy_LizardWizard_Enemy
   m_TagString: Enemy
@@ -209,6 +210,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 10, y: 0.3, z: 10.000001}
   m_Center: {x: 0, y: 0, z: 0.0000038146973}
+--- !u!65 &65803123296301800
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1920587728012186}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.8480241, y: 3.527066, z: 1.2}
+  m_Center: {x: -0.12800378, y: 1.74143, z: 0}
 --- !u!114 &114076040807755412
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -242,6 +255,7 @@ MonoBehaviour:
   lastHitPlayer: {fileID: 0}
   performBumpAttack: 0
   ownedByGM: 0
+  playermotherfucker: {fileID: 0}
 --- !u!114 &114859375622733902
 MonoBehaviour:
   m_ObjectHideFlags: 1

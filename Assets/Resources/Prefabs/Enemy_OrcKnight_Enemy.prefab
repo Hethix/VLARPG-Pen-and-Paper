@@ -23,6 +23,7 @@ GameObject:
   - component: {fileID: 114500364213536846}
   - component: {fileID: 114459902402647434}
   - component: {fileID: 195101233022037016}
+  - component: {fileID: 65290250694159714}
   m_Layer: 0
   m_Name: Enemy_OrcKnight_Enemy
   m_TagString: Enemy
@@ -197,6 +198,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 0
+--- !u!65 &65290250694159714
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1198220854289202}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.8480241, y: 3.527066, z: 1.2}
+  m_Center: {x: -0.12800378, y: 1.74143, z: 0}
 --- !u!65 &65911908833981140
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -242,6 +255,7 @@ MonoBehaviour:
   lastHitPlayer: {fileID: 0}
   performBumpAttack: 0
   ownedByGM: 0
+  playermotherfucker: {fileID: 0}
 --- !u!114 &114500364213536846
 MonoBehaviour:
   m_ObjectHideFlags: 1

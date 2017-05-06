@@ -89,4 +89,10 @@ public class NetworkedPlayer : Photon.MonoBehaviour
             receivedHeadRota = (Quaternion)stream.ReceiveNext();
         }
     }
+
+    [PunRPC]
+    void DealDmgToEnemy(GameObject enemyHit, byte dmg)
+    {
+
+    }
 }
