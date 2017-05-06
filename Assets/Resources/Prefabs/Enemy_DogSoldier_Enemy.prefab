@@ -25,7 +25,7 @@ GameObject:
   - component: {fileID: 195925002307030024}
   - component: {fileID: 65862110671634410}
   m_Layer: 0
-  m_Name: DogSoldier_Enemy
+  m_Name: Enemy_DogSoldier_Enemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

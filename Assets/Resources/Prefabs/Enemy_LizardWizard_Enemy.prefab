@@ -59,7 +59,7 @@ GameObject:
   - component: {fileID: 114076040807755412}
   - component: {fileID: 195915055165764388}
   m_Layer: 0
-  m_Name: LizardWizard_Enemy
+  m_Name: Enemy_LizardWizard_Enemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

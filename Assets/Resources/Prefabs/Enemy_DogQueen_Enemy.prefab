@@ -25,7 +25,7 @@ GameObject:
   - component: {fileID: 195974518063603804}
   - component: {fileID: 65291989157579362}
   m_Layer: 0
-  m_Name: DogQueen_Enemy
+  m_Name: Enemy_DogQueen_Enemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

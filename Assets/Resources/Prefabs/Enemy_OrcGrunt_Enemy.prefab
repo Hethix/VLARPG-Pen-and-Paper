@@ -42,7 +42,7 @@ GameObject:
   - component: {fileID: 114832189199589766}
   - component: {fileID: 195098488353758082}
   m_Layer: 0
-  m_Name: OrcGrunt_Enemy
+  m_Name: Enemy_OrcGrunt_Enemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
