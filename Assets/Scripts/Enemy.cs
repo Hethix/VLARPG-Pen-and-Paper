@@ -85,9 +85,11 @@ public class Enemy : Character {
         }
         if (performBumpAttack)
         {
+            Debug.Log("Attack performed");
             bool changeBumpDirection = false;
             for(int i = 0; i < gameObject.transform.childCount; i++)
             {
+                Debug.Log("Entered forloop");
                 Transform child = gameObject.transform.GetChild(i);
                 if (child.rotation.x > 99)
                 {
@@ -95,6 +97,7 @@ public class Enemy : Character {
                 }
                 if (!changeBumpDirection)
                 {
+                    Debug.Log("Reset animation??");
                     child.localRotation = Quaternion.Euler(Mathf.Lerp(child.localRotation.x, 100, Time.fixedDeltaTime), child.rotation.y, child.rotation.z);
                 } else
                 {
@@ -173,12 +176,14 @@ public class Enemy : Character {
         rnd_dir += start_pos;
     }
 
-    void OnCollisionEnter(Collision target)
+    void OnTriggerEnter(Collider target)
     {
+        Debug.Log("Collision");
         if (ownedByGM)
         {
             if (target.gameObject.tag == "Player") //If a player hits an enemy
             {
+                Debug.Log("Attack performed"); 
                 Player player = target.gameObject.GetComponent<Player>();
                 if (CheckCooldown() == true)
                 {

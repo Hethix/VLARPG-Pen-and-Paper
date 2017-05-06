@@ -20,7 +20,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4745099120170938}
   - component: {fileID: 33389982958609622}
-  - component: {fileID: 64198028431967934}
   - component: {fileID: 23290239071749584}
   m_Layer: 0
   m_Name: Rogue_Front
@@ -38,7 +37,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4913286170831156}
   - component: {fileID: 33225085319322830}
-  - component: {fileID: 64491661311207452}
   - component: {fileID: 23103807828700608}
   m_Layer: 0
   m_Name: Rogue_Back
@@ -58,6 +56,7 @@ GameObject:
   - component: {fileID: 114092902633732662}
   - component: {fileID: 114633012223876342}
   - component: {fileID: 114963064846745530}
+  - component: {fileID: 136263376569100986}
   m_Layer: 0
   m_Name: NetworkedRogue
   m_TagString: Player
@@ -74,7 +73,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4967390431427068}
   - component: {fileID: 33914422047194304}
-  - component: {fileID: 136934413758751678}
   - component: {fileID: 23776513646558166}
   m_Layer: 0
   m_Name: Cylinder
@@ -91,7 +89,6 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4523816300069200}
-  - component: {fileID: 136796627017246770}
   m_Layer: 0
   m_Name: Player_Rogue
   m_TagString: Untagged
@@ -106,7 +103,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1991045467121896}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.376, y: 1.49, z: -0.014328003}
+  m_LocalPosition: {x: 0, y: 1.49, z: 0}
   m_LocalScale: {x: 2.4596946, y: 2.4596963, z: 2.4596963}
   m_Children:
   - {fileID: 4745099120170938}
@@ -122,7 +119,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1670821273014212}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 67.09, y: 9.481697, z: 211.944}
+  m_LocalPosition: {x: 100.21, y: 12.138, z: 79.81722}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4523816300069200}
@@ -136,7 +133,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1548739682178430}
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 0.004, y: -0.56, z: -0.000055832}
+  m_LocalPosition: {x: 0, y: -0.56, z: 0}
   m_LocalScale: {x: 0.04429292, y: 0.8858579, z: 0.07972724}
   m_Children: []
   m_Father: {fileID: 4523816300069200}
@@ -149,7 +146,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1626892763799796}
   m_LocalRotation: {x: -0, y: 0.7071068, z: -0.70710677, w: 0}
-  m_LocalPosition: {x: 0.019, y: -0.56, z: -0.00094417}
+  m_LocalPosition: {x: 0, y: -0.56, z: 0}
   m_LocalScale: {x: 0.04429292, y: 0.8858579, z: 0.07972721}
   m_Children: []
   m_Father: {fileID: 4523816300069200}
@@ -162,7 +159,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1976765731265796}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.0017773113, y: -0.84253997, z: 0.0058251107}
+  m_LocalPosition: {x: 0, y: -0.84253997, z: 0}
   m_LocalScale: {x: 0.35658023, y: 0.035658013, z: 0.35658008}
   m_Children: []
   m_Father: {fileID: 4523816300069200}
@@ -282,34 +279,6 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1976765731265796}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
---- !u!64 &64198028431967934
-MeshCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1548739682178430}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 0
-  serializedVersion: 2
-  m_Convex: 0
-  m_InflateMesh: 0
-  m_SkinWidth: 0.01
-  m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
---- !u!64 &64491661311207452
-MeshCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1626892763799796}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 0
-  serializedVersion: 2
-  m_Convex: 0
-  m_InflateMesh: 0
-  m_SkinWidth: 0.01
-  m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!114 &114092902633732662
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -347,8 +316,8 @@ MonoBehaviour:
   ObservedComponents:
   - {fileID: 114092902633732662}
   ObservedComponentsFoldoutOpen: 1
-  viewIdField: 0
-  instantiationId: -1
+  viewIdField: 2
+  instantiationId: 2
   currentMasterID: -1
   isRuntimeInstantiated: 0
 --- !u!114 &114963064846745530
@@ -371,29 +340,16 @@ MonoBehaviour:
   cooldown: 0
   inStealth: 0
   sneakSkill: 0
---- !u!136 &136796627017246770
+--- !u!136 &136263376569100986
 CapsuleCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1991045467121896}
+  m_GameObject: {fileID: 1670821273014212}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.2
-  m_Height: 0.83
-  m_Direction: 1
-  m_Center: {x: 0, y: -0.49, z: 0}
---- !u!136 &136934413758751678
-CapsuleCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1976765731265796}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 0
   m_Radius: 0.5
   m_Height: 2
   m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: 0, y: 0.18, z: 0}
