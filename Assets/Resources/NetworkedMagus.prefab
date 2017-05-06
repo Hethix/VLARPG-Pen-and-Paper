@@ -39,7 +39,7 @@ GameObject:
   - component: {fileID: 4039627895816032}
   - component: {fileID: 114598677745901036}
   - component: {fileID: 114587928334792070}
-  - component: {fileID: 114551070778296584}
+  - component: {fileID: 114346117098695248}
   m_Layer: 0
   m_Name: NetworkedMagus
   m_TagString: Player
@@ -310,7 +310,7 @@ MeshCollider:
   m_InflateMesh: 0
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &114551070778296584
+--- !u!114 &114346117098695248
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -318,18 +318,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 1130839194292438}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ae271136893148a4cb52cb403bf4ef0c, type: 3}
+  m_Script: {fileID: 11500000, guid: 58235451f1d7d8d4c80d3baf3d9e3554, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 40
-  HP: 2
-  attack: 2
-  dmg: 2
-  weaponDmg: 2
-  AC: 2
+  maxHP: 0
+  HP: 0
+  attack: 0
+  dmg: 0
+  weaponDmg: 0
+  AC: 0
   cooldown: 0
   inStealth: 0
-  sneakSkill: 2
+  sneakSkill: 0
 --- !u!114 &114587928334792070
 MonoBehaviour:
   m_ObjectHideFlags: 1

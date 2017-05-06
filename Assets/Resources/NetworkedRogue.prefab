@@ -57,7 +57,7 @@ GameObject:
   - component: {fileID: 4597195767488230}
   - component: {fileID: 114092902633732662}
   - component: {fileID: 114633012223876342}
-  - component: {fileID: 114791195699616600}
+  - component: {fileID: 114963064846745530}
   m_Layer: 0
   m_Name: NetworkedRogue
   m_TagString: Player
@@ -351,7 +351,7 @@ MonoBehaviour:
   instantiationId: -1
   currentMasterID: -1
   isRuntimeInstantiated: 0
---- !u!114 &114791195699616600
+--- !u!114 &114963064846745530
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -359,18 +359,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 1670821273014212}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ae271136893148a4cb52cb403bf4ef0c, type: 3}
+  m_Script: {fileID: 11500000, guid: 72336bce4cebb044da2a21202c653353, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 40
-  HP: 2
-  attack: 2
-  dmg: 2
-  weaponDmg: 2
-  AC: 2
+  maxHP: 0
+  HP: 0
+  attack: 0
+  dmg: 0
+  weaponDmg: 0
+  AC: 0
   cooldown: 0
   inStealth: 0
-  sneakSkill: 2
+  sneakSkill: 0
 --- !u!136 &136796627017246770
 CapsuleCollider:
   m_ObjectHideFlags: 1

@@ -37,7 +37,7 @@ GameObject:
   - component: {fileID: 4511939212473606}
   - component: {fileID: 114032436207301468}
   - component: {fileID: 114280427392115756}
-  - component: {fileID: 114752456815078318}
+  - component: {fileID: 114265516878023098}
   m_Layer: 0
   m_Name: NetworkedWarrior
   m_TagString: Player
@@ -325,6 +325,26 @@ MonoBehaviour:
   playerGlobal: {fileID: 0}
   playerLocal: {fileID: 0}
   isGameMaster: 0
+--- !u!114 &114265516878023098
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1722355731665224}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5711831c8d33244b87b1540d6139412, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHP: 0
+  HP: 0
+  attack: 0
+  dmg: 0
+  weaponDmg: 0
+  AC: 0
+  cooldown: 0
+  inStealth: 0
+  sneakSkill: 0
 --- !u!114 &114280427392115756
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -351,26 +371,6 @@ MonoBehaviour:
   instantiationId: -1
   currentMasterID: -1
   isRuntimeInstantiated: 0
---- !u!114 &114752456815078318
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1722355731665224}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ae271136893148a4cb52cb403bf4ef0c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHP: 40
-  HP: 2
-  attack: 2
-  dmg: 2
-  weaponDmg: 2
-  AC: 2
-  cooldown: 0
-  inStealth: 0
-  sneakSkill: 2
 --- !u!136 &136767156770916528
 CapsuleCollider:
   m_ObjectHideFlags: 1

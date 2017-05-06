@@ -72,7 +72,7 @@ public class PlayerInteraction : MonoBehaviour {
 
         switch (target.gameObject.tag.ToString())
         {
-            case "Ally":
+            case "Player":
                 chara = target.gameObject.GetComponent<Character>();
                 allied = true; 
                 break;
