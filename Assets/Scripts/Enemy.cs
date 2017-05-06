@@ -30,6 +30,8 @@ public class Enemy : Character {
 
     public bool ownedByGM = false;
 
+    public Collider playermotherfucker;
+
 
 
     /*Things to do/test:
@@ -83,11 +85,11 @@ public class Enemy : Character {
                 }
             }
         }
-        if (performBumpAttack)
+        /* if (performBumpAttack)
         {
             Debug.Log("Attack performed");
             bool changeBumpDirection = false;
-            for(int i = 0; i < gameObject.transform.childCount; i++)
+            for(int i = 0; i < 2; i++)
             {
                 Debug.Log("Entered forloop");
                 Transform child = gameObject.transform.GetChild(i);
@@ -104,12 +106,14 @@ public class Enemy : Character {
                     child.localRotation = Quaternion.Euler(Mathf.Lerp(child.localRotation.x, 90, Time.fixedDeltaTime), child.rotation.y, child.rotation.z);
                     if(child.rotation.x < 91)
                     {
+                        child.localRotation = Quaternion.Euler(90, child.rotation.y, child.rotation.z);
+                        changeBumpDirection = true;
                         performBumpAttack = false;
                     }
                 }
             }
 
-        }
+        } */
     }
 
     void DetectPlayers()
@@ -176,12 +180,14 @@ public class Enemy : Character {
         rnd_dir += start_pos;
     }
 
+    // Cannot serialize gameObject. Find another solution with strings / or other method
     void OnTriggerEnter(Collider target)
     {
         Debug.Log("Collision");
+        playermotherfucker = target;
         if (ownedByGM)
         {
-            if (target.gameObject.tag == "Player") //If a player hits an enemy
+            if (target.gameObject.tag.Equals("Player")) //If a player hits an enemy
             {
                 Debug.Log("Attack performed"); 
                 Player player = target.gameObject.GetComponent<Player>();
