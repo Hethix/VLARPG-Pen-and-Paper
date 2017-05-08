@@ -38,7 +38,7 @@ GameObject:
   - component: {fileID: 4786913858146946}
   m_Layer: 0
   m_Name: Enemy_OrcKnight_Enemy
-  m_TagString: Enemy
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 16
@@ -53,7 +53,7 @@ GameObject:
   - component: {fileID: 4286407274411352}
   m_Layer: 0
   m_Name: Enemy_OrcGrunt_Enemy
-  m_TagString: Enemy
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 16
@@ -691,7 +691,7 @@ GameObject:
   - component: {fileID: 4612068506275300}
   m_Layer: 0
   m_Name: Enemy_DogSoldier_Enemy
-  m_TagString: Enemy
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 16
@@ -821,7 +821,7 @@ GameObject:
   - component: {fileID: 4399192262550236}
   m_Layer: 0
   m_Name: Enemy_DogQueen_Enemy
-  m_TagString: Enemy
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 16
@@ -1334,7 +1334,7 @@ GameObject:
   - component: {fileID: 4901839773831306}
   m_Layer: 0
   m_Name: Enemy_DogBerserker_Enemy
-  m_TagString: Enemy
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 16
@@ -2165,7 +2165,7 @@ GameObject:
   - component: {fileID: 4704307421468762}
   m_Layer: 0
   m_Name: Enemy_LizardWizard_Enemy
-  m_TagString: Enemy
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 16

@@ -154,9 +154,12 @@ public class NetworkedInteractable : Photon.MonoBehaviour {
         {
             if (stream.isWriting)
             {
-                stream.SendNext(followingObject.transform.localPosition);
-                stream.SendNext(followingObject.transform.localRotation);
-                stream.SendNext(followingObject.transform.localScale);
+                if(followingObject != null)
+                {
+                    stream.SendNext(followingObject.transform.localPosition);
+                    stream.SendNext(followingObject.transform.localRotation);
+                    stream.SendNext(followingObject.transform.localScale);
+                }
             }
             else
             {
