@@ -242,7 +242,6 @@ GameObject:
   - component: {fileID: 33173721796676416}
   - component: {fileID: 114420019693912678}
   - component: {fileID: 54831414326398662}
-  - component: {fileID: 136749898582388482}
   m_Layer: 0
   m_Name: Player_Player_Magus
   m_TagString: Player
@@ -401,7 +400,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1946418529376336}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 84.40174, y: 9.66, z: 79.592575}
+  m_LocalPosition: {x: 76.9, y: 8.611642, z: 102.11957}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4169909327779966}
@@ -1312,19 +1311,6 @@ Behaviour:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1035169689778404}
   m_Enabled: 1
---- !u!136 &136749898582388482
-CapsuleCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1946418529376336}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.38
-  m_Height: 1.48
-  m_Direction: 1
-  m_Center: {x: 0, y: 0.56, z: 0}
 --- !u!222 &222820542699843218
 CanvasRenderer:
   m_ObjectHideFlags: 1
@@ -1339,7 +1325,7 @@ Canvas:
   m_GameObject: {fileID: 1333382321325232}
   m_Enabled: 1
   serializedVersion: 2
-  m_RenderMode: 1
+  m_RenderMode: 0
   m_Camera: {fileID: 20267499349281342}
   m_PlaneDistance: 1
   m_PixelPerfect: 0
