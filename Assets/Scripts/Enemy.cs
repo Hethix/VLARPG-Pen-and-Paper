@@ -83,6 +83,11 @@ public class Enemy : Character {
                 }
             }
         }
+
+        if(HP <= 0)
+        {
+            Destroy(gameObject);
+        }
         /* if (performBumpAttack)
         {
             Debug.Log("Attack performed");
