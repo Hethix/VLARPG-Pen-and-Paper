@@ -115,17 +115,13 @@ public class NetworkedPlayer : Photon.MonoBehaviour
     [PunRPC]
     void DealDmgToEnemy(int enemyHit, int currentHP)
     {
-        Debug.Log("Mushroom cloud");
         GameObject[] allEnemies = GameObject.FindGameObjectsWithTag("Enemy");
         foreach (var enemiesInArray in allEnemies)
         {
-            Debug.Log("Enemies in array" + enemiesInArray);
             Enemy localEnemyInArray = enemiesInArray.GetComponent<Enemy>();
-            Debug.Log(localEnemyInArray);
 
             if (localEnemyInArray.number == enemyHit)
             {
-                Debug.Log("Mushroom son of your MOM!");
                 localEnemyInArray.SetHP((sbyte)currentHP);
             }
         }

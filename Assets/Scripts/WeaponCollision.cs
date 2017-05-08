@@ -22,22 +22,18 @@ public class WeaponCollision : MonoBehaviour {
 
     void OnTriggerEnter(Collider target)
     {
-        Debug.Log("Touched!");
-        switch (target.gameObject.tag.ToString())
+        if (selfPlayer.CheckCooldown() == true)
         {
-            case "Enemy":
-                Debug.Log("Hit!");
+            switch (target.gameObject.tag.ToString())
+            {
+                case "Enemy":
                 chara = target.gameObject.GetComponent<Character>();
                 if (target.gameObject.tag.Equals("Enemy") == true)
-                    if (selfPlayer.CheckCooldown() == true)
-                    {
-                        selfPlayer.PerformAttack(chara);
-                        networkPlayer.lastHitEnemy = target.GetComponent<Enemy>();
-                         
-                        selfPlayer.dealDmg = true; 
-                        Debug.Log("Damage was applied ...");                                                        // Print
-                    }
-                break;
+                    selfPlayer.PerformAttack(chara);
+                    networkPlayer.lastHitEnemy = target.GetComponent<Enemy>();
+                    selfPlayer.dealDmg = true; 
+                }
+            break;
         }
     }
 }

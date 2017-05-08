@@ -181,7 +181,6 @@ public class NetworkedInteractable : Photon.MonoBehaviour {
     {
         if(avatarObject == null)
         {
-            Debug.Log("Trying to give avatar with name: " + avatarName);
             avatarObject = Resources.Load<GameObject>("Prefabs/" + avatarName); //This works LOL
         }
     }
