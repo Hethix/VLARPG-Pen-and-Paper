@@ -68,10 +68,6 @@ public class NetworkedInteractable : Photon.MonoBehaviour {
             this.transform.SetParent(avatar.transform);
             avatar.transform.localScale = new Vector3(1, 1, 1);
 
-        } else
-        {
-            this.transform.SetParent(followingObject.transform);
-
         }
         this.transform.localPosition = Vector3.zero;
     }
