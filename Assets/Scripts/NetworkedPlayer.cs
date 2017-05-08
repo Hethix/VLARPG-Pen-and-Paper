@@ -74,6 +74,7 @@ public class NetworkedPlayer : Photon.MonoBehaviour
                 if (myPlayerScript.dealDmg)
                 {
                     lastHitEnemyNumber = lastHitEnemy.number;
+                    Debug.Log("Mushroom death");
                     photonView.RPC("DealDmgToEnemy", PhotonTargets.OthersBuffered, lastHitEnemyNumber, (int)lastHitEnemy.GetHP());
                 }
                 if (myPlayerScript.HP <= 0)
@@ -113,12 +114,15 @@ public class NetworkedPlayer : Photon.MonoBehaviour
     [PunRPC]
     void DealDmgToEnemy(int enemyHit, int currentHP)
     {
+        Debug.Log("Mushroom cloud");
         GameObject[] allEnemies = GameObject.FindGameObjectsWithTag("Enemy");
         foreach (var enemiesInArray in allEnemies)
         {
+            Debug.Log("Mushroom son of a bitch");
             Enemy localEnemyInArray = enemiesInArray.GetComponent<Enemy>();
             if (localEnemyInArray.number == enemyHit)
             {
+                Debug.Log("Mushroom son of your MOM!");
                 localEnemyInArray.SetHP((sbyte)currentHP);
             }
         }
