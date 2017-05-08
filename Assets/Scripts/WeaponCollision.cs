@@ -5,15 +5,18 @@ using UnityEngine;
 public class WeaponCollision : MonoBehaviour {
 
     Player selfPlayer;
-    Character chara; 
+    Character chara;
+    public NetworkedPlayer networkPlayer; 
 
     // Use this for initialization
     void Start () {
         selfPlayer = transform.root.GetComponentInChildren<Player>();
-	}
-	
-	// Update is called once per frame
-	void Update () {
+        networkPlayer = transform.root.GetComponentInChildren<NetworkedPlayer>();
+
+    }
+
+    // Update is called once per frame
+    void Update () {
 		
 	}
 
@@ -29,6 +32,9 @@ public class WeaponCollision : MonoBehaviour {
                     if (selfPlayer.CheckCooldown() == true)
                     {
                         selfPlayer.PerformAttack(chara);
+                        networkPlayer.lastHitEnemy = target.GetComponent<Enemy>();
+                         
+                        selfPlayer.dealDmg = true; 
                         Debug.Log("Damage was applied ...");                                                        // Print
                     }
                 break;

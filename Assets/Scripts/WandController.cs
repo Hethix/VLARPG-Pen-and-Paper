@@ -32,6 +32,7 @@ public class WandController : Photon.MonoBehaviour
     private float moveSpeed;
     private Rigidbody rb;
 
+    private int amountOfInteractablesSpawned; 
 
     // Use this for initialization
     void Start()
@@ -201,6 +202,7 @@ public class WandController : Photon.MonoBehaviour
             networkedInteractableScriptRef.areGameMaster = true;
             networkedInteractableScriptRef.followingObject = interactingItem.gameObject;
             networkedInteractableScriptRef.avatarObject = hit.collider.GetComponent<InteractableItem>().worldPrefab;
+            networkedInteractableScriptRef.number = amountOfInteractablesSpawned + 1; 
         }
     }
 }

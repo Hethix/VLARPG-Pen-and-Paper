@@ -29,6 +29,7 @@ public class Enemy : Character {
     public bool performBumpAttack;
 
     public bool ownedByGM = false;
+    public int number; 
 
 
     /*Things to do/test:
@@ -46,6 +47,7 @@ public class Enemy : Character {
         giveNewDestination = false;
         setPlayerHP = false;
         performBumpAttack = false;
+        number = GetComponent<NetworkedInteractable>().number; 
     }
 
 	void Update () {

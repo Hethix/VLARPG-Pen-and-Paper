@@ -22,7 +22,8 @@ public class NetworkedInteractable : Photon.MonoBehaviour {
     public Enemy enemy;
     public Enemy enemyGM;
 
-    public Player player; 
+    public Player player;
+    public int number; 
 
     //public Transform objectGlobal;
     //public Transform objectLocal;

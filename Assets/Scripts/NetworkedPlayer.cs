@@ -18,8 +18,13 @@ public class NetworkedPlayer : Photon.MonoBehaviour
     private Quaternion rotationQuaternion;
     private Player myPlayerScript;
 
+    public Enemy lastHitEnemy; 
+    private int lastHitEnemyNumber;
+    PhotonView photonView; 
+
     void Start()
     {
+        photonView = GetComponent<PhotonView>();
         Debug.Log("i'm instantiated");
         //Since i check if this is mine, there should allways only be one camera rig in the scene, and that should be your own
         if (photonView.isMine)
@@ -54,7 +59,8 @@ public class NetworkedPlayer : Photon.MonoBehaviour
 
             //Disabling own avatar, so you can only see other's. Properly only relevant for players and not GM
             avatar.SetActive(false);
-            myPlayerScript = GetComponent<Player>();
+            if(!isGameMaster)
+                myPlayerScript = GetComponent<Player>();
         }
     }
 
@@ -62,9 +68,18 @@ public class NetworkedPlayer : Photon.MonoBehaviour
     {
         if (photonView.isMine)
         {
-            if(myPlayerScript.HP <= 0)
+            
+            if(!isGameMaster)
             {
-                Application.Quit();
+                if (myPlayerScript.dealDmg)
+                {
+                    lastHitEnemyNumber = lastHitEnemy.number;
+                    photonView.RPC("DealDmgToEnemy", PhotonTargets.OthersBuffered, lastHitEnemyNumber, (int)lastHitEnemy.GetHP());
+                }
+                if (myPlayerScript.HP <= 0)
+                {
+                    Application.Quit();
+                }
             }
         }else
         {
@@ -96,8 +111,16 @@ public class NetworkedPlayer : Photon.MonoBehaviour
     }
 
     [PunRPC]
-    void DealDmgToEnemy(GameObject enemyHit, byte dmg)
+    void DealDmgToEnemy(int enemyHit, int currentHP)
     {
-
+        GameObject[] allEnemies = GameObject.FindGameObjectsWithTag("Enemy");
+        foreach (var enemiesInArray in allEnemies)
+        {
+            Enemy localEnemyInArray = enemiesInArray.GetComponent<Enemy>();
+            if (localEnemyInArray.number == enemyHit)
+            {
+                localEnemyInArray.SetHP((sbyte)currentHP);
+            }
+        }
     }
 }
