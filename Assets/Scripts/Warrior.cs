@@ -19,8 +19,5 @@ public class Warrior : Player {
         AC = 16; //Armour Class
     }
 	
-	// Update is called once per frame
-	void Update () {
-        
-	}
+
 }

@@ -12,15 +12,13 @@ public class PlayerInteraction : MonoBehaviour {
     protected Rigidbody rb; 
 
     protected bool allied = false; // Used to delay the heal action. 
- 
 
     // Use this for initialization
     public void Start () {
-        trackedObject = GetComponentInChildren<SteamVR_TrackedObject>();
-        selfPlayer = gameObject.GetComponent<Player>();
+        trackedObject = GetComponent<SteamVR_TrackedObject>();
+        selfPlayer = gameObject.transform.root.GetComponentInChildren<Player>();
         cameraRig = gameObject.GetComponentInParent<Transform>();
         rb = GetComponentInParent<Rigidbody>();
-
     }
 
     // Update is called once per frame
@@ -31,7 +29,6 @@ public class PlayerInteraction : MonoBehaviour {
         if (device.GetPress(SteamVR_Controller.ButtonMask.Touchpad) && (device.GetAxis().x != 0 || device.GetAxis().y != 0)) {
             Move(device.GetAxis().x, device.GetAxis().y);
         }
-
 
         // Delays the heal until the user is holding the controller inside the other player and pressing the trigger. 
         // Note: Hasn't been tested yet. 
@@ -44,23 +41,20 @@ public class PlayerInteraction : MonoBehaviour {
                     Debug.Log("Healing was applied...");                                                        // Print
                 }
         }
-
         // Search by use of the ApplicationMenu
-        if (device.GetPressDown(SteamVR_Controller.ButtonMask.ApplicationMenu))
-            selfPlayer.Search();
 
+        if (device.GetPressDown(SteamVR_Controller.ButtonMask.ApplicationMenu))
+        {
+            Debug.Log("Warhammer spoilers ahead.");
+            selfPlayer.Search();
+        }
     }
 
     // Moving the player by use of a button. Gaze/orientation directed. 
     protected void Move(float x, float z)
     {
-
-        Debug.Log(gameObject.transform.TransformDirection(Vector3.forward));
-
         Vector3 forward = new Vector3(gameObject.transform.TransformDirection(Vector3.forward).x, 0, gameObject.transform.TransformDirection(Vector3.forward).z);
         Vector3 right = new Vector3(gameObject.transform.TransformDirection(Vector3.right).x, 0, gameObject.transform.TransformDirection(Vector3.right).z);
-    
-        
         rb.AddRelativeForce(forward * z * 50);
         rb.AddRelativeForce(right * x * 50);
         
@@ -69,7 +63,6 @@ public class PlayerInteraction : MonoBehaviour {
     // Detects collision, and performs heal if friend
     void OnCollisionEnter(Collision target)
     {
-
         switch (target.gameObject.tag.ToString())
         {
             case "Player":
@@ -86,5 +79,12 @@ public class PlayerInteraction : MonoBehaviour {
     {
         if (allied == true)
             allied = false; 
+    }
+
+    IEnumerator WaitFor() //This is needed to getComponent after parenting action. 
+    {
+        yield return new WaitForSeconds(0.1f);
+
+
     }
 }

@@ -215,7 +215,6 @@ GameObject:
   - component: {fileID: 4193109954367202}
   - component: {fileID: 114550623022984300}
   - component: {fileID: 114642152979562700}
-  - component: {fileID: 114436558576542392}
   m_Layer: 0
   m_Name: Controller (left)
   m_TagString: Untagged
@@ -472,7 +471,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1207337807793750}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 83.85919, y: 9.049334, z: 82.13013}
+  m_LocalPosition: {x: 84.52409, y: 9.419764, z: 87.37302}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4193109954367202}
@@ -1529,27 +1528,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   img: {fileID: 114668422899686884}
---- !u!114 &114436558576542392
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1423295946006626}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ae271136893148a4cb52cb403bf4ef0c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHP: 0
-  HP: 0
-  attack: 0
-  dmg: 0
-  weaponDmg: 0
-  AC: 0
-  cooldown: 0
-  inStealth: 0
-  sneakSkill: 0
-  dealDmg: 0
 --- !u!114 &114477695246154566
 MonoBehaviour:
   m_ObjectHideFlags: 1

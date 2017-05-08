@@ -242,6 +242,7 @@ GameObject:
   - component: {fileID: 33173721796676416}
   - component: {fileID: 114420019693912678}
   - component: {fileID: 54831414326398662}
+  - component: {fileID: 114051102580504720}
   m_Layer: 0
   m_Name: Player_Player_Magus
   m_TagString: Player
@@ -400,7 +401,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1946418529376336}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 76.9, y: 8.611642, z: 102.11957}
+  m_LocalPosition: {x: 60.17826, y: 8.923733, z: 211.92218}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4169909327779966}
@@ -644,6 +645,27 @@ MonoBehaviour:
   uiClickPressed: 0
   menuPressed: 0
   controllerVisible: 1
+--- !u!114 &114051102580504720
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1946418529376336}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 58235451f1d7d8d4c80d3baf3d9e3554, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHP: 0
+  HP: 0
+  attack: 0
+  dmg: 0
+  weaponDmg: 0
+  AC: 0
+  cooldown: 0
+  inStealth: 0
+  sneakSkill: 0
+  dealDmg: 0
 --- !u!114 &114053055517570092
 MonoBehaviour:
   m_ObjectHideFlags: 1

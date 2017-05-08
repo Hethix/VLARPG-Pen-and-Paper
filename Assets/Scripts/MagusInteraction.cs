@@ -45,7 +45,6 @@ public class MagusInteraction : PlayerInteraction
         {
             selfPlayer.SetCooldown(5);
             Object partiSystem = Instantiate(Resources.Load("Fireball"), transform);
-            Debug.Log("Expelli-FIREBALL!");                                                        // Print
         }
     }
 }

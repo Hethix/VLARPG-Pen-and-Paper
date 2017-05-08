@@ -74,7 +74,6 @@ public class NetworkedPlayer : Photon.MonoBehaviour
                 if (myPlayerScript.dealDmg)
                 {
                     lastHitEnemyNumber = lastHitEnemy.number;
-                    Debug.Log("Mushroom death");
                     photonView.RPC("DealDmgToEnemy", PhotonTargets.OthersBuffered, lastHitEnemyNumber, (int)lastHitEnemy.GetHP());
                     myPlayerScript.dealDmg = false; 
                 }
