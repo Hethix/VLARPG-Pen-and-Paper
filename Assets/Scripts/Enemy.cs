@@ -30,9 +30,6 @@ public class Enemy : Character {
 
     public bool ownedByGM = false;
 
-    public Collider playermotherfucker;
-
-
 
     /*Things to do/test:
     - Make enemies able to attack players by bumping into them
@@ -181,18 +178,16 @@ public class Enemy : Character {
     }
 
     // Cannot serialize gameObject. Find another solution with strings / or other method
-    void OnTriggerEnter(Collider target)
+    void OnTriggerStay(Collider target)
     {
-        Debug.Log("Collision");
-        playermotherfucker = target;
         if (ownedByGM)
         {
-            if (target.gameObject.tag.Equals("Player")) //If a player hits an enemy
-            {
-                Debug.Log("Attack performed"); 
-                Player player = target.gameObject.GetComponent<Player>();
-                if (CheckCooldown() == true)
+            if (CheckCooldown() == true)
+            { 
+                if (target.gameObject.tag.Equals("Player")) //If a player hits an enemy
                 {
+                    Debug.Log("Attack performed"); 
+                    Player player = target.gameObject.GetComponent<Player>();
                     PerformAttack(player);
                     setPlayerHpAmount = player.GetHP();
                     lastHitPlayer = player;

@@ -97,7 +97,9 @@ public class Character : Photon.MonoBehaviour {
         
         if (defender.GetHP() - tempDmg <= 0)
         {
-            defender.Die();
+            defender.SetHP(0);
+            
+            // defender.Die();
         }
         else
         {
