@@ -56,7 +56,6 @@ public class WandController : Photon.MonoBehaviour
             //Movement detection
             if (controller.GetPress(SteamVR_Controller.ButtonMask.Touchpad) && (controller.GetAxis().x != 0 || controller.GetAxis().y != 0))
             {
-                Debug.Log("I see dead people" + controller.GetAxis().x + "   " + controller.GetAxis().y);
                 MoveCameraRig(controller.GetAxis().x, controller.GetAxis().y);
             }
 
