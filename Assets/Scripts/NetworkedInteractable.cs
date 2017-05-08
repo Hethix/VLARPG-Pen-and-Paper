@@ -190,7 +190,16 @@ public class NetworkedInteractable : Photon.MonoBehaviour {
     [PunRPC]
     void SetPlayerHP(string playerString, int currentHP, bool performBump)
     {
-        player = GameObject.Find(playerString).GetComponent<Player>();
+        try
+        {
+            player = GameObject.Find(playerString).GetComponent<Player>();
+
+        }
+        catch (System.Exception)
+        {
+
+            throw;
+        }
         if (player == null)
         {
             GameObject[] allPlayers = GameObject.FindGameObjectsWithTag("Player");
