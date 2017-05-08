@@ -47,7 +47,6 @@ public class Enemy : Character {
         giveNewDestination = false;
         setPlayerHP = false;
         performBumpAttack = false;
-        number = GetComponent<NetworkedInteractable>().number; 
     }
 
 	void Update () {
