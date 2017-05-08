@@ -250,7 +250,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHP: 10
-  HP: 0
+  HP: 10
   attack: 1
   dmg: 1
   weaponDmg: 6
@@ -271,7 +271,7 @@ MonoBehaviour:
   lastHitPlayer: {fileID: 0}
   performBumpAttack: 0
   ownedByGM: 0
-  playermotherfucker: {fileID: 0}
+  number: 0
 --- !u!195 &195098488353758082
 NavMeshAgent:
   m_ObjectHideFlags: 1
