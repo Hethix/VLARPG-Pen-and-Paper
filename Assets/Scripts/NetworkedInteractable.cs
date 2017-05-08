@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class NetworkedInteractable : Photon.MonoBehaviour {
 
@@ -195,10 +196,9 @@ public class NetworkedInteractable : Photon.MonoBehaviour {
             player = GameObject.Find(playerString).GetComponent<Player>();
 
         }
-        catch (System.Exception)
+        catch (Exception e)
         {
-
-            throw;
+            Debug.Log(e + "Hello");
         }
         if (player == null)
         {
