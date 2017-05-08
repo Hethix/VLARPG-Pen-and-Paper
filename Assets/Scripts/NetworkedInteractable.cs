@@ -47,7 +47,7 @@ public class NetworkedInteractable : Photon.MonoBehaviour {
                 enemyGM = followingObject.GetComponent<Enemy>();
                 enemyGM.ownedByGM = true;
                 enemyGM.number = number;
-                photonView.RPC("GiveEnemyNumber", PhotonTargets.AllBufferedViaServer, number);
+                Debug.Log("The number "+ number);
                 enemy = followingObject.GetComponent<Enemy>();
             }
         } else if (!areGameMaster)
@@ -73,10 +73,12 @@ public class NetworkedInteractable : Photon.MonoBehaviour {
 
         }
         this.transform.localPosition = Vector3.zero;
+        if(areGameMaster)
+            photonView.RPC("GiveEnemyNumber", PhotonTargets.AllBufferedViaServer, number);
     }
 
-	// Update is called once per frame
-	void Update () {
+    // Update is called once per frame
+    void Update () {
         if (areGameMaster)
         {
             if (startNewRoutine)
