@@ -6,14 +6,14 @@ public class Projectile : MonoBehaviour
 {
 
     Rigidbody rb;
-    Player sender;
+    Player selfPlayer;
     Character chara;
 
     // Use this for initialization
     void Start()
     {
         rb = gameObject.GetComponent<Rigidbody>();
-        sender = GetComponentInParent<Player>();
+        selfPlayer = GetComponentInParent<Player>();
         StartCoroutine(DestroyAfterTime(5));
         Physics.IgnoreCollision(gameObject.GetComponentInParent<Collider>(), GetComponent<Collider>());
     }
@@ -41,8 +41,9 @@ public class Projectile : MonoBehaviour
             case "Enemy":
                 chara = target.gameObject.GetComponent<Character>();
                 if (target.gameObject.tag.Equals("Enemy") == true)
-                    sender.PerformAttack(chara);
-                Debug.Log("Damage was applied ...");                                                        // Print
+                    selfPlayer.PerformAttack(chara);
+                    networkPlayer.lastHitEnemy = target.GetComponent<Enemy>();
+                    selfPlayer.dealDmg = true;
                 Destroy(gameObject);
                 break;
             default:

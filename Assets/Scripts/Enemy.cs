@@ -192,7 +192,7 @@ public class Enemy : Character {
             { 
                 if (target.gameObject.tag.Equals("Player")) //If a player hits an enemy
                 {
-                    Debug.Log("Attack performed"); 
+
                     Player player = target.gameObject.GetComponent<Player>();
                     PerformAttack(player);
                     setPlayerHpAmount = player.GetHP();
