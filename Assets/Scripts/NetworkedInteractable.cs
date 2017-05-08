@@ -204,7 +204,6 @@ public class NetworkedInteractable : Photon.MonoBehaviour {
                 if (playerInArray.transform.name.StartsWith("Player_Player"))
                 {
                     player = playerInArray.GetComponentInChildren<Player>();
-                    Debug.Log("Player-snask");
                     break; 
                 }
             }
