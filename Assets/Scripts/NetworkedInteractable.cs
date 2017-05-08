@@ -101,7 +101,7 @@ public class NetworkedInteractable : Photon.MonoBehaviour {
                 }
                 if (enemyGM.setPlayerHP)
                 {
-                    photonView.RPC("SetPlayerHP", PhotonTargets.OthersBuffered, enemyGM.lastHitPlayer, enemyGM.setPlayerHpAmount, enemyGM.performBumpAttack);
+                    photonView.RPC("SetPlayerHP", PhotonTargets.OthersBuffered, enemyGM.lastHitPlayer.ToString(), enemyGM.setPlayerHpAmount, enemyGM.performBumpAttack);
                     enemyGM.setPlayerHP = false;
                 }
             }
@@ -188,8 +188,9 @@ public class NetworkedInteractable : Photon.MonoBehaviour {
     }
 
     [PunRPC]
-    void SetPlayerHP(Player player, sbyte currentHP, bool performBump)
+    void SetPlayerHP(string playerString, sbyte currentHP, bool performBump)
     {
+        Player player = GameObject.Find(playerString).GetComponent<Player>();
         player.SetHP(currentHP);
     }
 }
