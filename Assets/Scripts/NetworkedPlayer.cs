@@ -16,6 +16,7 @@ public class NetworkedPlayer : Photon.MonoBehaviour
     private Vector3 receivedHeadPos;
     private Quaternion receivedHeadRota;
     private Quaternion rotationQuaternion;
+    private Player myPlayerScript;
 
     void Start()
     {
@@ -53,6 +54,7 @@ public class NetworkedPlayer : Photon.MonoBehaviour
 
             //Disabling own avatar, so you can only see other's. Properly only relevant for players and not GM
             avatar.SetActive(false);
+            myPlayerScript = GetComponent<Player>();
         }
     }
 
@@ -60,7 +62,10 @@ public class NetworkedPlayer : Photon.MonoBehaviour
     {
         if (photonView.isMine)
         {
-            //The local movement is handled by setting as child up in start
+            if(myPlayerScript.HP <= 0)
+            {
+                Application.Quit();
+            }
         }else
         {
             //Making smooth movement here
