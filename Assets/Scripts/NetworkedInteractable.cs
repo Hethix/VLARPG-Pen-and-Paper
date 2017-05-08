@@ -46,7 +46,8 @@ public class NetworkedInteractable : Photon.MonoBehaviour {
             {
                 enemyGM = followingObject.GetComponent<Enemy>();
                 enemyGM.ownedByGM = true;
-                enemyGM.number = number; 
+                enemyGM.number = number;
+                photonView.RPC("GiveEnemyNumber", PhotonTargets.AllBufferedViaServer, number);
                 enemy = followingObject.GetComponent<Enemy>();
             }
         } else if (!areGameMaster)
@@ -104,19 +105,19 @@ public class NetworkedInteractable : Photon.MonoBehaviour {
                     enemyGM.setPlayerHP = false;
                 }
             }
-            if (enemyGM.number != number)
-            {
-                enemyGM.number = number;
-            }
+            //if (enemyGM.number != number)
+            //{
+            //    enemyGM.number = number;
+            //}
 
         }
-        if (!areGameMaster)
-        {
-            if (enemy.number != number)
-            {
-                enemy.number = number;
-            }
-        }
+        //if (!areGameMaster)
+        //{
+        //    if (enemy.number != number)
+        //    {
+        //        enemy.number = number;
+        //    }
+        //}
 
         if (photonView.isMine)
         {
@@ -223,5 +224,10 @@ public class NetworkedInteractable : Photon.MonoBehaviour {
             }
         }
         player.SetHP((sbyte)currentHP);
+    }
+    [PunRPC]
+    void GiveEnemyNumber(int givenNumber)
+    {
+        enemy.number = givenNumber;
     }
 }
