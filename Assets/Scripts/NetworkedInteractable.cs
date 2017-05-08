@@ -58,7 +58,6 @@ public class NetworkedInteractable : Photon.MonoBehaviour {
             if (avatar.tag == "Enemy")
             {
                 enemy = avatar.GetComponent<Enemy>();
-                enemy.number = number; 
             }
             else
             {
@@ -104,6 +103,18 @@ public class NetworkedInteractable : Photon.MonoBehaviour {
                     photonView.RPC("SetPlayerHP", PhotonTargets.OthersBuffered, enemyGM.lastHitPlayer.ToString(), (int)enemyGM.setPlayerHpAmount, enemyGM.performBumpAttack);
                     enemyGM.setPlayerHP = false;
                 }
+            }
+            if (enemyGM.number != number)
+            {
+                enemyGM.number = number;
+            }
+
+        }
+        if (!areGameMaster)
+        {
+            if (enemy.number != number)
+            {
+                enemy.number = number;
             }
         }
 
