@@ -8,6 +8,8 @@ public class Projectile : MonoBehaviour
     Rigidbody rb;
     Player selfPlayer;
     Character chara;
+    public NetworkedPlayer networkPlayer;
+
 
     // Use this for initialization
     void Start()
@@ -33,7 +35,7 @@ public class Projectile : MonoBehaviour
         Destroy(gameObject);
     }
 
-    void OnCollisionEnter(Collision target)
+    void OnTriggerEnter(Collider target)
     {
 
         switch (target.gameObject.tag.ToString())

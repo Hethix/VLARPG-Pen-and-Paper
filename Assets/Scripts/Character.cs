@@ -116,7 +116,7 @@ public class Character : Photon.MonoBehaviour {
     //Takes a float of time which is added to the general cooldown (time until next ability can be used)
     public void SetCooldown(float timeInSecs) { 
         cooldown = Time.time + timeInSecs;
-        Debug.Log("Cooldown set to .. " + timeInSecs);
+
     }
 
     // Returns true/false whether or not the cooldown has run out. 

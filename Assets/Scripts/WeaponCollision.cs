@@ -27,13 +27,18 @@ public class WeaponCollision : MonoBehaviour {
             switch (target.gameObject.tag.ToString())
             {
                 case "Enemy":
-                chara = target.gameObject.GetComponent<Character>();
-                if (target.gameObject.tag.Equals("Enemy") == true)
-                    selfPlayer.PerformAttack(chara);
-                    networkPlayer.lastHitEnemy = target.GetComponent<Enemy>();
-                    selfPlayer.dealDmg = true; 
-                }
-            break;
+                    chara = target.gameObject.GetComponent<Character>();
+                    if (target.gameObject.tag.Equals("Enemy") == true)
+                    {
+                        selfPlayer.PerformAttack(chara);
+                        networkPlayer.lastHitEnemy = target.GetComponent<Enemy>();
+                        selfPlayer.dealDmg = true;
+                    }
+                    break;
+                default:
+                    break;
+
+            }
         }
     }
 }
