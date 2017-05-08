@@ -21,7 +21,7 @@ public class NetworkedInteractable : Photon.MonoBehaviour {
     public Enemy enemy;
     public Enemy enemyGM;
 
-
+    public Player player; 
 
     //public Transform objectGlobal;
     //public Transform objectLocal;
@@ -190,7 +190,7 @@ public class NetworkedInteractable : Photon.MonoBehaviour {
     [PunRPC]
     void SetPlayerHP(string playerString, int currentHP, bool performBump)
     {
-        Player player = GameObject.Find(playerString).GetComponent<Player>();
+        player = GameObject.Find(playerString).GetComponent<Player>();
         player.SetHP((sbyte)currentHP);
     }
 }
