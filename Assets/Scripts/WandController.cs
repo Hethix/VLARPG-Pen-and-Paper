@@ -202,7 +202,8 @@ public class WandController : Photon.MonoBehaviour
             networkedInteractableScriptRef.areGameMaster = true;
             networkedInteractableScriptRef.followingObject = interactingItem.gameObject;
             networkedInteractableScriptRef.avatarObject = hit.collider.GetComponent<InteractableItem>().worldPrefab;
-            networkedInteractableScriptRef.number = amountOfInteractablesSpawned + 1; 
+            networkedInteractableScriptRef.number = amountOfInteractablesSpawned + 1;
+            amountOfInteractablesSpawned++; 
         }
     }
 }
