@@ -46,6 +46,7 @@ public class NetworkedInteractable : Photon.MonoBehaviour {
             {
                 enemyGM = followingObject.GetComponent<Enemy>();
                 enemyGM.ownedByGM = true;
+                enemyGM.number = number; 
                 enemy = followingObject.GetComponent<Enemy>();
             }
         } else if (!areGameMaster)
@@ -57,6 +58,7 @@ public class NetworkedInteractable : Photon.MonoBehaviour {
             if (avatar.tag == "Enemy")
             {
                 enemy = avatar.GetComponent<Enemy>();
+                enemy.number = number; 
             }
             else
             {
