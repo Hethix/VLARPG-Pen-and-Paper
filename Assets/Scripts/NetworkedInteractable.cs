@@ -170,7 +170,7 @@ public class NetworkedInteractable : Photon.MonoBehaviour {
 
     IEnumerator WaitForEnemyComponent() //This is needed to apply numbers to enemies after they've recieved their component
     {
-        yield return new WaitForSeconds(0.001f);
+        yield return new WaitForSeconds(0.01f);
         photonView.RPC("GiveEnemyNumber", PhotonTargets.AllBufferedViaServer, number);
     }
 
