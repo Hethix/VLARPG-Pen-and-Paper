@@ -6,7 +6,7 @@ public class MenuController : MonoBehaviour {
     public GameObject[] prefabArr;
     public short pageNumber = 0;
     private short currentNum = 0;
-    private short maxPageNum = 4;
+    private short maxPageNum = 8;
     private Texture[] pageTexture;
     public MeshRenderer[] pageDisplay;
 
