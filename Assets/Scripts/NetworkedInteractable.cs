@@ -73,8 +73,8 @@ public class NetworkedInteractable : Photon.MonoBehaviour {
 
         }
         this.transform.localPosition = Vector3.zero;
-        if(areGameMaster)
-            photonView.RPC("GiveEnemyNumber", PhotonTargets.AllBufferedViaServer, number);
+        if (areGameMaster)
+            StartCoroutine(WaitForEnemyComponent());
     }
 
     // Update is called once per frame
@@ -168,6 +168,12 @@ public class NetworkedInteractable : Photon.MonoBehaviour {
         }
     }
 
+    IEnumerator WaitForEnemyComponent() //This is needed to apply numbers to enemies after they've recieved their component
+    {
+        yield return new WaitForSeconds(0.001f);
+        photonView.RPC("GiveEnemyNumber", PhotonTargets.AllBufferedViaServer, number);
+    }
+
     [PunRPC]
     void GiveAvatar(string avatarName)
     {
@@ -227,6 +233,7 @@ public class NetworkedInteractable : Photon.MonoBehaviour {
         }
         player.SetHP((sbyte)currentHP);
     }
+
     [PunRPC]
     void GiveEnemyNumber(int givenNumber)
     {
