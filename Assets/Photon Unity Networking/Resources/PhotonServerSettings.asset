@@ -48,4 +48,5 @@ MonoBehaviour:
   - SetPlayerHP
   - Heal
   - DealDmgToEnemy
+  - GiveEnemyNumber
   DisableAutoOpenWizard: 1
