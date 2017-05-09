@@ -67,7 +67,7 @@ public class PlayerInteraction : MonoBehaviour {
     }
 
     // Detects collision, and performs heal if friend
-    void OnTriggerEnter(Collision target)
+    void OnTriggerEnter(Collider target)
     {
         Debug.Log("Target touched");
         switch (target.gameObject.tag.ToString())
