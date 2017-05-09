@@ -29,7 +29,7 @@ public class NetworkManager : MonoBehaviour {
 
         if (PhotonNetwork.playerList.Length < 2)
         {
-            PhotonNetwork.Instantiate("NetworkedPlayer", Vector3.zero, Quaternion.identity, 0);
+            PhotonNetwork.Instantiate("NetworkedWarrior", Vector3.zero, Quaternion.identity, 0);
         } else if (PhotonNetwork.playerList.Length < 3)
         {
             PhotonNetwork.Instantiate("NetworkedMagus", Vector3.zero, Quaternion.identity, 0);
