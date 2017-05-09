@@ -67,7 +67,7 @@ public class PlayerInteraction : MonoBehaviour {
     }
 
     // Detects collision, and performs heal if friend
-    void OnCollisionEnter(Collider target)
+    void OnCollisionEnter(Collision target)
     {
         switch (target.gameObject.tag.ToString())
         {
@@ -76,7 +76,7 @@ public class PlayerInteraction : MonoBehaviour {
                 if (target.gameObject.tag.Equals("Player") == true)
                 {
                     selfPlayer.Healing(chara);
-                    networkPlayer.lastHitPlayer = target.GetComponent<Player>();
+                    networkPlayer.lastHitPlayer = target.gameObject.GetComponent<Player>();
                     selfPlayer.healPlayer = true; 
                     allied = true;
                 }
