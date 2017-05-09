@@ -5,11 +5,12 @@ using UnityEngine;
 public class PlayerInteraction : MonoBehaviour {
 
     protected Player selfPlayer;
-    protected Character chara;
+    protected Player chara;
     protected SteamVR_TrackedObject trackedObject;
     protected SteamVR_Controller.Device device;
     protected Transform cameraRig;
-    protected Rigidbody rb; 
+    protected Rigidbody rb;
+    public NetworkedPlayer networkPlayer;
 
     protected bool allied = false; // Used to delay the heal action. 
 
@@ -19,6 +20,8 @@ public class PlayerInteraction : MonoBehaviour {
         selfPlayer = gameObject.transform.root.GetComponentInChildren<Player>();
         cameraRig = gameObject.GetComponentInParent<Transform>();
         rb = GetComponentInParent<Rigidbody>();
+        networkPlayer = transform.root.GetComponentInChildren<NetworkedPlayer>();
+
     }
 
     // Update is called once per frame
@@ -32,20 +35,23 @@ public class PlayerInteraction : MonoBehaviour {
 
         // Delays the heal until the user is holding the controller inside the other player and pressing the trigger. 
         // Note: Hasn't been tested yet. 
-        if (allied == true) 
+
+        if (selfPlayer.CheckCooldown() == true)
         {
-            if (device.GetPressDown(SteamVR_Controller.ButtonMask.Grip)) //The player has to press before collision. 
-                if (selfPlayer.CheckCooldown() == true)
+            if (device.GetPressDown(SteamVR_Controller.ButtonMask.Grip))  //The player has to press before collision. 
+            {
+                if (allied == true)
                 {
-                    selfPlayer.Heal(chara);
+                    selfPlayer.Healing(chara);
+                    selfPlayer.healPlayer = true;
                     Debug.Log("Healing was applied...");                                                        // Print
                 }
+            }
         }
         // Search by use of the ApplicationMenu
 
         if (device.GetPressDown(SteamVR_Controller.ButtonMask.ApplicationMenu))
         {
-            Debug.Log("Warhammer spoilers ahead.");
             selfPlayer.Search();
         }
     }
@@ -61,18 +67,24 @@ public class PlayerInteraction : MonoBehaviour {
     }
 
     // Detects collision, and performs heal if friend
-    void OnCollisionEnter(Collision target)
+    void OnCollisionEnter(Collider target)
     {
         switch (target.gameObject.tag.ToString())
         {
             case "Player":
-                chara = target.gameObject.GetComponent<Character>();
-                allied = true; 
+                chara = target.gameObject.GetComponent<Player>();
+                if (target.gameObject.tag.Equals("Player") == true)
+                {
+                    selfPlayer.Healing(chara);
+                    networkPlayer.lastHitPlayer = target.GetComponent<Player>();
+                    selfPlayer.healPlayer = true; 
+                    allied = true;
+                }
                 break;
             default:
                 Debug.Log("The target does not have any of the tags defined in this switch.");
                 break;
-        }  
+        }
     }
 
     void OnCollisionExit(Collision target)
@@ -80,6 +92,7 @@ public class PlayerInteraction : MonoBehaviour {
         if (allied == true)
             allied = false; 
     }
+
 
     IEnumerator WaitFor() //This is needed to getComponent after parenting action. 
     {

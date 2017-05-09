@@ -20,6 +20,7 @@ public class NetworkedPlayer : Photon.MonoBehaviour
 
     public Enemy lastHitEnemy; 
     private int lastHitEnemyNumber;
+    public Player lastHitPlayer; 
     PhotonView photonView; 
 
     void Start()
@@ -77,6 +78,11 @@ public class NetworkedPlayer : Photon.MonoBehaviour
                     photonView.RPC("DealDmgToEnemy", PhotonTargets.OthersBuffered, lastHitEnemyNumber, (int)lastHitEnemy.GetHP());
                     myPlayerScript.dealDmg = false; 
                 }
+                if (myPlayerScript.healPlayer)
+                {
+                    photonView.RPC("Heal", PhotonTargets.OthersBuffered, lastHitPlayer, (int)lastHitPlayer.GetHP());
+                    myPlayerScript.healPlayer = false; 
+                }
                 if (myPlayerScript.HP <= 0)
                 {
                     Application.Quit();
@@ -124,5 +130,16 @@ public class NetworkedPlayer : Photon.MonoBehaviour
                 localEnemyInArray.SetHP((sbyte)currentHP);
             }
         }
+    }
+
+    [PunRPC]
+    void Heal(string name, int healValue)
+    {
+        Player defender = GameObject.Find(name).GetComponent<Player>();
+            if (defender.GetHP() + myPlayerScript.healingSkill > defender.maxHP)
+                defender.SetHP(defender.maxHP);
+            else
+                defender.SetHP((sbyte)(defender.GetHP() + myPlayerScript.healingSkill));
+            myPlayerScript.SetCooldown(10);
     }
 }

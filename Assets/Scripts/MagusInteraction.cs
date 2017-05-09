@@ -25,7 +25,8 @@ public class MagusInteraction : PlayerInteraction
             if (device.GetPressDown(SteamVR_Controller.ButtonMask.Trigger)) //The player has to press before collision. 
                 if (selfPlayer.CheckCooldown() == true)
                 {
-                    selfPlayer.Heal(chara);
+                    selfPlayer.Healing(chara);
+                    selfPlayer.healPlayer = true;
                     Debug.Log("Healing was applied...");                                                        // Print
                 }
         }
