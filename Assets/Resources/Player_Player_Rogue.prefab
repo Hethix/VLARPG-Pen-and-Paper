@@ -215,6 +215,7 @@ GameObject:
   - component: {fileID: 4193109954367202}
   - component: {fileID: 114550623022984300}
   - component: {fileID: 114642152979562700}
+  - component: {fileID: 65136419933306042}
   m_Layer: 0
   m_Name: Controller (left)
   m_TagString: Untagged
@@ -377,6 +378,7 @@ GameObject:
   - component: {fileID: 4187930001466016}
   - component: {fileID: 114862073887061412}
   - component: {fileID: 114337251087818026}
+  - component: {fileID: 65799621645637668}
   m_Layer: 0
   m_Name: Controller (right)
   m_TagString: Untagged
@@ -1185,6 +1187,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
+--- !u!65 &65136419933306042
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1423295946006626}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.1, y: 0.08, z: 0.17}
+  m_Center: {x: -0.005, y: -0.03, z: -0.008}
 --- !u!65 &65154821051461036
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -1197,6 +1211,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 7.42, y: 0.51, z: 0.34}
   m_Center: {x: 3.75, y: 0.54, z: 0}
+--- !u!65 &65799621645637668
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1894100858572536}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.1, y: 0.08, z: 0.17}
+  m_Center: {x: -0.005, y: -0.03, z: -0.008}
 --- !u!65 &65914337461419290
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -1478,6 +1504,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e2a8fcf027e1afd42a566c4eceaf8af5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  networkPlayer: {fileID: 0}
 --- !u!114 &114342035637815378
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1688,6 +1715,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e2a8fcf027e1afd42a566c4eceaf8af5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  networkPlayer: {fileID: 0}
 --- !u!114 &114666588514093540
 MonoBehaviour:
   m_ObjectHideFlags: 1

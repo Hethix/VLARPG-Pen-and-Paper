@@ -75,14 +75,10 @@ public class PlayerInteraction : MonoBehaviour {
 
             case "Player":
                 chara = target.gameObject.GetComponent<Player>();
-        Debug.Log("Target touched");
-        if (target.gameObject.tag.Equals("Player") == true)
-                {
+        Debug.Log("This is a player");
                     selfPlayer.Healing(chara);
                     networkPlayer.lastHitPlayer = target.gameObject.GetComponent<Player>();
-                    selfPlayer.healPlayer = true; 
                     allied = true;
-                }
                 break;
             default:
                 Debug.Log("The target does not have any of the tags defined in this switch.");

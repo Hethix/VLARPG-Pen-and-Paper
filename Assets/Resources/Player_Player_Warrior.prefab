@@ -82,6 +82,7 @@ GameObject:
   - component: {fileID: 4552739293719216}
   - component: {fileID: 114143182521654174}
   - component: {fileID: 114196224420405480}
+  - component: {fileID: 65748577087156936}
   m_Layer: 0
   m_Name: Controller (right)
   m_TagString: Untagged
@@ -167,6 +168,7 @@ GameObject:
   - component: {fileID: 4748975202083906}
   - component: {fileID: 114744272239201710}
   - component: {fileID: 114831687387039348}
+  - component: {fileID: 65091045938495614}
   m_Layer: 0
   m_Name: Controller (left)
   m_TagString: Untagged
@@ -373,7 +375,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1145519368581810}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 80.951485, y: 8.549561, z: 84.29911}
+  m_LocalPosition: {x: 101.691414, y: 10.92013, z: 83.39241}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4748975202083906}
@@ -878,6 +880,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
+--- !u!65 &65091045938495614
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1705960234796518}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.1, y: 0.08, z: 0.17}
+  m_Center: {x: -0.005, y: -0.03, z: -0.008}
 --- !u!65 &65396612587254764
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -890,6 +904,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 7.42, y: 0.51, z: 0.34}
   m_Center: {x: 3.75, y: 0.54, z: 0}
+--- !u!65 &65748577087156936
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1215713402067644}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.1, y: 0.08, z: 0.17}
+  m_Center: {x: -0.005, y: -0.03, z: -0.008}
 --- !u!81 &81227533395922436
 AudioListener:
   m_ObjectHideFlags: 1
@@ -1093,6 +1119,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e2a8fcf027e1afd42a566c4eceaf8af5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  networkPlayer: {fileID: 0}
 --- !u!114 &114198225986811168
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1187,12 +1214,12 @@ MonoBehaviour:
   autoPopulateObjectReferences: 1
   autoManageScriptDefines: 1
   activeScriptingDefineSymbolsWithoutSDKClasses: []
-  actualBoundaries: {fileID: 0}
-  actualHeadset: {fileID: 0}
-  actualLeftController: {fileID: 0}
-  actualRightController: {fileID: 0}
-  modelAliasLeftController: {fileID: 0}
-  modelAliasRightController: {fileID: 0}
+  actualBoundaries: {fileID: 1145519368581810}
+  actualHeadset: {fileID: 1648021652537862}
+  actualLeftController: {fileID: 1705960234796518}
+  actualRightController: {fileID: 1215713402067644}
+  modelAliasLeftController: {fileID: 1490086949649140}
+  modelAliasRightController: {fileID: 1986722331947782}
   scriptAliasLeftController: {fileID: 1827678739060654}
   scriptAliasRightController: {fileID: 1720264427778536}
   cachedSystemSDKInfo:
@@ -1531,6 +1558,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e2a8fcf027e1afd42a566c4eceaf8af5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  networkPlayer: {fileID: 0}
 --- !u!114 &114864624988634564
 MonoBehaviour:
   m_ObjectHideFlags: 1

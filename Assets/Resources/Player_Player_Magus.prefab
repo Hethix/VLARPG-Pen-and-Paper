@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4169909327779966}
   - component: {fileID: 114806177645236960}
   - component: {fileID: 114428027842867694}
+  - component: {fileID: 65109817285826388}
   m_Layer: 0
   m_Name: Controller (left)
   m_TagString: Untagged
@@ -190,6 +191,7 @@ GameObject:
   - component: {fileID: 4519286754463746}
   - component: {fileID: 114870363339419064}
   - component: {fileID: 114056812741108050}
+  - component: {fileID: 65504693944029604}
   m_Layer: 0
   m_Name: Controller (right)
   m_TagString: Untagged
@@ -571,6 +573,30 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
+--- !u!65 &65109817285826388
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1024801308881788}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.1, y: 0.08, z: 0.17}
+  m_Center: {x: -0.005, y: -0.03, z: -0.008}
+--- !u!65 &65504693944029604
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1442698169700200}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.1, y: 0.08, z: 0.17}
+  m_Center: {x: -0.005, y: -0.03, z: -0.008}
 --- !u!81 &81653855519714768
 AudioListener:
   m_ObjectHideFlags: 1
@@ -664,8 +690,11 @@ MonoBehaviour:
   AC: 0
   cooldown: 0
   inStealth: 0
+  healingSkill: 0
   sneakSkill: 0
   dealDmg: 0
+  healPlayer: 0
+  networkPlayer: {fileID: 0}
 --- !u!114 &114053055517570092
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -704,6 +733,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a49ca5574de85a04287599a592fb7b9d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  networkPlayer: {fileID: 0}
 --- !u!114 &114072017223303066
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -929,6 +959,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a49ca5574de85a04287599a592fb7b9d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  networkPlayer: {fileID: 0}
 --- !u!114 &114429133106390878
 MonoBehaviour:
   m_ObjectHideFlags: 1

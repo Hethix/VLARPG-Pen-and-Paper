@@ -136,10 +136,7 @@ public class NetworkedPlayer : Photon.MonoBehaviour
     void Heal(string name, int healValue)
     {
         Player defender = GameObject.Find(name).GetComponent<Player>();
-            if (defender.GetHP() + myPlayerScript.healingSkill > defender.maxHP)
-                defender.SetHP(defender.maxHP);
-            else
-                defender.SetHP((sbyte)(defender.GetHP() + myPlayerScript.healingSkill));
-            myPlayerScript.SetCooldown(10);
+        defender.SetHP((sbyte)(healValue));
+        myPlayerScript.SetCooldown(10);
     }
 }
