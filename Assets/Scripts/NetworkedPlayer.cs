@@ -139,7 +139,7 @@ public class NetworkedPlayer : Photon.MonoBehaviour
         GameObject[] defenders = GameObject.FindGameObjectsWithTag("Player");
         foreach (var players in defenders)
         {
-            Player localPlayersInArray = players.GetComponent<Player>();
+            Player localPlayersInArray = players.GetComponentInChildren<Player>();
 
             if (localPlayersInArray.name == name)
             {
