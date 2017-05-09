@@ -21,8 +21,6 @@ GameObject:
   - component: {fileID: 4211795887305868}
   - component: {fileID: 33162906047897728}
   - component: {fileID: 23175233232887876}
-  - component: {fileID: 65967548375233376}
-  - component: {fileID: 65415429997329842}
   m_Layer: 0
   m_Name: Building_a
   m_TagString: Untagged
@@ -40,9 +38,11 @@ GameObject:
   - component: {fileID: 4767441152408998}
   - component: {fileID: 54932051757226622}
   - component: {fileID: 114377792167307672}
+  - component: {fileID: 65120968760461782}
+  - component: {fileID: 65655979695277094}
   m_Layer: 0
   m_Name: Building_a
-  m_TagString: Untagged
+  m_TagString: Interactable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -125,32 +125,32 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 126
   m_CollisionDetection: 0
---- !u!65 &65415429997329842
+--- !u!65 &65120968760461782
 BoxCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1112723454248238}
+  m_GameObject: {fileID: 1557420037441202}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 12.598295, y: 6.9808755, z: 6.980394}
-  m_Center: {x: 4.211609, y: 6.505585, z: 3.0800505}
---- !u!65 &65967548375233376
+  m_Size: {x: 4.264386, y: 7.027115, z: 10.185857}
+  m_Center: {x: 0.030466542, y: 5.724255, z: 0.2136033}
+--- !u!65 &65655979695277094
 BoxCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1112723454248238}
+  m_GameObject: {fileID: 1557420037441202}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 4.1279693, y: 10.396277, z: 6.980394}
-  m_Center: {x: -0.02355194, y: 4.798126, z: 3.079699}
+  m_Size: {x: 12.645599, y: 7.027115, z: 7.0435786}
+  m_Center: {x: 4.221077, y: 5.724255, z: -1.5720509}
 --- !u!114 &114377792167307672
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -162,6 +162,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5cb040de8219cf45ba6fcf756f768cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentlyInteracting: 0
   isMenuItem: 0
   isArrow: 0
   isNewItem: 1

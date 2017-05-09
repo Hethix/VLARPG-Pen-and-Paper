@@ -4,14 +4,16 @@ using UnityEngine;
 
 public class Player : Character
 {
+    PhotonView photonView;
+
     public bool inStealth;
-
-
     //Attributes
     protected byte trapFinding;
     protected byte trailFollowing;
     protected byte healingSkill;
     public byte sneakSkill; // amount of units the enemies can see you in sneak. They can see 25 normally. Suggest 20 for warriors/mages, 10-15 for rogues.   
+
+    bool dealDmg; 
 
     //System - small black button that brings up Big Picture overlay
     //ApplicationMenu - red button
@@ -23,28 +25,20 @@ public class Player : Character
 
     void Start()
     {
-
+        dealDmg = false; 
+        photonView = GetComponent<PhotonView>();
     }
 
     void Update()
     {
-
-        Stealth();
-    }
-
-
-
-
-    public void Heal(Character defender)
-    {
-        if (CheckCooldown() == true)
-        {
-            if (defender.GetHP() + healingSkill > defender.maxHP)
-                defender.SetHP(defender.maxHP);
-            else
-                defender.SetHP((sbyte)(defender.GetHP() + healingSkill)); 
-            SetCooldown(10);
-        }
+        //if (photonView.isMine)
+        //{
+        //    Stealth();
+        //}
+        //else
+        //{
+        //    // Currently not in use. Stealth is resolved in Enemy ??
+        //}
     }
 
     public void Stealth()
@@ -90,6 +84,19 @@ public class Player : Character
                 obj.GetComponent<ParticleSystem>().Play();
                 trailComponent.CallDestroyAfterTime();
             }
+        }
+    }
+
+    [PunRPC]
+    public void Heal(Character defender)
+    {
+        if (CheckCooldown() == true)
+        {
+            if (defender.GetHP() + healingSkill > defender.maxHP)
+                defender.SetHP(defender.maxHP);
+            else
+                defender.SetHP((sbyte)(defender.GetHP() + healingSkill));
+            SetCooldown(10);
         }
     }
 }

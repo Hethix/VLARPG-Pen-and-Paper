@@ -97,7 +97,7 @@ public class MenuController : MonoBehaviour {
             currentChild = this.gameObject.transform.GetChild(i);
             if (currentNum == maxPageNum)
             {
-                if(i > (displayArr.Length % 6) -1)
+                if(i > displayArr.Length % 6)
                 {
                     currentChild.GetComponent<InteractableItem>().worldPrefab = null;
                 } else

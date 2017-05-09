@@ -169,6 +169,8 @@ namespace VRTK
         protected string footColliderContainerNameCheck;
         protected const string BODY_COLLIDER_CONTAINER_NAME = "BodyColliderContainer";
         protected const string FOOT_COLLIDER_CONTAINER_NAME = "FootColliderContainer";
+        protected bool enableBodyCollisionsStartingValue;
+        protected float fallMinTime;
 
         // Draws a sphere for current standing position and a sphere for current headset position.
         // Set to `true` to view the debug spheres.
@@ -286,12 +288,21 @@ namespace VRTK
             bodyRigidbody.angularVelocity = Vector3.zero;
         }
 
+        /// <summary>
+        /// The ResetFalling method force stops any falling states and conditions that might be set on this object.
+        /// </summary>
+        public virtual void ResetFalling()
+        {
+            StopFall();
+        }
+
         protected override void OnEnable()
         {
             base.OnEnable();
             SetupPlayArea();
             SetupHeadset();
             footColliderContainerNameCheck = VRTK_SharedMethods.GenerateVRTKObjectName(true, FOOT_COLLIDER_CONTAINER_NAME);
+            enableBodyCollisionsStartingValue = enableBodyCollisions;
             EnableDropToFloor();
             EnableBodyPhysics();
         }
@@ -529,7 +540,7 @@ namespace VRTK
 
         protected virtual void CheckFalling()
         {
-            if (isFalling && VRTK_SharedMethods.RoundFloat(lastPlayAreaPosition.y, fallCheckPrecision) == VRTK_SharedMethods.RoundFloat(playArea.position.y, fallCheckPrecision))
+            if (isFalling && fallMinTime < Time.time && VRTK_SharedMethods.RoundFloat(lastPlayAreaPosition.y, fallCheckPrecision) == VRTK_SharedMethods.RoundFloat(playArea.position.y, fallCheckPrecision))
             {
                 StopFall();
             }
@@ -564,7 +575,9 @@ namespace VRTK
             RaycastHit standingDownRayCollision;
 
             //Determine the current valid floor that the user is standing over
+#pragma warning disable 0618
             currentValidFloorObject = (VRTK_CustomRaycast.Raycast(customRaycast, standingDownRay, out standingDownRayCollision, layersToIgnore, Mathf.Infinity) ? standingDownRayCollision.collider.gameObject : null);
+#pragma warning restore 0618
 
             //Don't bother checking for lean if body collisions are disabled
             if (headset == null || playArea == null || !enableBodyCollisions)
@@ -583,7 +596,9 @@ namespace VRTK
 
             // Cast a ray forward just outside the body collider radius to see if anything is blocking your path
             // If nothing is blocking your path and you're currently standing over a valid floor
+#pragma warning disable 0618
             if (!VRTK_CustomRaycast.Raycast(customRaycast, forwardRay, out forwardRayCollision, layersToIgnore, forwardLength) && currentValidFloorObject != null)
+#pragma warning restore 0618
             {
                 CalculateLean(standingDownRayStartPosition, forwardLength, standingDownRayCollision.distance);
             }
@@ -602,7 +617,9 @@ namespace VRTK
             RaycastHit downRayCollision;
 
             //Cast a ray down from the end of the forward ray position
+#pragma warning disable 0618
             if (VRTK_CustomRaycast.Raycast(customRaycast, downRay, out downRayCollision, layersToIgnore, Mathf.Infinity))
+#pragma warning restore 0618
             {
                 //Determine the difference between the original down ray and the projected forward a bit downray
                 float rayDownDelta = VRTK_SharedMethods.RoundFloat(originalRayDistance - downRayCollision.distance, decimalPrecision);
@@ -937,7 +954,9 @@ namespace VRTK
         {
             Ray ray = new Ray(controllerObj.transform.position, -playArea.up);
             RaycastHit rayCollidedWith;
+#pragma warning disable 0618
             VRTK_CustomRaycast.Raycast(customRaycast, ray, out rayCollidedWith, layersToIgnore, Mathf.Infinity);
+#pragma warning restore 0618
             return controllerObj.transform.position.y - rayCollidedWith.distance;
         }
 
@@ -979,7 +998,9 @@ namespace VRTK
             {
                 Ray ray = new Ray(headset.transform.position, -playArea.up);
                 RaycastHit rayCollidedWith;
+#pragma warning disable 0618
                 bool rayHit = VRTK_CustomRaycast.Raycast(customRaycast, ray, out rayCollidedWith, layersToIgnore, Mathf.Infinity);
+#pragma warning restore 0618
                 hitFloorYDelta = playArea.position.y - rayCollidedWith.point.y;
 
                 if (initialFloorDrop && (ValidDrop(rayHit, rayCollidedWith, rayCollidedWith.point.y) || retogglePhysicsOnCanFall))
@@ -1035,14 +1056,22 @@ namespace VRTK
             isMoving = false;
             isLeaning = false;
             onGround = false;
+            fallMinTime = Time.time + (Time.fixedDeltaTime * 3.0f); // Wait at least 3 fixed update frames before declaring falling finished 
             OnStartFalling(SetBodyPhysicsEvent(targetFloor));
         }
 
         protected virtual void StopFall()
         {
+            bool wasFalling = isFalling;
+
             isFalling = false;
             onGround = true;
-            OnStopFalling(SetBodyPhysicsEvent(null));
+            enableBodyCollisions = enableBodyCollisionsStartingValue;
+
+            if (wasFalling)
+            {
+                OnStopFalling(SetBodyPhysicsEvent(null));
+            }
         }
 
         protected virtual void GravityFall(RaycastHit rayCollidedWith)
