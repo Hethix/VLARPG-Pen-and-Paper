@@ -60,7 +60,7 @@ public class Player : Character
             defender.SetHP(defender.maxHP);
         else
             defender.SetHP((sbyte)(defender.GetHP() + healingSkill));
-        selfPlayer.healPlayer = true;
+        healPlayer = true;
     }
 
     private IEnumerator IESearch(float time)
