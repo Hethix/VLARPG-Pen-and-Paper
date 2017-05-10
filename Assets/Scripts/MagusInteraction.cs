@@ -9,6 +9,7 @@ public class MagusInteraction : PlayerInteraction
     // Update is called once per frame
     public override void Update()
     {
+        
         device = SteamVR_Controller.Input((int)trackedObject.index);
         // Should move the player depending on direction of gaze. Consider making it 
         if (device.GetPress(SteamVR_Controller.ButtonMask.Touchpad) && (device.GetAxis().x != 0 || device.GetAxis().y != 0))
@@ -43,6 +44,7 @@ public class MagusInteraction : PlayerInteraction
         {
             selfPlayer.SetCooldown(5);
             Object partiSystem = Instantiate(Resources.Load("Fireball"), transform);
+            //partiSystem. m.parent = null;
         }
     }
 }

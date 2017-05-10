@@ -33,9 +33,9 @@ public class PlayerInteraction : MonoBehaviour {
 
         if (device.GetPressDown(SteamVR_Controller.ButtonMask.Grip))  //The player has to press before collision. 
         {
-            if (selfPlayer.CheckCooldown() == true)
+            if (chara != null)
             {
-                if (chara != null)
+                if (selfPlayer.CheckCooldown() == true)
                 {
                     selfPlayer.Healing(chara);
                     networkPlayer.lastHitPlayer = chara;
