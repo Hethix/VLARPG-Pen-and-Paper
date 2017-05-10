@@ -19,8 +19,5 @@ public class Magus : Player {
         AC = 12; //Armour Class
 }
 	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+
 }
