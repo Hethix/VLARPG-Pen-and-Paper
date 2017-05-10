@@ -21,7 +21,9 @@ public class NetworkedPlayer : Photon.MonoBehaviour
     public Enemy lastHitEnemy; 
     private int lastHitEnemyNumber;
     public Player lastHitPlayer; 
-    PhotonView photonView; 
+    PhotonView photonView;
+
+    public Player localPlayersInArray;
 
     void Start()
     {
@@ -136,14 +138,16 @@ public class NetworkedPlayer : Photon.MonoBehaviour
     [PunRPC]
     void Heal(string name, int healValue)
     {
+        Debug.Log("PunRPC heal");
         GameObject[] defenders = GameObject.FindGameObjectsWithTag("Player");
         foreach (var players in defenders)
         {
-            Player localPlayersInArray = players.GetComponent<Player>();
-
+            localPlayersInArray = players.GetComponent<Player>();
+            Debug.Log("For each");
             if (localPlayersInArray.name == name)
             {
                 localPlayersInArray.SetHP((sbyte)(healValue));
+                Debug.Log("HP was set");
             }
         }
     }
