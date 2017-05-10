@@ -19,9 +19,10 @@ public class MagusInteraction : PlayerInteraction
 
         if (device.GetPressDown(SteamVR_Controller.ButtonMask.Grip))  //The player has to press before collision. 
         {
+            Debug.Log("Grip pressed");
             if (selfPlayer.CheckCooldown() == true)
             {
-
+                Debug.Log("Entered cooldown");
                 selfPlayer.Healing(chara);
                 networkPlayer.lastHitPlayer = chara;
             }

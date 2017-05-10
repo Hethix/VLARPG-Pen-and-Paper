@@ -82,9 +82,12 @@ public class NetworkedPlayer : Photon.MonoBehaviour
                 }
                 if (myPlayerScript.healPlayer)
                 {
+                    Debug.Log("Entered if-before PunRPC. " + myPlayerScript.healPlayer);
                     photonView.RPC("Heal", PhotonTargets.OthersBuffered, lastHitPlayer.transform.name, (int)lastHitPlayer.GetHP());
-                    myPlayerScript.healPlayer = false; 
-                }
+                    Debug.Log("before" + myPlayerScript.healPlayer);
+                    myPlayerScript.healPlayer = false;
+                    Debug.Log("after" + myPlayerScript.healPlayer);
+                } 
                 if (myPlayerScript.HP <= 0)
                 {
                     Application.Quit();
