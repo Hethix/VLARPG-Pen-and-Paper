@@ -140,12 +140,15 @@ public class NetworkedPlayer : Photon.MonoBehaviour
     [PunRPC]
     void Heal(string name, int healValue)
     {
+        Debug.Log("Heal trigger");
         GameObject[] defenders = GameObject.FindGameObjectsWithTag("Player");
         foreach (var players in defenders)
         {
+            Debug.Log("entered for each");
             localPlayersInArray = players.GetComponentInChildren<Player>();
             if (localPlayersInArray.name == name)
             {
+                Debug.Log("did heals");
                 localPlayersInArray.SetHP((sbyte)(healValue));
             }
         }
