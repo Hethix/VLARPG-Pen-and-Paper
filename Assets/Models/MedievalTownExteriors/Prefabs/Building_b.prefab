@@ -106,7 +106,6 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4014826351444132}
-  - component: {fileID: 95790667261863100}
   m_Layer: 0
   m_Name: LightBuilding_b(Clone)
   m_TagString: Untagged
@@ -185,7 +184,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 366356af12c79ed43b284bf8f38b25eb, type: 2}
+  - {fileID: 2100000, guid: 88198c791a716b9479c2f987a2cdab6e, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -234,23 +233,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 4.141923, y: 10.367047, z: 6.9803977}
   m_Center: {x: 0.011469245, y: 4.7845755, z: 3.0802248}
---- !u!95 &95790667261863100
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1179109222171344}
-  m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: a3d356619c0efbc4bb4c95f35bf46926, type: 3}
-  m_Controller: {fileID: 0}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
 --- !u!205 &205397159121545462
 LODGroup:
   m_ObjectHideFlags: 1
