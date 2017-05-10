@@ -36,10 +36,11 @@ public class PlayerInteraction : MonoBehaviour {
         // Delays the heal until the user is holding the controller inside the other player and pressing the trigger. 
         // Note: Hasn't been tested yet. 
 
-        if (selfPlayer.CheckCooldown() == true)
+        if (device.GetPressDown(SteamVR_Controller.ButtonMask.Grip))  //The player has to press before collision. 
         {
-            if (device.GetPressDown(SteamVR_Controller.ButtonMask.Grip))  //The player has to press before collision. 
+            if (selfPlayer.CheckCooldown() == true)
             {
+
                 if (allied == true)
                 {
                     selfPlayer.Healing(chara);
@@ -75,10 +76,10 @@ public class PlayerInteraction : MonoBehaviour {
 
             case "Player":
                 chara = target.gameObject.GetComponent<Player>();
-        Debug.Log("This is a player");
-                    selfPlayer.Healing(chara);
-                    networkPlayer.lastHitPlayer = target.gameObject.GetComponent<Player>();
-                    allied = true;
+                Debug.Log("This is a player");
+                selfPlayer.Healing(chara);
+                networkPlayer.lastHitPlayer = target.gameObject.GetComponent<Player>();
+                allied = true;
                 break;
             default:
                 Debug.Log("The target does not have any of the tags defined in this switch.");
