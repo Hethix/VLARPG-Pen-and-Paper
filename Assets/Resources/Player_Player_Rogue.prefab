@@ -75,7 +75,7 @@ GameObject:
   - component: {fileID: 33691068196516568}
   - component: {fileID: 114314237034696218}
   - component: {fileID: 54791255869290966}
-  - component: {fileID: 136654244263333470}
+  - component: {fileID: 136246662734702142}
   m_Layer: 0
   m_Name: Player_Player_Rogue
   m_TagString: Player
@@ -2004,7 +2004,7 @@ Behaviour:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1874228985972424}
   m_Enabled: 1
---- !u!136 &136654244263333470
+--- !u!136 &136246662734702142
 CapsuleCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -2012,11 +2012,11 @@ CapsuleCollider:
   m_GameObject: {fileID: 1207337807793750}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 0
-  m_Radius: 0.38
-  m_Height: 1.48
+  m_Enabled: 1
+  m_Radius: 0.5
+  m_Height: 2.2
   m_Direction: 1
-  m_Center: {x: 0, y: 0.56, z: 0}
+  m_Center: {x: 0, y: 0.66, z: 0}
 --- !u!222 &222873104929790788
 CanvasRenderer:
   m_ObjectHideFlags: 1
