@@ -20,8 +20,6 @@ public class MagusInteraction : PlayerInteraction
 
         // Delays the heal until the user is holding the controller inside the other player and pressing the trigger. 
         // Note: Hasn't been tested yet. 
-        if (allied == true)
-        {
             if (device.GetPressDown(SteamVR_Controller.ButtonMask.Trigger)) //The player has to press before collision. 
                 if (selfPlayer.CheckCooldown() == true)
                 {
@@ -29,7 +27,6 @@ public class MagusInteraction : PlayerInteraction
                     selfPlayer.healPlayer = true;
                     Debug.Log("Healing was applied...");                                                        // Print
                 }
-        }
 
         // Search by use of the ApplicationMenu
         if (device.GetPressDown(SteamVR_Controller.ButtonMask.ApplicationMenu))

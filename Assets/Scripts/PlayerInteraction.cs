@@ -40,7 +40,7 @@ public class PlayerInteraction : MonoBehaviour {
             {
 
                     selfPlayer.Healing(chara);
-                    networkPlayer.lastHitPlayer = target.gameObject.GetComponent<Player>();
+                    networkPlayer.lastHitPlayer = chara;
                     Debug.Log("Healing was applied...");                                                        // Print
             }
         }
