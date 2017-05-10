@@ -66,7 +66,10 @@ public class Player : Character
             defender.SetHP((sbyte)(defender.GetHP() + healingSkill));
             Debug.Log(defender.GetHP() + " healed");
         }
-            healPlayer = true;
+        Debug.Log(healPlayer);
+        healPlayer = true;
+        Debug.Log(healPlayer);
+
     }
 
     private IEnumerator IESearch(float time)

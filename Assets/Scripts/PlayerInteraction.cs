@@ -12,8 +12,6 @@ public class PlayerInteraction : MonoBehaviour {
     protected Rigidbody rb;
     public NetworkedPlayer networkPlayer;
 
-    protected bool allied = false; // Used to delay the heal action. 
-
     // Use this for initialization
     public void Start () {
         trackedObject = GetComponent<SteamVR_TrackedObject>();
@@ -41,12 +39,9 @@ public class PlayerInteraction : MonoBehaviour {
             if (selfPlayer.CheckCooldown() == true)
             {
 
-                if (allied == true)
-                {
                     selfPlayer.Healing(chara);
-                    selfPlayer.healPlayer = true;
+                    networkPlayer.lastHitPlayer = target.gameObject.GetComponent<Player>();
                     Debug.Log("Healing was applied...");                                                        // Print
-                }
             }
         }
         // Search by use of the ApplicationMenu
@@ -77,9 +72,6 @@ public class PlayerInteraction : MonoBehaviour {
             case "Player":
                 chara = target.gameObject.GetComponent<Player>();
                 Debug.Log("This is a player");
-                selfPlayer.Healing(chara);
-                networkPlayer.lastHitPlayer = target.gameObject.GetComponent<Player>();
-                allied = true;
                 break;
             default:
                 Debug.Log("The target does not have any of the tags defined in this switch.");
@@ -89,9 +81,8 @@ public class PlayerInteraction : MonoBehaviour {
 
     void OnCollisionExit(Collision target)
     {
+        chara = null; 
         Debug.Log("Target exited");
-        if (allied == true)
-            allied = false; 
     }
 
 
