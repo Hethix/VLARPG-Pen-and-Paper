@@ -1504,6 +1504,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e2a8fcf027e1afd42a566c4eceaf8af5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  chara: {fileID: 0}
   networkPlayer: {fileID: 0}
 --- !u!114 &114342035637815378
 MonoBehaviour:
@@ -1715,6 +1716,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e2a8fcf027e1afd42a566c4eceaf8af5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  chara: {fileID: 0}
   networkPlayer: {fileID: 0}
 --- !u!114 &114666588514093540
 MonoBehaviour:
@@ -2010,7 +2012,7 @@ CapsuleCollider:
   m_GameObject: {fileID: 1207337807793750}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   m_Radius: 0.38
   m_Height: 1.48
   m_Direction: 1

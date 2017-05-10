@@ -20,8 +20,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4169909327779966}
   - component: {fileID: 114806177645236960}
-  - component: {fileID: 114428027842867694}
-  - component: {fileID: 65109817285826388}
+  - component: {fileID: 114719895791381356}
+  - component: {fileID: 65180899938989140}
   m_Layer: 0
   m_Name: Controller (left)
   m_TagString: Untagged
@@ -190,8 +190,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4519286754463746}
   - component: {fileID: 114870363339419064}
-  - component: {fileID: 114056812741108050}
-  - component: {fileID: 65504693944029604}
+  - component: {fileID: 114090511142370342}
+  - component: {fileID: 65118119055189372}
   m_Layer: 0
   m_Name: Controller (right)
   m_TagString: Untagged
@@ -244,7 +244,6 @@ GameObject:
   - component: {fileID: 33173721796676416}
   - component: {fileID: 114420019693912678}
   - component: {fileID: 54831414326398662}
-  - component: {fileID: 114051102580504720}
   m_Layer: 0
   m_Name: Player_Player_Magus
   m_TagString: Player
@@ -403,7 +402,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1946418529376336}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 60.17826, y: 8.923733, z: 211.92218}
+  m_LocalPosition: {x: 100.453804, y: 10.828282, z: 84.243}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4169909327779966}
@@ -573,24 +572,24 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
---- !u!65 &65109817285826388
+--- !u!65 &65118119055189372
 BoxCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1024801308881788}
+  m_GameObject: {fileID: 1442698169700200}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 0.1, y: 0.08, z: 0.17}
   m_Center: {x: -0.005, y: -0.03, z: -0.008}
---- !u!65 &65504693944029604
+--- !u!65 &65180899938989140
 BoxCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1442698169700200}
+  m_GameObject: {fileID: 1024801308881788}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
@@ -671,30 +670,6 @@ MonoBehaviour:
   uiClickPressed: 0
   menuPressed: 0
   controllerVisible: 1
---- !u!114 &114051102580504720
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1946418529376336}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 58235451f1d7d8d4c80d3baf3d9e3554, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHP: 0
-  HP: 0
-  attack: 0
-  dmg: 0
-  weaponDmg: 0
-  AC: 0
-  cooldown: 0
-  inStealth: 0
-  healingSkill: 0
-  sneakSkill: 0
-  dealDmg: 0
-  healPlayer: 0
-  networkPlayer: {fileID: 0}
 --- !u!114 &114053055517570092
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -722,18 +697,6 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
---- !u!114 &114056812741108050
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1442698169700200}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a49ca5574de85a04287599a592fb7b9d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  networkPlayer: {fileID: 0}
 --- !u!114 &114072017223303066
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -765,6 +728,19 @@ MonoBehaviour:
   blinkYThreshold: 0.15
   floorHeightTolerance: 0.001
   fallCheckPrecision: 5
+--- !u!114 &114090511142370342
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1442698169700200}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e2a8fcf027e1afd42a566c4eceaf8af5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  chara: {fileID: 0}
+  networkPlayer: {fileID: 0}
 --- !u!114 &114151579028799932
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -948,18 +924,6 @@ MonoBehaviour:
   - {x: 1.65, y: 0.01, z: -1.275}
   - {x: -1.65, y: 0.01, z: -1.275}
   - {x: -1.65, y: 0.01, z: 1.275}
---- !u!114 &114428027842867694
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1024801308881788}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a49ca5574de85a04287599a592fb7b9d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  networkPlayer: {fileID: 0}
 --- !u!114 &114429133106390878
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1047,6 +1011,19 @@ MonoBehaviour:
   right: {fileID: 1442698169700200}
   objects: []
   assignAllBeforeIdentified: 0
+--- !u!114 &114719895791381356
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1024801308881788}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e2a8fcf027e1afd42a566c4eceaf8af5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  chara: {fileID: 0}
+  networkPlayer: {fileID: 0}
 --- !u!114 &114745996040734224
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1199,12 +1176,12 @@ MonoBehaviour:
   autoPopulateObjectReferences: 1
   autoManageScriptDefines: 1
   activeScriptingDefineSymbolsWithoutSDKClasses: []
-  actualBoundaries: {fileID: 1946418529376336}
-  actualHeadset: {fileID: 1035169689778404}
-  actualLeftController: {fileID: 1024801308881788}
-  actualRightController: {fileID: 1442698169700200}
-  modelAliasLeftController: {fileID: 1410758241883048}
-  modelAliasRightController: {fileID: 1192465771348228}
+  actualBoundaries: {fileID: 0}
+  actualHeadset: {fileID: 0}
+  actualLeftController: {fileID: 0}
+  actualRightController: {fileID: 0}
+  modelAliasLeftController: {fileID: 0}
+  modelAliasRightController: {fileID: 0}
   scriptAliasLeftController: {fileID: 1281314680002432}
   scriptAliasRightController: {fileID: 1146963209617390}
   cachedSystemSDKInfo:

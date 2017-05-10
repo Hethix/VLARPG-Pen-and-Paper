@@ -48,6 +48,24 @@ public class PlayerInteraction : MonoBehaviour {
         {
             selfPlayer.Search();
         }
+
+        if (device.GetPressDown(SteamVR_Controller.ButtonMask.Trigger))
+        {
+            if (transform.root.name == "Player_Player_Magus(Clone)")
+                ThrowFireball();
+
+        }
+
+    }
+
+    void ThrowFireball()
+    {
+        if (selfPlayer.CheckCooldown() == true)
+        {
+            selfPlayer.SetCooldown(5);
+            Object partiSystem = Instantiate(Resources.Load("Fireball"), transform);
+            //partiSystem. m.parent = null;
+        }
     }
 
     // Moving the player by use of a button. Gaze/orientation directed. 
