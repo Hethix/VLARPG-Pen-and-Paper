@@ -57,12 +57,16 @@ public class Player : Character
     {
         SetCooldown(10);
         if (defender.GetHP() + healingSkill > defender.maxHP)
+        {
             Debug.Log("Max healed");
             defender.SetHP(defender.maxHP);
+        }
         else
+        {
             defender.SetHP((sbyte)(defender.GetHP() + healingSkill));
-        Debug.Log(defender.GetHP() + " healed");
-        healPlayer = true;
+            Debug.Log(defender.GetHP() + " healed");
+        }
+            healPlayer = true;
     }
 
     private IEnumerator IESearch(float time)
