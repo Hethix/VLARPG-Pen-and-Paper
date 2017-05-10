@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 2386116}
   - component: {fileID: 65348750283225690}
   - component: {fileID: 65161108467422456}
+  - component: {fileID: 205487649259173174}
   m_Layer: 0
   m_Name: Building_e
   m_TagString: Untagged
@@ -25,13 +26,14 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 182110}
-  m_LocalRotation: {x: -0.000000029802322, y: 0.000000067055225, z: 0.9998225, w: 0.0188431}
-  m_LocalPosition: {x: 49.9, y: -26.1, z: -0.39}
+  m_LocalRotation: {x: -0.00000008940697, y: 0.000000007450581, z: 0.35646755, w: 0.93430775}
+  m_LocalPosition: {x: -31.3, y: -18.1, z: 0.6}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 4622479741363272}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: -90.00001, y: 0, z: -147.908}
+  m_LocalEulerAnglesHint: {x: -90.00001, y: 0, z: -283.982}
 --- !u!23 &2386116
 MeshRenderer:
   m_ObjectHideFlags: 1
@@ -81,6 +83,74 @@ Prefab:
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 182110}
   m_IsPrefabParent: 1
+--- !u!1 &1377291754146490
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4622479741363272}
+  - component: {fileID: 33557476363175742}
+  - component: {fileID: 23710475240354898}
+  m_Layer: 0
+  m_Name: LightBuilding_e(Clone)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 4294967295
+  m_IsActive: 1
+--- !u!4 &4622479741363272
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1377291754146490}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1.0000002, y: 1.0000007, z: 1.0000005}
+  m_Children: []
+  m_Father: {fileID: 498080}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!23 &23710475240354898
+MeshRenderer:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1377291754146490}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_Materials:
+  - {fileID: 2100000, guid: 88198c791a716b9479c2f987a2cdab6e, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingOrder: 0
+--- !u!33 &33557476363175742
+MeshFilter:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1377291754146490}
+  m_Mesh: {fileID: 4300000, guid: f2ddf39ea735d284abd160085ada379f, type: 3}
 --- !u!65 &65161108467422456
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -105,3 +175,28 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 25.026937, y: 13.592771, z: 9.497162}
   m_Center: {x: 0.04983288, y: 9.682741, z: 4.338604}
+--- !u!205 &205487649259173174
+LODGroup:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 182110}
+  serializedVersion: 2
+  m_LocalReferencePoint: {x: 0.049453735, y: 8.039561, z: 4.338606}
+  m_Size: 25.027008
+  m_FadeMode: 0
+  m_AnimateCrossFading: 0
+  m_LODs:
+  - screenRelativeHeight: 0.50443214
+    fadeTransitionWidth: 0
+    renderers:
+    - renderer: {fileID: 2386116}
+  - screenRelativeHeight: 0.3
+    fadeTransitionWidth: 0
+    renderers:
+    - renderer: {fileID: 23710475240354898}
+  - screenRelativeHeight: 0.07957318
+    fadeTransitionWidth: 0
+    renderers:
+    - renderer: {fileID: 23710475240354898}
+  m_Enabled: 1
