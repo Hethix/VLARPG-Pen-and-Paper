@@ -74,7 +74,7 @@ public class PlayerInteraction : MonoBehaviour {
         }
     }
 
-    void OnTriggerExit(Collision target)
+    void OnTriggerExit(Collider target)
     {
         chara = null; 
         Debug.Log("Target exited");
