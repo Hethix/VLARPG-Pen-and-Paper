@@ -33,7 +33,7 @@ Transform:
   - {fileID: 4502365595946082}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: -90.00001, y: 0, z: -165.916}
+  m_LocalEulerAnglesHint: {x: -90.00001, y: 0, z: 78.23}
 --- !u!23 &2376382
 MeshRenderer:
   m_ObjectHideFlags: 1
@@ -182,18 +182,20 @@ LODGroup:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 145824}
   serializedVersion: 2
-  m_LocalReferencePoint: {x: 4.2116165, y: 4.7981434, z: 3.0802217}
-  m_Size: 12.598307
+  m_LocalReferencePoint: {x: 4.2116113, y: 4.7981434, z: 3.0802217}
+  m_Size: 12.598317
   m_FadeMode: 0
   m_AnimateCrossFading: 0
   m_LODs:
   - screenRelativeHeight: 0.6
     fadeTransitionWidth: 0
-    renderers: []
+    renderers:
+    - renderer: {fileID: 2376382}
   - screenRelativeHeight: 0.3
     fadeTransitionWidth: 0
-    renderers: []
-  - screenRelativeHeight: 0.1
+    renderers:
+    - renderer: {fileID: 2376382}
+  - screenRelativeHeight: 0.07519899
     fadeTransitionWidth: 0
     renderers:
     - renderer: {fileID: 23754296505365912}
