@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerInteraction : MonoBehaviour {
 
     protected Player selfPlayer;
-    protected Player chara;
+    public Player chara;
     protected SteamVR_TrackedObject trackedObject;
     protected SteamVR_Controller.Device device;
     protected Transform cameraRig;
@@ -31,17 +31,15 @@ public class PlayerInteraction : MonoBehaviour {
             Move(device.GetAxis().x, device.GetAxis().y);
         }
 
-        // Delays the heal until the user is holding the controller inside the other player and pressing the trigger. 
-        // Note: Hasn't been tested yet. 
-
         if (device.GetPressDown(SteamVR_Controller.ButtonMask.Grip))  //The player has to press before collision. 
         {
             if (selfPlayer.CheckCooldown() == true)
             {
-
+                if (chara != null)
+                {
                     selfPlayer.Healing(chara);
                     networkPlayer.lastHitPlayer = chara;
-                    Debug.Log("Healing was applied...");                                                        // Print
+                }
             }
         }
         // Search by use of the ApplicationMenu
@@ -65,21 +63,18 @@ public class PlayerInteraction : MonoBehaviour {
     // Detects collision, and performs heal if friend
     void OnTriggerEnter(Collider target)
     {
-        Debug.Log("Target touched");
         switch (target.gameObject.tag.ToString())
         {
 
             case "Player":
                 chara = target.gameObject.GetComponent<Player>();
-                Debug.Log("This is a player");
                 break;
             default:
-                Debug.Log("The target does not have any of the tags defined in this switch.");
                 break;
         }
     }
 
-    void OnCollisionExit(Collision target)
+    void OnTriggerExit(Collider target)
     {
         chara = null; 
         Debug.Log("Target exited");

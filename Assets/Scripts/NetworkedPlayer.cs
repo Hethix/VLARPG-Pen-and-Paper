@@ -82,8 +82,7 @@ public class NetworkedPlayer : Photon.MonoBehaviour
                 }
                 if (myPlayerScript.healPlayer)
                 {
-                    Debug.Log(myPlayerScript.healPlayer);
-                    photonView.RPC("Heal", PhotonTargets.OthersBuffered, lastHitPlayer, (int)lastHitPlayer.GetHP());
+                    photonView.RPC("Heal", PhotonTargets.OthersBuffered, lastHitPlayer.transform.name, (int)lastHitPlayer.GetHP());
                     myPlayerScript.healPlayer = false; 
                 }
                 if (myPlayerScript.HP <= 0)
@@ -138,16 +137,13 @@ public class NetworkedPlayer : Photon.MonoBehaviour
     [PunRPC]
     void Heal(string name, int healValue)
     {
-        Debug.Log("PunRPC heal");
         GameObject[] defenders = GameObject.FindGameObjectsWithTag("Player");
         foreach (var players in defenders)
         {
             localPlayersInArray = players.GetComponentInChildren<Player>();
-            Debug.Log("For each");
             if (localPlayersInArray.name == name)
             {
                 localPlayersInArray.SetHP((sbyte)(healValue));
-                Debug.Log("HP was set");
             }
         }
     }
