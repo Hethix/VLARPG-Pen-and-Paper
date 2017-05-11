@@ -8,28 +8,23 @@ public class PlayerInteraction : MonoBehaviour {
     public Player chara;
     protected SteamVR_TrackedObject trackedObject;
     protected SteamVR_Controller.Device device;
-    protected Transform cameraRig;
-    protected Rigidbody rb;
+    public Transform cameraRig;
     public NetworkedPlayer networkPlayer;
+    private Vector2 touchpad;
 
     // Use this for initialization
     public void Start () {
         trackedObject = GetComponent<SteamVR_TrackedObject>();
         selfPlayer = gameObject.transform.root.GetComponentInChildren<Player>();
-        cameraRig = gameObject.GetComponentInParent<Transform>();
-        rb = GetComponentInParent<Rigidbody>();
         networkPlayer = transform.root.GetComponentInChildren<NetworkedPlayer>();
-
     }
 
     // Update is called once per frame
     public virtual void Update() {
-
         device = SteamVR_Controller.Input((int)trackedObject.index);
-        // Should move the player depending on direction of gaze. Consider making it 
         if (device.GetPress(SteamVR_Controller.ButtonMask.Touchpad) && (device.GetAxis().x != 0 || device.GetAxis().y != 0)) {
             Move(device.GetAxis().x, device.GetAxis().y);
-        }
+        } 
 
         if (device.GetPressDown(SteamVR_Controller.ButtonMask.Grip))  //The player has to press before collision. 
         {
@@ -54,7 +49,6 @@ public class PlayerInteraction : MonoBehaviour {
             if (transform.root.name == "Player_Player_Magus(Clone)")
                 ThrowFireball();
         }
-
     }
 
     void ThrowFireball()
@@ -68,13 +62,13 @@ public class PlayerInteraction : MonoBehaviour {
     }
 
     // Moving the player by use of a button. Gaze/orientation directed. 
-    protected void Move(float x, float z)
+    protected void Move(float x, float z)      
     {
         Vector3 forward = new Vector3(gameObject.transform.TransformDirection(Vector3.forward).x, 0, gameObject.transform.TransformDirection(Vector3.forward).z);
         Vector3 right = new Vector3(gameObject.transform.TransformDirection(Vector3.right).x, 0, gameObject.transform.TransformDirection(Vector3.right).z);
-        rb.AddRelativeForce(forward * z * 50);
-        rb.AddRelativeForce(right * x * 50);
-        
+        Debug.Log(gameObject.transform.TransformDirection(Vector3.right));
+        cameraRig.transform.position += forward * z * 15 * Time.fixedDeltaTime;
+        cameraRig.transform.position += right * x * 15 * Time.fixedDeltaTime;
     }
 
     // Detects collision, and performs heal if friend
@@ -101,7 +95,5 @@ public class PlayerInteraction : MonoBehaviour {
     IEnumerator WaitFor() //This is needed to getComponent after parenting action. 
     {
         yield return new WaitForSeconds(0.1f);
-
-
     }
 }

@@ -1505,6 +1505,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   chara: {fileID: 0}
+  cameraRig: {fileID: 4097201614819718}
   networkPlayer: {fileID: 0}
 --- !u!114 &114342035637815378
 MonoBehaviour:
@@ -1717,6 +1718,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   chara: {fileID: 0}
+  cameraRig: {fileID: 4097201614819718}
   networkPlayer: {fileID: 0}
 --- !u!114 &114666588514093540
 MonoBehaviour:

@@ -741,6 +741,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   chara: {fileID: 0}
+  cameraRig: {fileID: 4576021796998240}
   networkPlayer: {fileID: 0}
 --- !u!114 &114151579028799932
 MonoBehaviour:
@@ -1024,6 +1025,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   chara: {fileID: 0}
+  cameraRig: {fileID: 4576021796998240}
   networkPlayer: {fileID: 0}
 --- !u!114 &114745996040734224
 MonoBehaviour:
@@ -1177,12 +1179,12 @@ MonoBehaviour:
   autoPopulateObjectReferences: 1
   autoManageScriptDefines: 1
   activeScriptingDefineSymbolsWithoutSDKClasses: []
-  actualBoundaries: {fileID: 0}
-  actualHeadset: {fileID: 0}
-  actualLeftController: {fileID: 0}
-  actualRightController: {fileID: 0}
-  modelAliasLeftController: {fileID: 0}
-  modelAliasRightController: {fileID: 0}
+  actualBoundaries: {fileID: 1946418529376336}
+  actualHeadset: {fileID: 1035169689778404}
+  actualLeftController: {fileID: 1024801308881788}
+  actualRightController: {fileID: 1442698169700200}
+  modelAliasLeftController: {fileID: 1410758241883048}
+  modelAliasRightController: {fileID: 1192465771348228}
   scriptAliasLeftController: {fileID: 1281314680002432}
   scriptAliasRightController: {fileID: 1146963209617390}
   cachedSystemSDKInfo:
