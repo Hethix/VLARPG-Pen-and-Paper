@@ -66,7 +66,6 @@ public class PlayerInteraction : MonoBehaviour {
     {
         Vector3 forward = new Vector3(gameObject.transform.TransformDirection(Vector3.forward).x, 0, gameObject.transform.TransformDirection(Vector3.forward).z);
         Vector3 right = new Vector3(gameObject.transform.TransformDirection(Vector3.right).x, 0, gameObject.transform.TransformDirection(Vector3.right).z);
-        Debug.Log(gameObject.transform.TransformDirection(Vector3.right));
         cameraRig.transform.position += forward * z * 15 * Time.fixedDeltaTime;
         cameraRig.transform.position += right * x * 15 * Time.fixedDeltaTime;
     }
