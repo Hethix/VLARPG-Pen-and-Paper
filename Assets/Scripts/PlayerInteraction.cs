@@ -53,7 +53,6 @@ public class PlayerInteraction : MonoBehaviour {
         {
             if (transform.root.name == "Player_Player_Magus(Clone)")
                 ThrowFireball();
-
         }
 
     }
@@ -63,7 +62,7 @@ public class PlayerInteraction : MonoBehaviour {
         if (selfPlayer.CheckCooldown() == true)
         {
             selfPlayer.SetCooldown(5);
-            Object partiSystem = Instantiate(Resources.Load("Fireball"), transform);
+            Object partiSystem = Instantiate(Resources.Load("Fireball"), this.transform.position, Quaternion.Euler(0, 0, 0));
             //partiSystem. m.parent = null;
         }
     }
