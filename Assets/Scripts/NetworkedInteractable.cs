@@ -133,14 +133,14 @@ public class NetworkedInteractable : Photon.MonoBehaviour {
                 avatar.transform.localScale = Vector3.Lerp(avatar.transform.localScale, receivedAvatarScale, Time.deltaTime * 10);
             }
         }
+        /*
         if (!areGameMaster)
         {
             if (!avatar.GetComponent<Collider>().isTrigger)
             {
                 avatar.GetComponent<Collider>().isTrigger = true; 
             }
-             
-        }
+        } */
     }
 
 
