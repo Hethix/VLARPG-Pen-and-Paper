@@ -36,11 +36,11 @@ public class NetworkManager : MonoBehaviour {
         }
         else if (PhotonNetwork.playerList.Length < 4)
         {
-            PhotonNetwork.Instantiate("NetworkedRogue", Vector3.zero, Quaternion.identity, 0);
+            PhotonNetwork.Instantiate("NetworkedPlayer", Vector3.zero, Quaternion.identity, 0);
         }
         else 
         {
-            PhotonNetwork.Instantiate("NetworkedMagus", Vector3.zero, Quaternion.identity, 0);
+            PhotonNetwork.Instantiate("NetworkedPlayer", Vector3.zero, Quaternion.identity, 0);
         }
     }
 }
