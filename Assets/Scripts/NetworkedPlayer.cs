@@ -100,7 +100,7 @@ public class NetworkedPlayer : Photon.MonoBehaviour
             this.transform.rotation = Quaternion.Lerp(this.transform.rotation, receivedBodyRota, Time.deltaTime * 10);
             avatar.transform.localPosition = Vector3.Lerp(avatar.transform.localPosition, receivedHeadPos, Time.deltaTime * 10);
             rotationQuaternion = Quaternion.Lerp(avatar.transform.rotation, receivedHeadRota, Time.deltaTime * 10);
-            avatar.transform.rotation = Quaternion.Euler(new Vector3(0.0f, rotationQuaternion.y, 0f)); //needs testing. Changed from 90 in x
+            avatar.transform.rotation = Quaternion.Euler(new Vector3(90f, rotationQuaternion.y, 0f)); //needs testing. 
         }
     }
 
