@@ -61,7 +61,7 @@ public class NetworkedPlayer : Photon.MonoBehaviour
             this.transform.localPosition = Vector3.zero;
 
             //Disabling own avatar, so you can only see other's. Properly only relevant for players and not GM
-            //avatar.SetActive(false);
+            avatar.SetActive(false);
             if(!isGameMaster)
                 myPlayerScript = GetComponent<Player>();
         }
@@ -111,7 +111,7 @@ public class NetworkedPlayer : Photon.MonoBehaviour
             stream.SendNext(playerGlobal.localPosition);
             stream.SendNext(playerGlobal.rotation);
             stream.SendNext(playerLocal.localPosition);
-            stream.SendNext(playerLocal.localRotation); //properly need to change it so it only affects the y-axis
+			stream.SendNext(Quaternion.Euler(0, playerLocal.localRotation.y, 0)); //properly need to change it so it only affects the y-axis
         }
         else
         {
