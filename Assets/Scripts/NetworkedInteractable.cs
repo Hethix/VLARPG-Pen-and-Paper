@@ -222,7 +222,7 @@ public class NetworkedInteractable : Photon.MonoBehaviour {
         try
         {
             player = GameObject.Find(playerString).GetComponent<Player>();
-
+            Debug.Log("Try: found: " + player);
         }
         catch (Exception e)
         {

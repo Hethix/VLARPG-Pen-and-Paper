@@ -203,4 +203,11 @@ public class Enemy : Character {
             }
         }
     }
+
+    void OnTriggerExit(Collider target)
+    {
+        //player = null;
+        //setPlayerHP = false;
+    }
+
 }
