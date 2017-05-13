@@ -160,8 +160,8 @@ public class WandController : Photon.MonoBehaviour
         //{
         //    cameraRig.transform.Translate(mainCamera.transform.forward.x * Input.GetAxis("Horizontal"), 0, mainCamera.transform.forward.z * Input.GetAxis("Vertical"));
         //} else 
-            rb.AddRelativeForce(gameObject.transform.TransformDirection(Vector3.forward) * z * 50);
-            rb.AddRelativeForce(gameObject.transform.TransformDirection(Vector3.right) * x * 50);
+            rb.AddRelativeForce(gameObject.transform.TransformDirection(Vector3.forward) * z * 250);
+            rb.AddRelativeForce(gameObject.transform.TransformDirection(Vector3.right) * x * 250);
 
     }
 
