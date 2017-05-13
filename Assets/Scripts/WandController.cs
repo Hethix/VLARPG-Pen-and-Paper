@@ -105,12 +105,12 @@ public class WandController : Photon.MonoBehaviour
             }
 
             //If the controller has the menu attached then we can disable/enable the menu with that controller by pressing the Touch Pad
-            if (controller.GetPressDown(padButton) && changeMenu == false && controller.index == 2)
-            {
-                isMenuActive = !isMenuActive;
-                changeMenu = true;
-                Menu(isMenuActive);
-            }
+//            if (controller.GetPressDown(padButton) && changeMenu == false && controller.index == 2)
+//            {
+//                isMenuActive = !isMenuActive;
+//                changeMenu = true;
+//                Menu(isMenuActive);
+//            }
         }
     }
 
