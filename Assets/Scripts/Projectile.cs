@@ -34,7 +34,6 @@ public class Projectile : MonoBehaviour
 
     void OnTriggerEnter(Collider target)
     {
-        Debug.Log("I hit: " + target);
         switch (target.gameObject.tag.ToString())
         {
             case "Enemy":
