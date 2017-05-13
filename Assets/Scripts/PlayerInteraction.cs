@@ -11,6 +11,7 @@ public class PlayerInteraction : MonoBehaviour {
     public Transform cameraRig;
     public NetworkedPlayer networkPlayer;
     private Vector2 touchpad;
+    private float fireBallCooldown = 0.0f;
 
     // Use this for initialization
     public void Start () {
@@ -55,12 +56,14 @@ public class PlayerInteraction : MonoBehaviour {
     {
         if (selfPlayer.CheckCooldown() == true)
         {
-            //selfPlayer.SetCooldown(3);
-            GameObject partiSystem = (GameObject)Instantiate(Resources.Load("Fireball"), this.transform.position, this.transform.rotation);
-            Projectile tempRef = partiSystem.GetComponent<Projectile>();
-            tempRef.projectileOwner = selfPlayer;
-            tempRef.networkPlayer = networkPlayer;
-            //partiSystem. m.parent = null;
+            if (FireballCheckCooldown())
+            {
+                GameObject partiSystem = (GameObject)Instantiate(Resources.Load("Fireball"), this.transform.position, this.transform.rotation);
+                Projectile tempRef = partiSystem.GetComponent<Projectile>();
+                tempRef.projectileOwner = selfPlayer;
+                tempRef.networkPlayer = networkPlayer;
+                FireballSetCooldown(2.0f);
+            }
         }
     }
 
@@ -97,5 +100,21 @@ public class PlayerInteraction : MonoBehaviour {
     IEnumerator WaitFor() //This is needed to getComponent after parenting action. 
     {
         yield return new WaitForSeconds(0.1f);
+    }
+
+
+    private void FireballSetCooldown(float timeInSecs)
+    {
+        fireBallCooldown = Time.time + timeInSecs;
+
+    }
+
+    // Returns true/false whether or not the cooldown has run out. 
+    private bool FireballCheckCooldown()
+    {
+        if (fireBallCooldown < Time.time)
+            return true;
+        else
+            return false;
     }
 }
