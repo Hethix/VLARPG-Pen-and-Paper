@@ -12,7 +12,7 @@ public class Warrior : Player {
         healingSkill = 4;
         sneakSkill = 10;
         maxHP = 24;
-        HP = 5; //Obvious. Note that since HP can go below 0, byte won't do. This puts a much lower cap on max health. 
+        HP = 24; //Obvious. Note that since HP can go below 0, byte won't do. This puts a much lower cap on max health. 
         attack = 6; // attack is a modifier for the attack roll
         dmg = 6; // Modifier applied to damage rolls
         weaponDmg = 10; // This is the die size used for damage
