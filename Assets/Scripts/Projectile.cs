@@ -7,7 +7,7 @@ public class Projectile : MonoBehaviour
 
     Rigidbody rb;
     Player selfPlayer;
-    Character chara;
+    Enemy chara;
     public NetworkedPlayer networkPlayer;
 
 
@@ -24,8 +24,6 @@ public class Projectile : MonoBehaviour
     void Update()
     {
         rb.AddForce(gameObject.transform.forward * 12);
-
-
     }
 
 
@@ -37,22 +35,22 @@ public class Projectile : MonoBehaviour
 
     void OnTriggerEnter(Collider target)
     {
-
+        Debug.Log("I hit: " + target);
         switch (target.gameObject.tag.ToString())
         {
             case "Enemy":
-                chara = target.gameObject.GetComponent<Character>();
+                chara = target.gameObject.GetComponent<Enemy>();
                 if (target.gameObject.tag.Equals("Enemy") == true)
+                {
                     selfPlayer.PerformAttack(chara);
-                    networkPlayer.lastHitEnemy = target.GetComponent<Enemy>();
+                    networkPlayer.lastHitEnemy = chara;
                     selfPlayer.dealDmg = true;
+                }
                 Destroy(gameObject);
                 break;
             default:
                 //Destroy(gameObject);
                 break;
-
-
         }
     }
 
