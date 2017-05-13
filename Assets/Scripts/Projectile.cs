@@ -16,14 +16,14 @@ public class Projectile : MonoBehaviour
     {
         rb = gameObject.GetComponent<Rigidbody>();
         selfPlayer = GetComponentInParent<Player>();
-        StartCoroutine(DestroyAfterTime(5));
+        StartCoroutine(DestroyAfterTime(4));
         Physics.IgnoreCollision(gameObject.GetComponentInParent<Collider>(), GetComponent<Collider>());
     }
 
     // Update is called once per frame
     void Update()
     {
-        rb.AddForce(gameObject.transform.up * -8);
+        rb.AddForce(gameObject.transform.forward * 12);
 
 
     }

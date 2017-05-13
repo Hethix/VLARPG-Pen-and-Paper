@@ -55,8 +55,8 @@ public class PlayerInteraction : MonoBehaviour {
     {
         if (selfPlayer.CheckCooldown() == true)
         {
-            selfPlayer.SetCooldown(5);
-            Object partiSystem = Instantiate(Resources.Load("Fireball"), this.transform.position, Quaternion.Euler(0, 0, 0));
+            selfPlayer.SetCooldown(3);
+            Object partiSystem = Instantiate(Resources.Load("Fireball"), this.transform.position, this.transform.rotation);
             //partiSystem. m.parent = null;
         }
     }
