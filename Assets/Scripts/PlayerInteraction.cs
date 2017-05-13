@@ -57,7 +57,9 @@ public class PlayerInteraction : MonoBehaviour {
         {
             selfPlayer.SetCooldown(3);
             GameObject partiSystem = (GameObject)Instantiate(Resources.Load("Fireball"), this.transform.position, this.transform.rotation);
-            partiSystem.GetComponent<Projectile>().projectileOwner = selfPlayer;
+            Projectile tempRef = partiSystem.GetComponent<Projectile>();
+            tempRef.projectileOwner = selfPlayer;
+            tempRef.networkPlayer = networkPlayer;
             //partiSystem. m.parent = null;
         }
     }
