@@ -24,6 +24,7 @@ public class PlayerCamera : MonoBehaviour {
 
         HPa = selfPlayer.GetHP();
         if (HPa != HPb) img.color = new Color32((byte)((100-((HPa/mHP)*100))*2), 0, 0, 100);
+        //Hello
         HPb = HPa; 
     }
 }
