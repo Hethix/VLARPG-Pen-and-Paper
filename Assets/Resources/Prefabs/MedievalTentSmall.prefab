@@ -16,36 +16,36 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 5
+  serializedVersion: 4
   m_Component:
-  - component: {fileID: 4298625317890858}
-  - component: {fileID: 33980032571508486}
-  - component: {fileID: 23408022712612190}
+  - 4: {fileID: 4298625317890858}
+  - 33: {fileID: 33980032571508486}
+  - 23: {fileID: 23408022712612190}
+  m_Layer: 0
+  m_Name: 
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!1 &1971866969940262
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 4443729025747440}
+  - 54: {fileID: 54223866148926534}
+  - 114: {fileID: 114144125344752090}
+  - 65: {fileID: 65696309212298366}
   m_Layer: 0
   m_Name: MedievalTentSmall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!1 &1971866969940262
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 4443729025747440}
-  - component: {fileID: 54223866148926534}
-  - component: {fileID: 114144125344752090}
-  - component: {fileID: 65696309212298366}
-  m_Layer: 0
-  m_Name: MedievalTentSmall
-  m_TagString: Interactable
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4298625317890858
 Transform:
   m_ObjectHideFlags: 1
@@ -55,10 +55,10 @@ Transform:
   m_LocalRotation: {x: -0.5365634, y: 0, z: 0, w: 0.8438601}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: -64.9, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 4443729025747440}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: -64.9, y: 0, z: 0}
 --- !u!4 &4443729025747440
 Transform:
   m_ObjectHideFlags: 1
@@ -68,11 +68,11 @@ Transform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.01, y: 0.01, z: 0.01}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 4298625317890858}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!23 &23408022712612190
 MeshRenderer:
   m_ObjectHideFlags: 1
@@ -87,9 +87,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_Materials:
   - {fileID: 2100000, guid: 74273997ef6d48847ac95505c630e808, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
+  m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
@@ -97,7 +95,7 @@ MeshRenderer:
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_SelectedEditorRenderState: 3
+  m_SelectedWireframeHidden: 0
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89

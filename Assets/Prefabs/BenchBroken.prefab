@@ -16,50 +16,50 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 5
+  serializedVersion: 4
   m_Component:
-  - component: {fileID: 4278747687638356}
-  - component: {fileID: 33134388386896418}
-  - component: {fileID: 23109527327276696}
+  - 4: {fileID: 4278747687638356}
+  - 33: {fileID: 33134388386896418}
+  - 23: {fileID: 23109527327276696}
   m_Layer: 0
-  m_Name: polySurface9
+  m_Name: 
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1354662002271510
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 5
+  serializedVersion: 4
   m_Component:
-  - component: {fileID: 4924556060210176}
+  - 4: {fileID: 4924556060210176}
   m_Layer: 0
   m_Name: BenchBroken
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1624428213667972
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 5
+  serializedVersion: 4
   m_Component:
-  - component: {fileID: 4503238856166730}
-  - component: {fileID: 33334128019531482}
-  - component: {fileID: 23349429434715390}
+  - 4: {fileID: 4503238856166730}
+  - 33: {fileID: 33334128019531482}
+  - 23: {fileID: 23349429434715390}
   m_Layer: 0
-  m_Name: polySurface10
+  m_Name: 
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4278747687638356
 Transform:
   m_ObjectHideFlags: 1
@@ -69,10 +69,10 @@ Transform:
   m_LocalRotation: {x: 0.0032374205, y: 0.00063255406, z: 0.09107975, w: 0.99583817}
   m_LocalPosition: {x: 1.2, y: -0.01152141, z: 0.0000004966307}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0.363, y: 0.106000006, z: 10.452001}
   m_Children: []
   m_Father: {fileID: 4924556060210176}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0.363, y: 0.106000006, z: 10.452001}
 --- !u!4 &4503238856166730
 Transform:
   m_ObjectHideFlags: 1
@@ -83,10 +83,10 @@ Transform:
     w: 0.99619925}
   m_LocalPosition: {x: -1.2, y: 0.011514013, z: -0.0000004966307}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -9.994}
   m_Children: []
   m_Father: {fileID: 4924556060210176}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -9.994}
 --- !u!4 &4924556060210176
 Transform:
   m_ObjectHideFlags: 1
@@ -96,12 +96,12 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -5.48, y: -0.49, z: -14}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 4278747687638356}
   - {fileID: 4503238856166730}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!23 &23109527327276696
 MeshRenderer:
   m_ObjectHideFlags: 1
@@ -116,9 +116,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_Materials:
   - {fileID: 2100000, guid: d0b3cb0f732a95f40b6d632616c91081, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
+  m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
@@ -126,7 +124,7 @@ MeshRenderer:
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_SelectedEditorRenderState: 3
+  m_SelectedWireframeHidden: 0
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
@@ -147,9 +145,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_Materials:
   - {fileID: 2100000, guid: d0b3cb0f732a95f40b6d632616c91081, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
+  m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
@@ -157,7 +153,7 @@ MeshRenderer:
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_SelectedEditorRenderState: 3
+  m_SelectedWireframeHidden: 0
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89

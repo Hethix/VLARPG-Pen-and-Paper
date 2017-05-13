@@ -16,21 +16,21 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 5
+  serializedVersion: 4
   m_Component:
-  - component: {fileID: 4105966597987978}
-  - component: {fileID: 33367141154933976}
-  - component: {fileID: 23755072000153338}
-  - component: {fileID: 64642593593565350}
-  - component: {fileID: 54738128737991560}
-  - component: {fileID: 114199678953390518}
+  - 4: {fileID: 4105966597987978}
+  - 33: {fileID: 33367141154933976}
+  - 23: {fileID: 23755072000153338}
+  - 64: {fileID: 64642593593565350}
+  - 54: {fileID: 54738128737991560}
+  - 114: {fileID: 114199678953390518}
   m_Layer: 0
   m_Name: Dragon
-  m_TagString: Interactable
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4105966597987978
 Transform:
   m_ObjectHideFlags: 1
@@ -40,10 +40,10 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.01, y: 0.01, z: 0.01}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!23 &23755072000153338
 MeshRenderer:
   m_ObjectHideFlags: 1
@@ -58,9 +58,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_Materials:
   - {fileID: 2100000, guid: f6ccde548f76e3447ada1b75c90c47f2, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
+  m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
@@ -68,7 +66,7 @@ MeshRenderer:
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_SelectedEditorRenderState: 3
+  m_SelectedWireframeHidden: 0
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
@@ -108,8 +106,6 @@ MeshCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Convex: 1
-  m_InflateMesh: 1
-  m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300000, guid: 8eb8d6b632fb7bd49a008a184569c660, type: 3}
 --- !u!114 &114199678953390518
 MonoBehaviour:
