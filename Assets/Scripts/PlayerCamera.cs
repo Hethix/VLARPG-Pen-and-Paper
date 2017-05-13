@@ -9,17 +9,21 @@ public class PlayerCamera : MonoBehaviour {
     Player selfPlayer;
     sbyte HPa;
     sbyte HPb;
+    sbyte mHP;
+
 
     void Start()
     {
         selfPlayer = transform.root.GetComponentInChildren<Player>();
+        mHP = selfPlayer.maxHP;
+        img = GetComponent<Image>();
     }
 
     void Update()
     {
 
         HPa = selfPlayer.GetHP();
-        if (HPa != HPb) img.GetComponent<Image>().color = new Color32((byte)((selfPlayer.maxHP - selfPlayer.GetHP())*5), 0, 0, 100);
+        if (HPa != HPb) img.color = new Color32((byte)((100-((HPa/mHP)*100))*2), 0, 0, 100);
         HPb = HPa; 
     }
 }
