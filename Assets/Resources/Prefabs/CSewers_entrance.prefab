@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 114697687804586158}
   - component: {fileID: 65707155090338552}
   m_Layer: 0
-  m_Name: Sewers_entrance
+  m_Name: CSewers_entrance
   m_TagString: Interactable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
