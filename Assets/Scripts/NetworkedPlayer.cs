@@ -85,10 +85,10 @@ public class NetworkedPlayer : Photon.MonoBehaviour
                     photonView.RPC("Heal", PhotonTargets.OthersBuffered, lastHitPlayer.transform.name, (int)lastHitPlayer.GetHP());
                     myPlayerScript.healPlayer = false;
                 } 
-                if (myPlayerScript.HP <= 0)
+                /*if (myPlayerScript.HP <= 0)
                 {
                     Application.Quit();
-                }
+                } */
             }
         }else
         {
