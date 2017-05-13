@@ -234,7 +234,7 @@ public class NetworkedInteractable : Photon.MonoBehaviour {
             foreach (var playerInArray in allPlayers)
             {
                 player = playerInArray.GetComponentInChildren<Player>();
-                if (player.transform.name.StartsWith(players))
+                if (player.transform.name.StartsWith(playerString))
                 {
                     break; 
                 }
