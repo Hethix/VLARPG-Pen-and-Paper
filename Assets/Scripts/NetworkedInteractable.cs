@@ -219,7 +219,7 @@ public class NetworkedInteractable : Photon.MonoBehaviour {
     [PunRPC]
     void SetPlayerHP(string playerString, int currentHP, bool performBump)
     {
-        try
+        /*try
         {
             player = GameObject.Find(playerString).GetComponent<Player>();
             Debug.Log("Try: found: " + player);
@@ -227,20 +227,21 @@ public class NetworkedInteractable : Photon.MonoBehaviour {
         catch (Exception e)
         {
             Debug.Log(e + "Hello");
-        }
+        } */
         if (player == null)
         {
             GameObject[] allPlayers = GameObject.FindGameObjectsWithTag("Player");
             foreach (var playerInArray in allPlayers)
             {
-                if (playerInArray.transform.name.StartsWith("Player_Player"))
+                player = playerInArray.GetComponentInChildren<Player>();
+                if (player.transform.name.StartsWith(players))
                 {
-                    player = playerInArray.GetComponentInChildren<Player>();
                     break; 
                 }
             }
         }
         player.SetHP((sbyte)currentHP);
+        player = null;
     }
 
     [PunRPC]
