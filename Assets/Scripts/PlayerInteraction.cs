@@ -55,7 +55,7 @@ public class PlayerInteraction : MonoBehaviour {
     {
         if (selfPlayer.CheckCooldown() == true)
         {
-            selfPlayer.SetCooldown(3);
+            //selfPlayer.SetCooldown(3);
             GameObject partiSystem = (GameObject)Instantiate(Resources.Load("Fireball"), this.transform.position, this.transform.rotation);
             Projectile tempRef = partiSystem.GetComponent<Projectile>();
             tempRef.projectileOwner = selfPlayer;
