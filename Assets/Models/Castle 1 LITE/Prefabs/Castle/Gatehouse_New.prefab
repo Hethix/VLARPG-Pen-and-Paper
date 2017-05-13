@@ -5,21 +5,21 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 425212}
-  - 33: {fileID: 3396980}
-  - 23: {fileID: 2371092}
-  - 65: {fileID: 65344319499910408}
-  - 65: {fileID: 65771748590995364}
-  - 65: {fileID: 65154379512481666}
+  - component: {fileID: 425212}
+  - component: {fileID: 3396980}
+  - component: {fileID: 2371092}
+  - component: {fileID: 65344319499910408}
+  - component: {fileID: 65771748590995364}
+  - component: {fileID: 65154379512481666}
   m_Layer: 0
   m_Name: Gatehouse_New
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_StaticEditorFlags: 4294967295
+  m_IsActive: 1
 --- !u!4 &425212
 Transform:
   m_ObjectHideFlags: 1
@@ -29,10 +29,10 @@ Transform:
   m_LocalRotation: {x: 0.1119888, y: -0.6981825, z: -0.6981822, w: -0.111988604}
   m_LocalPosition: {x: -9.970428, y: 8.3031, z: -16.071808}
   m_LocalScale: {x: 4, y: 4.000002, z: 5.585222}
-  m_LocalEulerAnglesHint: {x: -90.00001, y: 0, z: -198.22499}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: -90.00001, y: 0, z: -198.22499}
 --- !u!23 &2371092
 MeshRenderer:
   m_ObjectHideFlags: 1
@@ -47,7 +47,9 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_Materials:
   - {fileID: 2100000, guid: 538cfdcd60ac55941b952ff4f59989b7, type: 2}
-  m_SubsetIndices: 
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
   m_StaticBatchRoot: {fileID: 0}
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
@@ -55,7 +57,7 @@ MeshRenderer:
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_SelectedWireframeHidden: 0
+  m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 91

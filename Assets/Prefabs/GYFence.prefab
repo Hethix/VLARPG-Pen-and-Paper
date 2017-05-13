@@ -16,49 +16,49 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 4896578813963246}
-  - 33: {fileID: 33266532162299172}
-  - 23: {fileID: 23474878669891924}
+  - component: {fileID: 4896578813963246}
+  - component: {fileID: 33266532162299172}
+  - component: {fileID: 23474878669891924}
   m_Layer: 0
-  m_Name: 
+  m_Name: pasted__polySurface2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &1430686591145248
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 4432526481657082}
-  - 65: {fileID: 65039890471256652}
+  - component: {fileID: 4432526481657082}
+  - component: {fileID: 65039890471256652}
   m_Layer: 0
   m_Name: GYFence
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &1892359235022894
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 4912484859282218}
+  - component: {fileID: 4912484859282218}
   m_Layer: 0
-  m_Name: 
+  m_Name: group1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &4432526481657082
 Transform:
   m_ObjectHideFlags: 1
@@ -68,12 +68,12 @@ Transform:
   m_LocalRotation: {x: -0, y: 0.05860479, z: -0, w: 0.99828124}
   m_LocalPosition: {x: 441.74, y: 22.53, z: 94.07}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_LocalEulerAnglesHint: {x: 0, y: 6.7190003, z: 0}
   m_Children:
   - {fileID: 4912484859282218}
   - {fileID: 4896578813963246}
   m_Father: {fileID: 0}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 6.7190003, z: 0}
 --- !u!4 &4896578813963246
 Transform:
   m_ObjectHideFlags: 1
@@ -83,10 +83,10 @@ Transform:
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0, y: 2.7084062, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 4432526481657082}
   m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4912484859282218
 Transform:
   m_ObjectHideFlags: 1
@@ -96,10 +96,10 @@ Transform:
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 4.0271153, y: 2.7077417, z: -3.3494468}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 4432526481657082}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!23 &23474878669891924
 MeshRenderer:
   m_ObjectHideFlags: 1
@@ -115,7 +115,9 @@ MeshRenderer:
   m_Materials:
   - {fileID: 2100000, guid: 6f9a9f2809f6093419d3887e9cd80713, type: 2}
   - {fileID: 2100000, guid: 0505ce456424b7243aef0a68e4249b65, type: 2}
-  m_SubsetIndices: 
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
   m_StaticBatchRoot: {fileID: 0}
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
@@ -123,7 +125,7 @@ MeshRenderer:
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_SelectedWireframeHidden: 0
+  m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89

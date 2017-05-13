@@ -16,96 +16,96 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 4184282419971170}
-  - 114: {fileID: 114591673199996762}
-  - 114: {fileID: 114465872832561768}
-  - 114: {fileID: 114166397469804232}
-  - 114: {fileID: 114242117021440058}
-  - 114: {fileID: 114219136813071260}
+  - component: {fileID: 4184282419971170}
+  - component: {fileID: 114591673199996762}
+  - component: {fileID: 114465872832561768}
+  - component: {fileID: 114166397469804232}
+  - component: {fileID: 114242117021440058}
+  - component: {fileID: 114219136813071260}
   m_Layer: 0
-  m_Name: 
+  m_Name: LeftController
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &1119732144272900
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 4235086476668902}
-  - 114: {fileID: 114590041623191866}
+  - component: {fileID: 4235086476668902}
+  - component: {fileID: 114590041623191866}
   m_Layer: 0
-  m_Name: 
+  m_Name: '##Scene Changer##'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &1160293226850514
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 4634039675429166}
-  - 114: {fileID: 114419484093418678}
-  - 114: {fileID: 114526996960351298}
-  - 114: {fileID: 114180686940065714}
-  - 114: {fileID: 114357063177006626}
-  - 114: {fileID: 114100787928183662}
-  - 114: {fileID: 114604722924053628}
-  - 114: {fileID: 114403634028217296}
-  - 114: {fileID: 114114283713452594}
+  - component: {fileID: 4634039675429166}
+  - component: {fileID: 114419484093418678}
+  - component: {fileID: 114526996960351298}
+  - component: {fileID: 114180686940065714}
+  - component: {fileID: 114357063177006626}
+  - component: {fileID: 114100787928183662}
+  - component: {fileID: 114604722924053628}
+  - component: {fileID: 114403634028217296}
+  - component: {fileID: 114114283713452594}
   m_Layer: 0
-  m_Name: 
+  m_Name: PlayArea
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &1331791408627348
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 4814212324946810}
-  - 114: {fileID: 114188298341026222}
-  - 114: {fileID: 114083973352839298}
-  - 114: {fileID: 114856449607917532}
-  - 114: {fileID: 114652259680106510}
-  - 114: {fileID: 114135915662506188}
+  - component: {fileID: 4814212324946810}
+  - component: {fileID: 114188298341026222}
+  - component: {fileID: 114083973352839298}
+  - component: {fileID: 114856449607917532}
+  - component: {fileID: 114652259680106510}
+  - component: {fileID: 114135915662506188}
   m_Layer: 0
-  m_Name: 
+  m_Name: RightController
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &1343750598335282
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 4270910023455220}
-  - 114: {fileID: 114026049948926158}
+  - component: {fileID: 4270910023455220}
+  - component: {fileID: 114026049948926158}
   m_Layer: 0
   m_Name: '[VRTK]'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &4184282419971170
 Transform:
   m_ObjectHideFlags: 1
@@ -115,10 +115,10 @@ Transform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 4270910023455220}
   m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4235086476668902
 Transform:
   m_ObjectHideFlags: 1
@@ -128,10 +128,10 @@ Transform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 9.2653475, y: -12.729746, z: -33.865685}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 4270910023455220}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4270910023455220
 Transform:
   m_ObjectHideFlags: 1
@@ -141,7 +141,6 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 4235086476668902}
   - {fileID: 4634039675429166}
@@ -149,6 +148,7 @@ Transform:
   - {fileID: 4814212324946810}
   m_Father: {fileID: 0}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4634039675429166
 Transform:
   m_ObjectHideFlags: 1
@@ -158,10 +158,10 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 4270910023455220}
   m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4814212324946810
 Transform:
   m_ObjectHideFlags: 1
@@ -171,10 +171,10 @@ Transform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 4270910023455220}
   m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &114026049948926158
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -196,8 +196,8 @@ MonoBehaviour:
   actualRightController: {fileID: 0}
   modelAliasLeftController: {fileID: 0}
   modelAliasRightController: {fileID: 0}
-  scriptAliasLeftController: {fileID: 0}
-  scriptAliasRightController: {fileID: 0}
+  scriptAliasLeftController: {fileID: 1013232795809308}
+  scriptAliasRightController: {fileID: 1331791408627348}
   cachedSystemSDKInfo:
     baseTypeName: VRTK.SDK_BaseSystem
     fallbackTypeName: VRTK.SDK_FallbackSystem
@@ -422,7 +422,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enableTeleport: 1
-  pointerRenderer: {fileID: 0}
+  pointerRenderer: {fileID: 114219136813071260}
   activationButton: 10
   holdButtonToActivate: 1
   activateOnEnable: 0
@@ -517,7 +517,7 @@ MonoBehaviour:
   blinkTransitionSpeed: 0.6
   distanceBlinkDelay: 0
   headsetPositionCompensation: 1
-  targetListPolicy: {fileID: 0}
+  targetListPolicy: {fileID: 114180686940065714}
   navMeshLimitDistance: 0
   customRaycast: {fileID: 0}
   layersToIgnore:
@@ -611,7 +611,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enableTeleport: 1
-  pointerRenderer: {fileID: 0}
+  pointerRenderer: {fileID: 114135915662506188}
   activationButton: 10
   holdButtonToActivate: 1
   activateOnEnable: 0

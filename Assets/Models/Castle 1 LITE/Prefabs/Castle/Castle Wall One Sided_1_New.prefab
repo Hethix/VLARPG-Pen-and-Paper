@@ -5,21 +5,21 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 408338}
-  - 33: {fileID: 3357120}
-  - 23: {fileID: 2354878}
-  - 65: {fileID: 65484336168579208}
-  - 65: {fileID: 65297861002528672}
-  - 205: {fileID: 205835532553170016}
+  - component: {fileID: 408338}
+  - component: {fileID: 3357120}
+  - component: {fileID: 2354878}
+  - component: {fileID: 65484336168579208}
+  - component: {fileID: 65297861002528672}
+  - component: {fileID: 205835532553170016}
   m_Layer: 0
   m_Name: Castle Wall One Sided_1_New
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_StaticEditorFlags: 4294967295
+  m_IsActive: 1
 --- !u!4 &408338
 Transform:
   m_ObjectHideFlags: 1
@@ -29,11 +29,11 @@ Transform:
   m_LocalRotation: {x: -0.6514428, y: -0.27499533, z: -0.27499524, w: 0.65144265}
   m_LocalPosition: {x: 28.026245, y: 8.3031, z: -1.3387756}
   m_LocalScale: {x: 6.2395453, y: 3.1197681, z: 5.6455674}
-  m_LocalEulerAnglesHint: {x: -90.00001, y: 0, z: -45.772003}
   m_Children:
   - {fileID: 4422346748532180}
   m_Father: {fileID: 0}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: -90.00001, y: 0, z: -45.772003}
 --- !u!23 &2354878
 MeshRenderer:
   m_ObjectHideFlags: 1
@@ -48,7 +48,9 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_Materials:
   - {fileID: 2100000, guid: e9310c3a85232b3468eec9f98db6acea, type: 2}
-  m_SubsetIndices: 
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
   m_StaticBatchRoot: {fileID: 0}
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
@@ -56,7 +58,7 @@ MeshRenderer:
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_SelectedWireframeHidden: 0
+  m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
@@ -86,18 +88,18 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 4422346748532180}
-  - 33: {fileID: 33090031679657138}
-  - 23: {fileID: 23785530223273564}
+  - component: {fileID: 4422346748532180}
+  - component: {fileID: 33090031679657138}
+  - component: {fileID: 23785530223273564}
   m_Layer: 0
-  m_Name: 
+  m_Name: LightCastleWallOneSided_1(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_StaticEditorFlags: 4294967295
+  m_IsActive: 1
 --- !u!4 &4422346748532180
 Transform:
   m_ObjectHideFlags: 1
@@ -107,10 +109,10 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 95, y: 95, z: 95}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 408338}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!23 &23785530223273564
 MeshRenderer:
   m_ObjectHideFlags: 1
@@ -125,7 +127,9 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_Materials:
   - {fileID: 2100000, guid: e9310c3a85232b3468eec9f98db6acea, type: 2}
-  m_SubsetIndices: 
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
   m_StaticBatchRoot: {fileID: 0}
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
@@ -133,7 +137,7 @@ MeshRenderer:
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_SelectedWireframeHidden: 0
+  m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
