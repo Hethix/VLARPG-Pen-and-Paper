@@ -15,7 +15,6 @@ public class Projectile : MonoBehaviour
     void Start()
     {
         rb = gameObject.GetComponent<Rigidbody>();
-        projectileOwner = GetComponentInParent<Player>();
         StartCoroutine(DestroyAfterTime(4));
         Physics.IgnoreCollision(gameObject.GetComponentInParent<Collider>(), GetComponent<Collider>());
     }
